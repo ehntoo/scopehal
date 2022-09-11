@@ -165,7 +165,7 @@ PUBLIC
 	${YAML_INCLUDES}
 
 	# TODO: this needs to come from FindPackage etc
-	${CMAKE_CURRENT_SOURCE_DIR}/../Vulkan-Hpp/glslang/glslang/Include/
+	/usr/local/include/glslang/Include
 	${Vulkan_INCLUDE_DIR}
 	)
 
