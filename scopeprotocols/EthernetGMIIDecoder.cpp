@@ -27,7 +27,7 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
+#include "EthernetGMIIDecoder.h"
 #include <algorithm>
 
 using namespace std;

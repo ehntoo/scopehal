@@ -27,7 +27,7 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
+#include "MovingAverageFilter.h"
 
 using namespace std;
 

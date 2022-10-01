@@ -32,7 +32,7 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of SParameterDeEmbedFilter
  */
-#include "scopeprotocols.h"
+#include "SParameterDeEmbedFilter.h"
 
 using namespace std;
 

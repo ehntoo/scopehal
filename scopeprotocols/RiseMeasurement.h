@@ -35,6 +35,8 @@
 #ifndef RiseMeasurement_h
 #define RiseMeasurement_h
 
+#include "Filter.h"
+
 class RiseMeasurement : public Filter
 {
 public:

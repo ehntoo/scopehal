@@ -35,6 +35,8 @@
 #ifndef ISIMeasurement_h
 #define ISIMeasurement_h
 
+#include "Filter.h"
+
 class ISIMeasurement : public Filter
 {
 public:

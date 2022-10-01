@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
 #include "EyePeriodMeasurement.h"
 #include "EyePattern.h"
 

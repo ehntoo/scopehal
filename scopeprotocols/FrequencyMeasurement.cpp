@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
 #include "FrequencyMeasurement.h"
 #include "ScopehalUtils.h"
 

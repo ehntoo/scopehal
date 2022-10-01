@@ -35,6 +35,8 @@
 #ifndef EyeBitRateMeasurement_h
 #define EyeBitRateMeasurement_h
 
+#include "Filter.h"
+
 class EyeBitRateMeasurement : public Filter
 {
 public:

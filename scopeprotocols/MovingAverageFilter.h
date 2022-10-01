@@ -35,6 +35,8 @@
 #ifndef MovingAverageFilter_h
 #define MovingAverageFilter_h
 
+#include "Filter.h"
+
 class MovingAverageFilter : public Filter
 {
 public:

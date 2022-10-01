@@ -35,6 +35,8 @@
 #ifndef DramRefreshActivateMeasurement_h
 #define DramRefreshActivateMeasurement_h
 
+#include "Filter.h"
+
 class DramRefreshActivateMeasurement : public Filter
 {
 public:

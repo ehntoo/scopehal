@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
 #include "OvershootMeasurement.h"
 
 using namespace std;

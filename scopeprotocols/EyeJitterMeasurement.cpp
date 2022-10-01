@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
 #include "EyeJitterMeasurement.h"
 #include "EyePattern.h"
 #include <algorithm>

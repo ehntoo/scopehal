@@ -27,8 +27,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
 #include "DramRowColumnLatencyMeasurement.h"
+#include "SDRAMDecoderBase.h"
 
 using namespace std;
 

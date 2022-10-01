@@ -27,8 +27,9 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
+#include "Ethernet10GBaseRDecoder.h"
 #include <algorithm>
+#include "Ethernet64b66bDecoder.h"
 
 using namespace std;
 

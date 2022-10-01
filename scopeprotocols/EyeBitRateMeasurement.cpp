@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
 #include "EyeBitRateMeasurement.h"
 #include "EyePattern.h"
 #include "ScopehalUtils.h"

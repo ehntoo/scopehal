@@ -27,8 +27,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
 #include "DramRefreshActivateMeasurement.h"
+#include "SDRAMDecoderBase.h"
 
 using namespace std;
 

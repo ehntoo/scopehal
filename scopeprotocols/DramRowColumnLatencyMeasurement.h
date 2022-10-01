@@ -35,6 +35,8 @@
 #ifndef DramRowColumnLatencyMeasurement_h
 #define DramRowColumnLatencyMeasurement_h
 
+#include "Filter.h"
+
 class DramRowColumnLatencyMeasurement : public Filter
 {
 public:

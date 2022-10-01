@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
 #include "EmphasisFilter.h"
 #include "TappedDelayLineFilter.h"
 #include "ScopehalUtils.h"

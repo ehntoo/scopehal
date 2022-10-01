@@ -35,6 +35,8 @@
 #ifndef TopMeasurement_h
 #define TopMeasurement_h
 
+#include "Filter.h"
+
 class TopMeasurement : public Filter
 {
 public:

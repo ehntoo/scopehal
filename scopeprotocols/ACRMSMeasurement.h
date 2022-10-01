@@ -35,6 +35,8 @@
 #ifndef ACRMSMeasurement_h
 #define ACRMSMeasurement_h
 
+#include "Filter.h"
+
 class ACRMSMeasurement : public Filter
 {
 public:

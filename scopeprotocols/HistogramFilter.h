@@ -35,6 +35,8 @@
 #ifndef HistogramFilter_h
 #define HistogramFilter_h
 
+#include "Filter.h"
+
 class HistogramFilter : public Filter
 {
 public:

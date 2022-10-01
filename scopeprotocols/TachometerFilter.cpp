@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
 #include "TachometerFilter.h"
 #include "ScopehalUtils.h"
 

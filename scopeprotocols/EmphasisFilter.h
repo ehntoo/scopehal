@@ -35,6 +35,8 @@
 #ifndef EmphasisFilter_h
 #define EmphasisFilter_h
 
+#include "Filter.h"
+
 class EmphasisFilter : public Filter
 {
 public:

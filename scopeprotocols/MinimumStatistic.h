@@ -36,6 +36,8 @@
 #ifndef MinimumStatistic_h
 #define MinimumStatistic_h
 
+#include "Statistic.h"
+
 class MinimumStatistic : public Statistic
 {
 public:

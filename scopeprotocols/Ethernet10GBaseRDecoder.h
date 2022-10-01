@@ -35,6 +35,7 @@
 #ifndef Ethernet10GBaseRDecoder_h
 #define Ethernet10GBaseRDecoder_h
 
+#include "EthernetProtocolDecoder.h"
 class Ethernet10GBaseRDecoder : public EthernetProtocolDecoder
 {
 public:

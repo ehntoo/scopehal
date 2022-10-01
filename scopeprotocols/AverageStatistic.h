@@ -36,6 +36,8 @@
 #ifndef AverageStatistic_h
 #define AverageStatistic_h
 
+#include "Statistic.h"
+
 class AverageStatistic : public Statistic
 {
 public:

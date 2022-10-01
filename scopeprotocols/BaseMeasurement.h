@@ -35,6 +35,8 @@
 #ifndef BaseMeasurement_h
 #define BaseMeasurement_h
 
+#include "Filter.h"
+
 class BaseMeasurement : public Filter
 {
 public:

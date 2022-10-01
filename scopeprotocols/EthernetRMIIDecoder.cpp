@@ -27,7 +27,7 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
+#include "EthernetRMIIDecoder.h"
 #include <algorithm>
 
 using namespace std;

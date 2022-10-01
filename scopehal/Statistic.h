@@ -37,6 +37,8 @@
 #define Statistic_h
 
 #include "FlowGraphNode.h"
+// OscilloscopeChannel is needed so we can get the inlined methods for StreamDescriptor and FlowGraphNode
+#include "OscilloscopeChannel.h"
 
 class Statistic
 {

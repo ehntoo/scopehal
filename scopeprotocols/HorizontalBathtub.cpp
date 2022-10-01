@@ -27,8 +27,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
 #include "HorizontalBathtub.h"
+#include "EyePattern.h"
 
 using namespace std;
 
