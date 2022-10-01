@@ -33,7 +33,6 @@
 	@brief Implementation of SPIDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "SPIDecoder.h"
 #include <algorithm>
 

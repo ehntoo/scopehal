@@ -35,6 +35,8 @@
 #ifndef InvertFilter_h
 #define InvertFilter_h
 
+#include "Filter.h"
+
 class InvertFilter : public Filter
 {
 public:

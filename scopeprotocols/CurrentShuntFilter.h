@@ -35,6 +35,8 @@
 #ifndef CurrentShuntFilter_h
 #define CurrentShuntFilter_h
 
+#include "Filter.h"
+
 class CurrentShuntFilter : public Filter
 {
 public:

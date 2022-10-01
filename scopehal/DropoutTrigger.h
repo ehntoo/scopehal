@@ -35,6 +35,9 @@
 #ifndef DropoutTrigger_h
 #define DropoutTrigger_h
 
+#include "Oscilloscope.h"
+#include "Trigger.h"
+
 /**
 	@brief Trigger when a signal stops toggling for some amount of time
  */

@@ -27,9 +27,7 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "CDRNRZPatternTrigger.h"
-#include "LeCroyOscilloscope.h"
 
 using namespace std;
 

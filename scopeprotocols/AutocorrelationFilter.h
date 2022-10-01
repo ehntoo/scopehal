@@ -35,6 +35,8 @@
 #ifndef AutocorrelationFilter_h
 #define AutocorrelationFilter_h
 
+#include "Filter.h"
+
 class AutocorrelationFilter : public Filter
 {
 public:

@@ -30,6 +30,9 @@
 #ifndef SCPIPowerSupply_h
 #define SCPIPowerSupply_h
 
+#include "PowerSupply.h"
+#include "SCPIInstrument.h"
+
 /**
 	@brief An SCPI-based power supply
  */

@@ -35,6 +35,9 @@
 #ifndef DPhyDataDecoder_h
 #define DPhyDataDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class DPhyDataSymbol
 {
 public:

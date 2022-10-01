@@ -36,6 +36,9 @@
 #ifndef EthernetAutonegotiationDecoder_h
 #define EthernetAutonegotiationDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class EthernetAutonegotiationWaveform : public SparseWaveform<uint16_t>
 {
 public:

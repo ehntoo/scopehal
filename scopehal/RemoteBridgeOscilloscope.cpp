@@ -27,8 +27,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "RemoteBridgeOscilloscope.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

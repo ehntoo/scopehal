@@ -36,6 +36,9 @@
 #ifndef HyperRAMDecoder_h
 #define HyperRAMDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class HyperRAMSymbol
 {
 public:

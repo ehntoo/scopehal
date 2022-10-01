@@ -36,6 +36,7 @@
 #ifndef DemoOscilloscope_h
 #define DemoOscilloscope_h
 
+#include "SCPIOscilloscope.h"
 #include "TestWaveformSource.h"
 #include <random>
 

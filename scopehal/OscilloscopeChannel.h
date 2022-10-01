@@ -36,9 +36,10 @@
 #ifndef OscilloscopeChannel_h
 #define OscilloscopeChannel_h
 
-class Oscilloscope;
-
+#include "FlowGraphNode.h"
 #include "Stream.h"
+
+class Oscilloscope;
 
 /**
 	@brief A single channel on the oscilloscope.
@@ -255,5 +256,9 @@ protected:
 	///Stream configuration
 	std::vector<Stream> m_streams;
 };
+
+// Complete the inlines for StreamDescriptor and FlowGraphNode now that OscilloscopeChannel is a complete type.
+#include "StreamDescriptor_inlines.h"
+#include "FlowGraphNode_inlines.h"
 
 #endif

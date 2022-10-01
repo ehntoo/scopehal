@@ -27,6 +27,7 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
+#include "ScopehalUtils.h"
 #include "scopeprotocols.h"
 #include "PhaseMeasurement.h"
 

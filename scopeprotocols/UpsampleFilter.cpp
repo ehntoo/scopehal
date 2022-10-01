@@ -27,12 +27,12 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
+#include "ScopehalVulkanUtils.h"
 #ifdef _WIN32
 #define _USE_MATH_DEFINES
 #include <cmath>
 #endif
 
-#include "../scopehal/scopehal.h"
 #include "UpsampleFilter.h"
 
 using namespace std;

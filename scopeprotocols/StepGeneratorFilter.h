@@ -35,6 +35,8 @@
 #ifndef StepGeneratorFilter_h
 #define StepGeneratorFilter_h
 
+#include "Filter.h"
+
 class StepGeneratorFilter : public Filter
 {
 public:

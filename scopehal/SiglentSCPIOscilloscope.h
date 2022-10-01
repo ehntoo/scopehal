@@ -32,6 +32,9 @@
 
 #include <mutex>
 #include <chrono>
+#include "Multimeter.h"
+#include "SCPIFunctionGenerator.h"
+#include "SCPIOscilloscope.h"
 
 class DropoutTrigger;
 class EdgeTrigger;

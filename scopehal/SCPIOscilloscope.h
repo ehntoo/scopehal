@@ -30,6 +30,10 @@
 #ifndef SCPIOscilloscope_h
 #define SCPIOscilloscope_h
 
+#include <string>
+#include "Oscilloscope.h"
+#include "SCPIInstrument.h"
+
 /**
 	@brief An SCPI-based oscilloscope
  */

@@ -35,6 +35,8 @@
 #ifndef Ethernet100BaseTXDecoder_h
 #define Ethernet100BaseTXDecoder_h
 
+#include "EthernetProtocolDecoder.h"
+
 class Ethernet100BaseTXDecoder : public EthernetProtocolDecoder
 {
 public:

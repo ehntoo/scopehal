@@ -27,13 +27,14 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
+#include "CSVExportWizard.h"
+#include "ScopehalUtils.h"
+
 /**
 	@file
 	@author Andrew D. Zonenberg
 	@brief Implementation of CSVExportWizard
  */
-#include "scopehal.h"
-#include "CSVExportWizard.h"
 
 using namespace std;
 

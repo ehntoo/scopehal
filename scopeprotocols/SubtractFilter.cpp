@@ -27,8 +27,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "SubtractFilter.h"
+#include "ScopehalVulkanUtils.h"
 #ifdef __x86_64__
 #include <immintrin.h>
 #endif

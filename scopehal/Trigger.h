@@ -37,6 +37,8 @@
 
 #include "FlowGraphNode.h"
 
+class Oscilloscope;
+
 /**
 	@brief Abstract base class for oscilloscope / logic analyzer triggers
  */

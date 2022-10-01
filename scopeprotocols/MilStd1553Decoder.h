@@ -35,6 +35,8 @@
 #ifndef MilStd1553Decoder_h
 #define MilStd1553Decoder_h
 
+#include "PacketDecoder.h"
+#include "Waveform.h"
 class MilStd1553Symbol
 {
 public:

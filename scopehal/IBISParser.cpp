@@ -32,7 +32,9 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of IBISParser and related classes
  */
-#include "scopehal.h"
+#include "IBISParser.h"
+#include "ScopehalUtils.h"
+#include "log.h"
 
 using namespace std;
 

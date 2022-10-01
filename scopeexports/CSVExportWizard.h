@@ -36,6 +36,12 @@
 #ifndef CSVExportWizard_h
 #define CSVExportWizard_h
 
+#include <gtkmm/grid.h>
+#include <vector>
+#include "ExportWizard.h"
+#include "FlowGraphNode.h"
+#include "OscilloscopeChannel.h"
+
 /**
 	@brief Select reference channel
  */

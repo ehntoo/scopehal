@@ -36,6 +36,8 @@
 #ifndef MockOscilloscope_h
 #define MockOscilloscope_h
 
+#include "Oscilloscope.h"
+
 /**
 	@brief Fake oscilloscope driver used for offline waveform analysis
  */

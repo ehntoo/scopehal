@@ -33,7 +33,6 @@
 	@brief Implementation of AntikernelLogicAnalyzer
  */
 
-#include "scopehal.h"
 #include "OscilloscopeChannel.h"
 #include "AntikernelLogicAnalyzer.h"
 #include "EdgeTrigger.h"

@@ -35,14 +35,14 @@
 #ifndef FlowGraphNode_h
 #define FlowGraphNode_h
 
-class OscilloscopeChannel;
-class WaveformBase;
-
+#include "IDTable.h"
+#include "yaml-cpp/yaml.h"
 #include "FilterParameter.h"
 #include "Waveform.h"
 #include "Stream.h"
 
 class OscilloscopeChannel;
+class WaveformBase;
 
 /**
 	@brief Descriptor for a single stream coming off a channel

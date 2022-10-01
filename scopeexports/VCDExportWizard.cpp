@@ -32,7 +32,9 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of VCDExportWizard
  */
-#include "scopehal.h"
+#include "Filter.h"
+#include "OscilloscopeChannel.h"
+#include "Unit.h"
 #include "VCDExportWizard.h"
 
 using namespace std;

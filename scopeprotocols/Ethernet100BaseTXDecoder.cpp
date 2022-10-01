@@ -27,8 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
-#include "EthernetProtocolDecoder.h"
 #include "Ethernet100BaseTXDecoder.h"
 
 using namespace std;

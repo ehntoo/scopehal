@@ -35,6 +35,8 @@
 #ifndef ACCoupleFilter_h
 #define ACCoupleFilter_h
 
+#include "Filter.h"
+
 class ACCoupleFilter : public Filter
 {
 public:

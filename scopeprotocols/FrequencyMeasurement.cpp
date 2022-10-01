@@ -29,6 +29,7 @@
 
 #include "scopeprotocols.h"
 #include "FrequencyMeasurement.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

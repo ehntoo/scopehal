@@ -35,6 +35,8 @@
 #ifndef PRBSGeneratorFilter_h
 #define PRBSGeneratorFilter_h
 
+#include "Filter.h"
+
 class PRBSGeneratorFilter : public Filter
 {
 public:

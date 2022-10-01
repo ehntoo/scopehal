@@ -27,9 +27,7 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "Waterfall.h"
-#include "FFTFilter.h"
 
 using namespace std;
 

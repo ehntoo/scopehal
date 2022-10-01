@@ -36,6 +36,8 @@
 #define FFTFilter_h
 
 #include <ffts.h>
+#include "ComputePipeline.h"
+#include "PeakDetectionFilter.h"
 
 #ifdef HAVE_CLFFT
 #include <clFFT.h>

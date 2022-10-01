@@ -30,6 +30,8 @@
 #ifndef PowerSupply_h
 #define PowerSupply_h
 
+#include "Instrument.h"
+
 /**
 	@brief A generic power supply
  */

@@ -33,7 +33,6 @@
 	@brief Implementation of SDDataDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "SDDataDecoder.h"
 #include <algorithm>
 

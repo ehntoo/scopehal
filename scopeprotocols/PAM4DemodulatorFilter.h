@@ -35,6 +35,8 @@
 #ifndef PAM4DemodulatorFilter_h
 #define PAM4DemodulatorFilter_h
 
+#include "Filter.h"
+
 class PAM4DemodulatorFilter : public Filter
 {
 public:

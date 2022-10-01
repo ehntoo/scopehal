@@ -33,9 +33,10 @@
 	@brief Implementation of DemoOscilloscope
  */
 
-#include "scopehal.h"
+#include <thread>
 #include "OscilloscopeChannel.h"
 #include "DemoOscilloscope.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

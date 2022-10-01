@@ -33,7 +33,6 @@
 	@brief Implementation of JtagDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "JtagDecoder.h"
 #include <algorithm>
 

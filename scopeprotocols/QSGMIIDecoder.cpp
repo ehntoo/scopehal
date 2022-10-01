@@ -32,11 +32,8 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of QSGMIIDecoder
  */
-#include "../scopehal/scopehal.h"
-#include "../scopehal/Filter.h"
-#include "IBM8b10bDecoder.h"
 #include "QSGMIIDecoder.h"
-
+#include "IBM8b10bDecoder.h"
 
 using namespace std;
 

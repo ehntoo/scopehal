@@ -35,6 +35,9 @@
 #ifndef ADL5205Decoder_h
 #define ADL5205Decoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class ADL5205Symbol
 {
 public:

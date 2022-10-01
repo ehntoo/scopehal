@@ -36,7 +36,6 @@
 #define USB2PacketDecoder_h
 
 #include "../scopehal/PacketDecoder.h"
-#include "USB2PMADecoder.h"
 
 /**
 	@brief Part of a packet

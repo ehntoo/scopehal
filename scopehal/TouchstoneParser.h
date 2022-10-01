@@ -36,6 +36,9 @@
 #ifndef TouchstoneParser_h
 #define TouchstoneParser_h
 
+#include "SParameters.h"
+#include <string>
+
 /**
 	@brief Touchstone (SxP) file parser
  */

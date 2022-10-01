@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "DPhySymbolDecoder.h"
 #include "DPhyHSClockRecoveryFilter.h"
 

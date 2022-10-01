@@ -32,9 +32,10 @@
 	@author Andrew D. Zonenberg
 	@brief Vulkan initialization
  */
-#include "scopehal.h"
+#include "ScopehalVulkanUtils.h"
 #include <glslang_c_interface.h>
 #include "PipelineCacheManager.h"
+#include "log.h"
 #include <GLFW/glfw3.h>
 
 //Lots of warnings here, disable them

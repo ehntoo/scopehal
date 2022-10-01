@@ -1,6 +1,6 @@
 #include <bitset>
-#include "scopehal.h"
 #include "GWInstekGPDX303SPowerSupply.h"
+#include "log.h"
 
 using namespace std;
 

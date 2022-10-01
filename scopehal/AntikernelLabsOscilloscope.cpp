@@ -27,10 +27,11 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "AntikernelLabsOscilloscope.h"
 #include "SCPISocketTransport.h"
 #include "EdgeTrigger.h"
+#include "Filter.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

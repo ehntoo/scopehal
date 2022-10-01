@@ -35,6 +35,9 @@
 #ifndef NthEdgeBurstTrigger_h
 #define NthEdgeBurstTrigger_h
 
+#include "Oscilloscope.h"
+#include "Trigger.h"
+
 /**
 	@brief Nth Edge Burst Trigger
  */

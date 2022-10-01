@@ -30,6 +30,7 @@
 #include "scopeprotocols.h"
 #include "EmphasisFilter.h"
 #include "TappedDelayLineFilter.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

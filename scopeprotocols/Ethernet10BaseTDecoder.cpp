@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "EthernetProtocolDecoder.h"
 #include "Ethernet10BaseTDecoder.h"
 

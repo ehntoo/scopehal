@@ -36,6 +36,7 @@
 #define TDRStepDeEmbedFilter_h
 
 #include <ffts.h>
+#include "Filter.h"
 
 class TDRStepDeEmbedFilter : public Filter
 {

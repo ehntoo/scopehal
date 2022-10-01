@@ -35,8 +35,11 @@
 #ifndef DeEmbedFilter_h
 #define DeEmbedFilter_h
 
-#include "../scopehal/AlignedAllocator.h"
-#include "FFTFilter.h"
+#include "ComputePipeline.h"
+#include "Filter.h"
+#include "VulkanFFTPlan.h"
+#include "SParameters.h"
+#include "ffts.h"
 
 struct DeEmbedNormalizationArgs
 {

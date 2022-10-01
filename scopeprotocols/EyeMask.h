@@ -35,6 +35,10 @@
 #ifndef EyeMask_h
 #define EyeMask_h
 
+#include <cairomm/context.h>
+#include <vector>
+#include "yaml-cpp/yaml.h"
+
 class EyeDecoder2;
 class EyeWaveform;
 

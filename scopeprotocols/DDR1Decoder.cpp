@@ -33,7 +33,6 @@
 	@brief Implementation of DDR1Decoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "DDR1Decoder.h"
 #include <algorithm>
 

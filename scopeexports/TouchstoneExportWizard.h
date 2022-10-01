@@ -36,6 +36,11 @@
 #ifndef TouchstoneExportWizard_h
 #define TouchstoneExportWizard_h
 
+#include <gtkmm/grid.h>
+#include <vector>
+#include "ExportWizard.h"
+#include "FlowGraphNode.h"
+
 /**
 	@brief Initial configuration
  */

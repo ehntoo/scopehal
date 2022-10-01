@@ -33,7 +33,6 @@
 	@brief Implementation of IBM8b10bDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "IBM8b10bDecoder.h"
 
 using namespace std;

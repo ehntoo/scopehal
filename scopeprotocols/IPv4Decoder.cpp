@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "IPv4Decoder.h"
 #include "EthernetProtocolDecoder.h"
 

@@ -31,6 +31,9 @@
 #define LeCroyOscilloscope_h
 
 #include <mutex>
+#include "SCPIFunctionGenerator.h"
+#include "SCPIMultimeter.h"
+#include "SCPIOscilloscope.h"
 
 class DropoutTrigger;
 class EdgeTrigger;

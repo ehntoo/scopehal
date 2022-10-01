@@ -36,6 +36,8 @@
 #ifndef SCPINullTransport_h
 #define SCPINullTransport_h
 
+#include "SCPITransport.h"
+
 /**
 	@brief Null SCPITransport for simulated scopes (signal generator etc)
  */

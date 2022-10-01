@@ -31,8 +31,8 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of TestWaveformSource
  */
-#include "scopehal.h"
 #include "TestWaveformSource.h"
+#include "ScopehalUtils.h"
 #include <complex>
 
 using namespace std;

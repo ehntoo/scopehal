@@ -32,9 +32,9 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of PCIeDataLinkDecoder
  */
-#include "../scopehal/scopehal.h"
-#include "PCIeGen2LogicalDecoder.h"
 #include "PCIeDataLinkDecoder.h"
+#include "PCIeGen2LogicalDecoder.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

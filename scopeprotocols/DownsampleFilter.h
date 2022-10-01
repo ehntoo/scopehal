@@ -35,6 +35,8 @@
 #ifndef DownsampleFilter_h
 #define DownsampleFilter_h
 
+#include "Filter.h"
+
 /**
 	@brief Downsample - low-pass filter and decimate a signal
  */

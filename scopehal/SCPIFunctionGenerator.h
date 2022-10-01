@@ -30,6 +30,9 @@
 #ifndef SCPIFunctionGenerator_h
 #define SCPIFunctionGenerator_h
 
+#include "FunctionGenerator.h"
+#include "SCPIInstrument.h"
+
 /**
 	@brief An SCPI-based function generator
  */

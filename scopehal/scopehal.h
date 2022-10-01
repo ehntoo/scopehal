@@ -92,8 +92,6 @@ extern bool g_hasAvx2;
 
 #include "FlowGraphNode.h"
 #include "OscilloscopeChannel.h"
-#include "StreamDescriptor_inlines.h"
-#include "FlowGraphNode_inlines.h"
 #include "Trigger.h"
 
 #include "Instrument.h"
@@ -126,22 +124,10 @@ extern bool g_hasAvx2;
 #include "ExportWizard.h"
 #include "FilterGraphExecutor.h"
 
+#include "ScopehalUtils.h"
+#include "ScopehalVulkanUtils.h"
+
 uint64_t ConvertVectorSignalToScalar(const std::vector<bool>& bits);
-
-std::string GetDefaultChannelColor(int i);
-
-std::string Trim(const std::string& str);
-std::string TrimQuotes(const std::string& str);
-std::string BaseName(const std::string& path);
-
-std::string ReadFile(const std::string& path);
-std::string ReadDataFile(const std::string& relpath);
-std::vector<uint32_t> ReadDataFileUint32(const std::string& relpath);
-std::string FindDataFile(const std::string& relpath);
-void GetTimestampOfFile(std::string path, time_t& timestamp, int64_t& fs);
-
-std::string to_string_sci(double d);
-std::string to_string_hex(uint64_t n, bool zeropad = false, int len = 0);
 
 void TransportStaticInit();
 void DriverStaticInit();
@@ -154,71 +140,9 @@ std::string GetDirOfCurrentExecutable();
 
 void ScopehalStaticCleanup();
 
-float FreqToPhase(float hz);
-
-uint64_t next_pow2(uint64_t v);
-uint64_t prev_pow2(uint64_t v);
-
-std::vector<std::string> explode(const std::string& str, char separator);
-std::string str_replace(const std::string& search, const std::string& replace, const std::string& subject);
-
-#define FS_PER_SECOND 1e15
-#define SECONDS_PER_FS 1e-15
-
-//string to size_t conversion
-#ifdef _WIN32
-#define stos(str) static_cast<size_t>(stoll(str))
-#else
-#define stos(str) static_cast<size_t>(stol(str))
-#endif
-
-extern std::vector<std::string> g_searchPaths;
-
-//Vulkan global stuff
-extern vk::raii::Context g_vkContext;
-extern std::unique_ptr<vk::raii::Instance> g_vkInstance;
-extern uint32_t g_computeQueueType;
-extern uint32_t g_renderQueueType;
-extern uint8_t g_vkComputeDeviceUuid[16];
-extern uint32_t g_vkComputeDeviceDriverVer;
-extern vk::raii::PhysicalDevice* g_vkComputePhysicalDevice;
-
-void SubmitAndBlock(vk::raii::CommandBuffer& cmdBuf, vk::raii::Queue& queue);
-int AllocateVulkanComputeQueue();
-int AllocateVulkanRenderQueue();
-
-//Enable flags for various features
-extern bool g_gpuFilterEnabled;
-extern bool g_gpuScopeDriverEnabled;
-extern bool g_hasShaderInt64;
-extern bool g_hasShaderInt16;
-extern bool g_hasShaderInt8;
-extern bool g_hasDebugUtils;
-
-//Shader args for frequently used kernels
-struct ConvertRawSamplesShaderArgs
-{
-	uint32_t size;
-	float gain;
-	float offset;
-};
-
-uint32_t GetComputeBlockCount(size_t numGlobal, size_t blockSize);
-
 //Validation helper for templates
 //Throws compile-time error if specialized for false since there's no implementation
 template<bool> class CompileTimeAssert;
 template<> class CompileTimeAssert<true>{};
-
-#ifdef _WIN32
-std::string NarrowPath(wchar_t* wide);
-#else
-std::string ExpandPath(const std::string& in);
-void CreateDirectory(const std::string& path);
-#endif
-
-//Checksum helpers
-uint32_t CRC32(const uint8_t* bytes, size_t start, size_t end);
-uint32_t CRC32(const std::vector<uint8_t>& bytes);
 
 #endif

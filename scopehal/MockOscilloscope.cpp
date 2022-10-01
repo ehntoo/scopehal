@@ -33,7 +33,6 @@
 	@brief Implementation of MockOscilloscope
  */
 
-#include "scopehal.h"
 #include "OscilloscopeChannel.h"
 #include "MockOscilloscope.h"
 

@@ -36,6 +36,9 @@
 #ifndef TMDSDecoder_h
 #define TMDSDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class TMDSSymbol
 {
 public:

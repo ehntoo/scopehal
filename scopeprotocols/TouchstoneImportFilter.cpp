@@ -27,8 +27,9 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "TouchstoneImportFilter.h"
+#include "ScopehalUtils.h"
+#include "TouchstoneParser.h"
 
 using namespace std;
 

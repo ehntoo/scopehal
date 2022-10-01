@@ -32,6 +32,7 @@
 
 #include "RemoteBridgeOscilloscope.h"
 #include "../xptools/HzClock.h"
+#include "../xptools/Socket.h"
 
 /**
 	@brief DSLabsOscilloscope - driver for talking to the scopehal-dslabs-bridge daemons

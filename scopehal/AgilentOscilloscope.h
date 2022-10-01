@@ -30,9 +30,12 @@
 #ifndef AgilentOscilloscope_h
 #define AgilentOscilloscope_h
 
+#include <string>
 #include "EdgeTrigger.h"
 #include "PulseWidthTrigger.h"
 #include "NthEdgeBurstTrigger.h"
+#include "SCPIOscilloscope.h"
+#include "SCPITransport.h"
 
 class AgilentOscilloscope : public virtual SCPIOscilloscope
 {

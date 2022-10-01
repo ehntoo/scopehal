@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "LeCroyOscilloscope.h"
 #include "base64.h"
 #include <locale>
@@ -43,6 +42,7 @@
 #include "SlewRateTrigger.h"
 #include "UartTrigger.h"
 #include "WindowTrigger.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

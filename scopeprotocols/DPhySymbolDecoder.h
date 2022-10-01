@@ -35,6 +35,8 @@
 #ifndef DPhySymbolDecoder_h
 #define DPhySymbolDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
 class DPhySymbol
 {
 public:

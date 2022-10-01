@@ -32,8 +32,12 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of TouchstoneExportWizard
  */
-#include "scopehal.h"
 #include "TouchstoneExportWizard.h"
+#include "OscilloscopeChannel.h"
+#include "SParameters.h"
+#include <gtkmm/enums.h>
+#include <string>
+#include <vector>
 
 using namespace std;
 

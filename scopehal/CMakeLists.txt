@@ -44,6 +44,8 @@ set(SCOPEHAL_SOURCES
 	scopehal.cpp
 	avx_mathfun.cpp
 	VulkanInit.cpp
+	ScopehalUtils.cpp
+	ScopehalVulkanUtils.cpp
 
 	FileSystem.cpp
 	Unit.cpp

@@ -35,6 +35,9 @@
 #ifndef DCAEdgeTrigger_h
 #define DCAEdgeTrigger_h
 
+#include "Oscilloscope.h"
+#include "Trigger.h"
+
 /**
 	@brief Simple edge trigger
  */

@@ -32,6 +32,7 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of ReferencePlaneExtensionFilter
  */
+#include "ScopehalUtils.h"
 #include "scopeprotocols.h"
 
 using namespace std;

@@ -35,6 +35,8 @@
 #ifndef FSKDecoder_h
 #define FSKDecoder_h
 
+#include "Filter.h"
+
 class FSKDecoder : public Filter
 {
 public:

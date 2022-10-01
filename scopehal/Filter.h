@@ -37,7 +37,6 @@
 #define Filter_h
 
 #include "OscilloscopeChannel.h"
-#include "FlowGraphNode.h"
 
 /**
 	@brief Describes a particular revision of a waveform

@@ -35,6 +35,8 @@
 #ifndef DeskewFilter_h
 #define DeskewFilter_h
 
+#include "Filter.h"
+
 class DeskewFilter : public Filter
 {
 public:

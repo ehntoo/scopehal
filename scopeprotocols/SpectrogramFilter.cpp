@@ -27,8 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
-#include "../scopehal/AlignedAllocator.h"
 #include "SpectrogramFilter.h"
 #ifdef __x86_64__
 #include <immintrin.h>

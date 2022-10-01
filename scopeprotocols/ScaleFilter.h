@@ -35,6 +35,8 @@
 #ifndef ScaleFilter_h
 #define ScaleFilter_h
 
+#include "Filter.h"
+
 class ScaleFilter : public Filter
 {
 public:

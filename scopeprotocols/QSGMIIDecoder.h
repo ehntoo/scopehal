@@ -36,6 +36,8 @@
 #ifndef QSGMIIDecoder_h
 #define QSGMIIDecoder_h
 
+#include "Filter.h"
+
 /**
 	@brief Decoder for QSGMII
  */

@@ -36,6 +36,13 @@
 #ifndef FilterParameter_h
 #define FilterParameter_h
 
+#include <sigc++/signal.h>
+#include <cstdint>
+#include <map>
+#include <string>
+#include <vector>
+#include "Unit.h"
+
 /**
 	@brief An 8B/10B symbol within a pattern, used for trigger matching
  */

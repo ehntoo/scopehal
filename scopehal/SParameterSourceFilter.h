@@ -35,6 +35,9 @@
 #ifndef SParameterSourceFilter_h
 #define SParameterSourceFilter_h
 
+#include "Filter.h"
+#include "SParameters.h"
+
 /**
 	@brief A filter that outputs a set of S-parameters
  */

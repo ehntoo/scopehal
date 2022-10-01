@@ -36,6 +36,9 @@
 #ifndef Ethernet64b66bDecoder_h
 #define Ethernet64b66bDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class Ethernet64b66bSymbol
 {
 public:

@@ -27,8 +27,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "DownconvertFilter.h"
+#include "ScopehalUtils.h"
 #ifdef __x86_64__
 #include <immintrin.h>
 #include "avx_mathfun.h"

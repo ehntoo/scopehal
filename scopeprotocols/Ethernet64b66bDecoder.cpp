@@ -33,7 +33,6 @@
 	@brief Implementation of Ethernet64b66bDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "Ethernet64b66bDecoder.h"
 
 using namespace std;

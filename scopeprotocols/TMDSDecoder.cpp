@@ -33,7 +33,6 @@
 	@brief Implementation of TMDSDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "TMDSDecoder.h"
 
 using namespace std;

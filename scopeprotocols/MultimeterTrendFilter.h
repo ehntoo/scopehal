@@ -35,6 +35,9 @@
 #ifndef MultimeterTrendFilter_h
 #define MultimeterTrendFilter_h
 
+#include "Filter.h"
+#include "Multimeter.h"
+
 class MultimeterTrendFilter : public Filter
 {
 public:

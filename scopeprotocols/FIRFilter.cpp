@@ -32,6 +32,8 @@
 #ifdef __x86_64__
 #include <immintrin.h>
 #endif
+#include "ScopehalUtils.h"
+#include "ScopehalVulkanUtils.h"
 
 using namespace std;
 

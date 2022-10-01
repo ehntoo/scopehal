@@ -36,6 +36,9 @@
 #ifndef Unit_h
 #define Unit_h
 
+#include <locale>
+#include <string>
+
 /**
 	@brief A unit of measurement, plus conversion to pretty-printed output
 

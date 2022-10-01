@@ -27,9 +27,9 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
-#include "../scopehal/AlignedAllocator.h"
 #include "FFTFilter.h"
+#include "ScopehalUtils.h"
+#include "ScopehalVulkanUtils.h"
 #ifdef __x86_64__
 #include <immintrin.h>
 #include "../scopehal/avx_mathfun.h"

@@ -27,13 +27,14 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "TektronixOscilloscope.h"
 #include "EdgeTrigger.h"
 #include "PulseWidthTrigger.h"
 #include "DropoutTrigger.h"
 #include "RuntTrigger.h"
+#include "ScopehalUtils.h"
 #include "SlewRateTrigger.h"
+#include "SpectrumChannel.h"
 #include "WindowTrigger.h"
 
 using namespace std;

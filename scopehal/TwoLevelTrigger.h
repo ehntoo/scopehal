@@ -35,6 +35,9 @@
 #ifndef TwoLevelTrigger_h
 #define TwoLevelTrigger_h
 
+#include "Oscilloscope.h"
+#include "Trigger.h"
+
 /**
 	@brief Base class for all triggers that have two thresholds rather than one
  */

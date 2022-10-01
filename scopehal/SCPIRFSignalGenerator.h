@@ -30,6 +30,9 @@
 #ifndef SCPIRFSignalGenerator_h
 #define SCPIRFSignalGenerator_h
 
+#include "RFSignalGenerator.h"
+#include "SCPIInstrument.h"
+
 /**
 	@brief An SCPI-based vsg supply
  */

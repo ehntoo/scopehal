@@ -27,7 +27,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
+#include "SCPIRFSignalGenerator.h"
+#include "log.h"
 
 using namespace std;
 

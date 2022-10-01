@@ -35,6 +35,9 @@
 #ifndef TRCImportFilter_h
 #define TRCImportFilter_h
 
+#include "ComputePipeline.h"
+#include "ImportFilter.h"
+
 class TRCImportFilter : public ImportFilter
 {
 public:

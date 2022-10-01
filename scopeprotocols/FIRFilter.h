@@ -35,6 +35,9 @@
 #ifndef FIRFilter_h
 #define FIRFilter_h
 
+#include "ComputePipeline.h"
+#include "Filter.h"
+
 struct FIRFilterArgs
 {
 	uint32_t end;

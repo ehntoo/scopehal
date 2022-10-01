@@ -33,7 +33,6 @@
 	@brief Implementation of SWDDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "SWDDecoder.h"
 #include <algorithm>
 

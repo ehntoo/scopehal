@@ -27,8 +27,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "RohdeSchwarzHMC8012Multimeter.h"
+#include "log.h"
 
 using namespace std;
 

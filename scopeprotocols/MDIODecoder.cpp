@@ -33,7 +33,6 @@
 	@brief Implementation of MDIODecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "MDIODecoder.h"
 
 using namespace std;

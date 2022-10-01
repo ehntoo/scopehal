@@ -27,12 +27,12 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
+#include "ScopehalUtils.h"
 #ifdef _WIN32
 #include <chrono>
 #include <thread>
 #endif
 
-#include "scopehal.h"
 #include "DigilentOscilloscope.h"
 #include "EdgeTrigger.h"
 

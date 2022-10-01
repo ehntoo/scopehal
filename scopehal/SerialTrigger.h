@@ -35,6 +35,9 @@
 #ifndef SerialTrigger_h
 #define SerialTrigger_h
 
+#include "Oscilloscope.h"
+#include "Trigger.h"
+
 /**
 	@brief Abstract base class for serial protocol triggers with pattern matching
  */

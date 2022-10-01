@@ -37,6 +37,7 @@
 #define VICPSocketTransport_h
 
 #include "../xptools/Socket.h"
+#include "SCPITransport.h"
 
 /**
 	@brief A SCPI transport tunneled over LeCroy's Virtual Instrument Control Protocol

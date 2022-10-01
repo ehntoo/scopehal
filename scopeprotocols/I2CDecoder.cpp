@@ -33,7 +33,6 @@
 	@brief Implementation of I2CDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "I2CDecoder.h"
 #include <algorithm>
 

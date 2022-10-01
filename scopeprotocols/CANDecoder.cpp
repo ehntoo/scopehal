@@ -33,8 +33,8 @@
 	@brief Implementation of CANDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "CANDecoder.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

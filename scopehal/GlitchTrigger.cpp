@@ -27,10 +27,7 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "GlitchTrigger.h"
-#include "LeCroyOscilloscope.h"
-#include "TektronixOscilloscope.h"
 
 using namespace std;
 

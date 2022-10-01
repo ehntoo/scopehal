@@ -35,6 +35,8 @@
 #ifndef VectorFrequencyFilter_h
 #define VectorFrequencyFilter_h
 
+#include "Filter.h"
+
 class VectorFrequencyFilter : public Filter
 {
 public:

@@ -36,6 +36,10 @@
 #ifndef AlignedAllocator_h
 #define AlignedAllocator_h
 
+#include <cstddef>
+#include <new>
+#include <stdexcept>
+
 #ifdef _WIN32
 #include <windows.h>
 #endif

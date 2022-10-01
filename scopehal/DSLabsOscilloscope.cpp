@@ -27,12 +27,13 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
+#include "SCPITwinLanTransport.h"
+#include "ScopehalUtils.h"
 #ifdef _WIN32
 #include <chrono>
 #include <thread>
 #endif
 
-#include "scopehal.h"
 #include "DSLabsOscilloscope.h"
 #include "EdgeTrigger.h"
 

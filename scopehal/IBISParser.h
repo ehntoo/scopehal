@@ -36,6 +36,11 @@
 #ifndef IBISParser_h
 #define IBISParser_h
 
+#include <cstdint>
+#include <map>
+#include <string>
+#include <vector>
+
 //Almost all properties are indexed by a corner
 enum IBISCorner
 {

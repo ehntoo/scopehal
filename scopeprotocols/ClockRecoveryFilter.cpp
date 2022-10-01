@@ -27,8 +27,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
-#include "scopeprotocols.h"
+#include "ClockRecoveryFilter.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

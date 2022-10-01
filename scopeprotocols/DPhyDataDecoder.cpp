@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "DPhyDataDecoder.h"
 #include "DPhySymbolDecoder.h"
 

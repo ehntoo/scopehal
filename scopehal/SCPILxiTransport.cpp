@@ -40,6 +40,7 @@ extern "C"
 #include <lxi.h>
 }
 
+// TODO - remove this includes and fix up any errors that pop up.
 #include "scopehal.h"
 
 using namespace std;

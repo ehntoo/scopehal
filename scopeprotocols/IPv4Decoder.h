@@ -35,6 +35,9 @@
 #ifndef IPv4Decoder_h
 #define IPv4Decoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class IPv4Symbol
 {
 public:

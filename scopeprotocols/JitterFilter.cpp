@@ -27,9 +27,9 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "JitterFilter.h"
 #include <random>
+#include "ScopehalUtils.h"
 
 using namespace std;
 

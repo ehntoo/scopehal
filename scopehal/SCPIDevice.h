@@ -30,6 +30,8 @@
 #ifndef SCPIDevice_h
 #define SCPIDevice_h
 
+#include "SCPITransport.h"
+
 /**
 	@brief An SCPI-based device
  */

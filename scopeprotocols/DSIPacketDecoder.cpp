@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "DSIPacketDecoder.h"
 #include "DPhyDataDecoder.h"
 

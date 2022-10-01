@@ -35,6 +35,9 @@
 #ifndef SDRAMDecoder_h
 #define SDRAMDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class SDRAMSymbol
 {
 public:

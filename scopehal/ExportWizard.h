@@ -36,6 +36,9 @@
 #ifndef ExportWizard_h
 #define ExportWizard_h
 
+#include <gtkmm/assistant.h>
+#include "OscilloscopeChannel.h"
+
 /**
 	@brief Abstract base class for an export wizard
  */

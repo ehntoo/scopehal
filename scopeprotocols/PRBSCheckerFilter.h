@@ -35,6 +35,8 @@
 #ifndef PRBSCheckerFilter_h
 #define PRBSCheckerFilter_h
 
+#include "Filter.h"
+
 class PRBSCheckerFilter : public Filter
 {
 public:

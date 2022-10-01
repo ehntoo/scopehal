@@ -30,9 +30,10 @@
 #ifndef PicoOscilloscope_h
 #define PicoOscilloscope_h
 
-class EdgeTrigger;
-
 #include "RemoteBridgeOscilloscope.h"
+#include "SCPIFunctionGenerator.h"
+
+class EdgeTrigger;
 
 /**
 	@brief PicoOscilloscope - driver for talking to the scopehal-pico-bridge daemons

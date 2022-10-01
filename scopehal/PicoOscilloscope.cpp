@@ -32,9 +32,9 @@
 #include <thread>
 #endif
 
-#include "scopehal.h"
-#include "PicoOscilloscope.h"
 #include "EdgeTrigger.h"
+#include "PicoOscilloscope.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

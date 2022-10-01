@@ -27,8 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
-#include "../scopehal/AlignedAllocator.h"
 #include "PeakDetectionFilter.h"
 
 using namespace std;

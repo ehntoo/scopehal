@@ -35,6 +35,8 @@
 #ifndef WAVImportFilter_h
 #define WAVImportFilter_h
 
+#include "ImportFilter.h"
+
 class WAVImportFilter : public ImportFilter
 {
 public:

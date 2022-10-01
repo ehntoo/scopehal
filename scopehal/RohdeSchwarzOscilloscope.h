@@ -30,6 +30,8 @@
 #ifndef RohdeSchwarzOscilloscope_h
 #define RohdeSchwarzOscilloscope_h
 
+#include "SCPIOscilloscope.h"
+
 class EdgeTrigger;
 
 class RohdeSchwarzOscilloscope : public virtual SCPIOscilloscope

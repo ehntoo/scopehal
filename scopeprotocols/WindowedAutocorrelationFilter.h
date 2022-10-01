@@ -35,6 +35,8 @@
 #ifndef WindowedAutocorrelationFilter_h
 #define WindowedAutocorrelationFilter_h
 
+#include "Filter.h"
+
 class WindowedAutocorrelationFilter : public Filter
 {
 public:

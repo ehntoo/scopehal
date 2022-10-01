@@ -35,6 +35,9 @@
 #ifndef SubtractFilter_h
 #define SubtractFilter_h
 
+#include "ComputePipeline.h"
+#include "Filter.h"
+
 class SubtractFilter : public Filter
 {
 public:

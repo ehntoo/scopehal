@@ -27,9 +27,9 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "EyePattern.h"
 #include <algorithm>
+#include "ScopehalUtils.h"
 #ifdef __x86_64__
 #include <immintrin.h>
 #endif

@@ -36,9 +36,10 @@
 #ifndef Oscilloscope_h
 #define Oscilloscope_h
 
-class Instrument;
-
+#include "Instrument.h"
+#include "OscilloscopeChannel.h"
 #include "SCPITransport.h"
+#include "Trigger.h"
 #include "WaveformPool.h"
 
 /**

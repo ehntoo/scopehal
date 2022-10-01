@@ -30,6 +30,9 @@
 #ifndef Multimeter_h
 #define Multimeter_h
 
+#include "Instrument.h"
+#include "Unit.h"
+
 /**
 	@brief A multimeter
 

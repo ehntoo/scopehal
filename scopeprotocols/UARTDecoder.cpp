@@ -33,8 +33,8 @@
 	@brief Implementation of UARTDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "UARTDecoder.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

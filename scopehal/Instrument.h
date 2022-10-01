@@ -36,6 +36,8 @@
 #ifndef Instrument_h
 #define Instrument_h
 
+#include <string>
+
 /**
 	@brief An arbitrary lab instrument. Oscilloscope, LA, PSU, DMM, etc
  */
