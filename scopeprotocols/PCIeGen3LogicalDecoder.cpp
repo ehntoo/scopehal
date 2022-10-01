@@ -32,11 +32,8 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of PCIeGen3LogicalDecoder
  */
-#include "../scopehal/scopehal.h"
-#include "../scopehal/Filter.h"
-#include "PCIe128b130bDecoder.h"
 #include "PCIeGen3LogicalDecoder.h"
-
+#include "PCIe128b130bDecoder.h"
 
 using namespace std;
 

@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "DownsampleFilter.h"
 
 using namespace std;

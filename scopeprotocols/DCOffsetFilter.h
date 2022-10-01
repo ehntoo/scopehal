@@ -35,6 +35,8 @@
 #ifndef DCOffsetFilter_h
 #define DCOffsetFilter_h
 
+#include "Filter.h"
+
 class DCOffsetFilter : public Filter
 {
 public:

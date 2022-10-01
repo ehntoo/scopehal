@@ -33,7 +33,6 @@
 	@brief Implementation of EthernetAutonegotiationDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "EthernetAutonegotiationDecoder.h"
 
 using namespace std;

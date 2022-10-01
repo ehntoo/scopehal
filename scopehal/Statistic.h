@@ -36,6 +36,8 @@
 #ifndef Statistic_h
 #define Statistic_h
 
+#include "FlowGraphNode.h"
+
 class Statistic
 {
 public:

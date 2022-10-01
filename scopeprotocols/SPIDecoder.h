@@ -36,6 +36,8 @@
 #ifndef SPIDecoder_h
 #define SPIDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
 class SPISymbol
 {
 public:

@@ -37,9 +37,9 @@
  */
 
 
-#include "scopehal.h"
 #include "RohdeSchwarzOscilloscope.h"
 #include "EdgeTrigger.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

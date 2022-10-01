@@ -30,6 +30,9 @@
 #ifndef SiglentVectorSignalGenerator_h
 #define SiglentVectorSignalGenerator_h
 
+#include "SCPIFunctionGenerator.h"
+#include "SCPIRFSignalGenerator.h"
+
 /**
 	@brief Siglent vector signal generators
 

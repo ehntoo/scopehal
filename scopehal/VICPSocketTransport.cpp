@@ -33,7 +33,8 @@
 	@brief Implementation of VICPSocketTransport
  */
 
-#include "scopehal.h"
+#include "VICPSocketTransport.h"
+#include "log.h"
 
 using namespace std;
 

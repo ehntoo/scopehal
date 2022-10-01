@@ -36,6 +36,8 @@
 #define SParameters_h
 
 #include <complex>
+#include "Waveform.h"
+#include "log.h"
 
 /**
 	@brief A single point in an S-parameter dataset

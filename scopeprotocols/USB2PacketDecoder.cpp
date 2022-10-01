@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "USB2PacketDecoder.h"
 #include "USB2PCSDecoder.h"
 

@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "PAM4DemodulatorFilter.h"
 
 using namespace std;

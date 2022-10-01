@@ -31,6 +31,7 @@
 #define RemoteBridgeOscilloscope_h
 
 #include "EdgeTrigger.h"
+#include "SCPIOscilloscope.h"
 
 /**
 	@brief An oscilloscope connected over a SDK-to-SCPI bridge that follows our pattern

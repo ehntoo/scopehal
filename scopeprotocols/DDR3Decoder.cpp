@@ -33,7 +33,6 @@
 	@brief Implementation of DDR3Decoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "DDR3Decoder.h"
 #include <algorithm>
 

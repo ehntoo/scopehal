@@ -39,7 +39,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#include "scopehal.h"
+#include "SCPITMCTransport.h"
+#include "log.h"
 
 using namespace std;
 

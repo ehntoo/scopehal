@@ -35,7 +35,11 @@
 #ifndef AcceleratorBuffer_h
 #define AcceleratorBuffer_h
 
+#include <unistd.h>
 #include "AlignedAllocator.h"
+#include "log.h"
+#include <cstdint>
+#include <vulkan/vulkan_raii.hpp>
 
 #ifdef _WIN32
 #undef MemoryBarrier

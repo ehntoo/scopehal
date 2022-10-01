@@ -33,7 +33,6 @@
 	@brief Implementation of HyperRAMDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "HyperRAMDecoder.h"
 #include <algorithm>
 

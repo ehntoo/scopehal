@@ -32,8 +32,8 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of VulkanFFTPlan
  */
-#include "scopehal.h"
 #include "VulkanFFTPlan.h"
+#include "ScopehalVulkanUtils.h"
 
 using namespace std;
 

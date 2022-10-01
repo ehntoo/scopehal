@@ -36,8 +36,13 @@
 #ifndef VCDExportWizard_h
 #define VCDExportWizard_h
 
+#include "ExportWizard.h"
+#include "OscilloscopeChannel.h"
+#include <vector>
+
 /**
 	@brief Select other channels
+#include <gtkmm/frame.h>
  */
 class VCDExportChannelSelectionPage
 {

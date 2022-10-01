@@ -36,6 +36,9 @@
 #ifndef I2CDecoder_h
 #define I2CDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class I2CSymbol
 {
 public:

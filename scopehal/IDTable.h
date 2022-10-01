@@ -35,6 +35,8 @@
 #ifndef IDTable_h
 #define IDTable_h
 
+#include "Bijection.h"
+
 class IDTable : public Bijection<int, void*>
 {
 public:

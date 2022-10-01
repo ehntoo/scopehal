@@ -35,6 +35,8 @@
 #ifndef ImportFilter_h
 #define ImportFilter_h
 
+#include "Filter.h"
+
 /**
 	@brief Helper base class for filters that import a waveform from a file.
 

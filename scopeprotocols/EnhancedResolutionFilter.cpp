@@ -27,9 +27,9 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "EnhancedResolutionFilter.h"
 #include <ffts.h>
+#include "ScopehalUtils.h"
 
 using namespace std;
 

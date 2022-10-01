@@ -27,7 +27,9 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
+#include "FlowGraphNode.h"
+#include "OscilloscopeChannel.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

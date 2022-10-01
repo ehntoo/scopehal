@@ -35,6 +35,9 @@
 #ifndef UpsampleFilter_h
 #define UpsampleFilter_h
 
+#include "ComputePipeline.h"
+#include "Filter.h"
+
 struct UpsampleFilterArgs
 {
 	uint32_t imax;

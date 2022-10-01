@@ -32,9 +32,8 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of PCIeTransportDecoder
  */
-#include "../scopehal/scopehal.h"
-#include "PCIeDataLinkDecoder.h"
 #include "PCIeTransportDecoder.h"
+#include "PCIeDataLinkDecoder.h"
 
 using namespace std;
 

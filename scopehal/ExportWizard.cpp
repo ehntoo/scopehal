@@ -32,7 +32,7 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of ExportWizard
  */
-#include "scopehal.h"
+#include "ExportWizard.h"
 
 using namespace std;
 

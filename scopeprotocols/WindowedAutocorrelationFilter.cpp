@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include <complex>
 #include "WindowedAutocorrelationFilter.h"
 

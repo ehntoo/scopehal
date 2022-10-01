@@ -35,6 +35,8 @@
 #ifndef WaveformGenerationFilter_h
 #define WaveformGenerationFilter_h
 
+#include "Filter.h"
+
 class WaveformGenerationFilter : public Filter
 {
 public:

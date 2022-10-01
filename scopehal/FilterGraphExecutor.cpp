@@ -27,7 +27,9 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
+#include "FilterGraphExecutor.h"
+#include "ScopehalVulkanUtils.h"
+#include <thread>
 
 using namespace std;
 

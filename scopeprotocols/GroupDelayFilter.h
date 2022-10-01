@@ -35,6 +35,8 @@
 #ifndef GroupDelayFilter_h
 #define GroupDelayFilter_h
 
+#include "Filter.h"
+
 class GroupDelayFilter : public Filter
 {
 public:

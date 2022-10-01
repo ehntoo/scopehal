@@ -32,6 +32,7 @@
 
 #include <condition_variable>
 #include <atomic>
+#include "Filter.h"
 
 /**
 	@brief Execution manager / scheduler for the filter graph

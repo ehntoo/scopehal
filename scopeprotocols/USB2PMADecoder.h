@@ -38,6 +38,8 @@
 /**
 	@brief A single bit on a USB 1.x/2.x differential bus
  */
+#include "Filter.h"
+#include "Waveform.h"
 class USB2PMASymbol
 {
 public:

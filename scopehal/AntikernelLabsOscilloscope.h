@@ -30,6 +30,8 @@
 #ifndef AntikernelLabsOscilloscope_h
 #define AntikernelLabsOscilloscope_h
 
+#include "SCPIOscilloscope.h"
+
 class AntikernelLabsOscilloscope : public virtual SCPIOscilloscope
 {
 public:

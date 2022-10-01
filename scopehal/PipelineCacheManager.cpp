@@ -27,10 +27,13 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "PipelineCacheManager.h"
+#include "AcceleratorBuffer.h"
 #include "FileSystem.h"
-#include "VulkanFFTPlan.h"
+#include "ScopehalUtils.h"
+#include "ScopehalVulkanUtils.h"
+#include "log.h"
+#include "vkFFT.h"
 
 #ifdef _WIN32
 #include <windows.h>

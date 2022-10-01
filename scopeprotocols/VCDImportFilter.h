@@ -35,6 +35,8 @@
 #ifndef VCDImportFilter_h
 #define VCDImportFilter_h
 
+#include "ImportFilter.h"
+
 class VCDImportFilter : public ImportFilter
 {
 public:

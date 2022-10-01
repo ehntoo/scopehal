@@ -36,6 +36,8 @@
 #define SpectrogramFilter_h
 
 #include <ffts.h>
+#include "Filter.h"
+#include "Waveform.h"
 
 class SpectrogramWaveform : public WaveformBase
 {

@@ -36,6 +36,7 @@
 #define NoiseFilter_h
 
 #include <random>
+#include "Filter.h"
 
 class NoiseFilter : public Filter
 {

@@ -33,8 +33,7 @@
 	@brief Implementation of FilterParameter
  */
 
-#include "scopehal.h"
-#include "Filter.h"
+#include "FilterParameter.h"
 
 using namespace std;
 

@@ -33,7 +33,6 @@
 	@brief Implementation of DPhySymbolDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "DPhySymbolDecoder.h"
 
 using namespace std;

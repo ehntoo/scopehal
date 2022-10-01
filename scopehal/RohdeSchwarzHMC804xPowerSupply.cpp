@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "RohdeSchwarzHMC804xPowerSupply.h"
 
 using namespace std;

@@ -37,6 +37,11 @@
 #define SCPITransport_h
 
 #include <chrono>
+#include <list>
+#include <map>
+#include <mutex>
+#include <set>
+#include <string>
 
 /**
 	@brief Abstraction of a transport layer for moving SCPI data between endpoints

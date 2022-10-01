@@ -37,6 +37,8 @@
 #define EyePattern_h
 
 #include "EyeMask.h"
+#include "Filter.h"
+#include "Waveform.h"
 
 class EyeWaveform : public WaveformBase
 {

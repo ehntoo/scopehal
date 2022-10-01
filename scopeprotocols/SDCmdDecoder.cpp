@@ -33,7 +33,6 @@
 	@brief Implementation of SDCmdDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "SDCmdDecoder.h"
 #include <algorithm>
 

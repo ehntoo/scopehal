@@ -36,6 +36,7 @@
 #define CDR8B10BTrigger_h
 
 #include "CDRTrigger.h"
+#include "Oscilloscope.h"
 
 /**
 	@brief A hardware 8B/10B pattern trigger

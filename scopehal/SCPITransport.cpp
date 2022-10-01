@@ -33,7 +33,9 @@
 	@brief Implementation of SCPITransport
  */
 
-#include "scopehal.h"
+#include "SCPITransport.h"
+#include <thread>
+#include "log.h"
 
 using namespace std;
 

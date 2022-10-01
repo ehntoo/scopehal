@@ -35,6 +35,8 @@
 #ifndef Bijection_h
 #define Bijection_h
 
+#include <map>
+
 /**
 	@brief A one-to-one mapping from objects of type T1 to type T2, which must be different types
 

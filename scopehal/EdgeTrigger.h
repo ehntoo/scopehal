@@ -35,6 +35,9 @@
 #ifndef EdgeTrigger_h
 #define EdgeTrigger_h
 
+#include "Oscilloscope.h"
+#include "Trigger.h"
+
 /**
 	@brief Simple edge trigger
  */

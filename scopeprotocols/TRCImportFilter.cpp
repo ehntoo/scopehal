@@ -27,9 +27,10 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
-#include "../scopehal/LeCroyOscilloscope.h"
 #include "TRCImportFilter.h"
+#include "../scopehal/LeCroyOscilloscope.h"
+#include "ScopehalUtils.h"
+#include "ScopehalVulkanUtils.h"
 
 using namespace std;
 

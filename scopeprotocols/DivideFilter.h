@@ -35,6 +35,8 @@
 #ifndef DivideFilter_h
 #define DivideFilter_h
 
+#include "Filter.h"
+
 class DivideFilter : public Filter
 {
 public:

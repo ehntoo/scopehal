@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "WindowTrigger.h"
 #include "TektronixOscilloscope.h"
 

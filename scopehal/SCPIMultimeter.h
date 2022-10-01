@@ -30,6 +30,9 @@
 #ifndef SCPIMultimeter_h
 #define SCPIMultimeter_h
 
+#include "Multimeter.h"
+#include "SCPIInstrument.h"
+
 /**
 	@brief An SCPI-based multimeter
  */

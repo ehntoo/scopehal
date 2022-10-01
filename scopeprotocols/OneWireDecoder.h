@@ -36,6 +36,8 @@
 #ifndef OneWireDecoder_h
 #define OneWireDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
 class OneWireSymbol
 {
 public:

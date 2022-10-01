@@ -35,6 +35,9 @@
 #ifndef CDRTrigger_h
 #define CDRTrigger_h
 
+#include "Oscilloscope.h"
+#include "Trigger.h"
+
 /**
 	@brief A trigger involving hardware clock/data recovery
  */

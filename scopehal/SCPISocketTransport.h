@@ -37,6 +37,7 @@
 #define SCPISocketTransport_h
 
 #include "../xptools/Socket.h"
+#include "SCPITransport.h"
 
 /**
 	@brief Abstraction of a transport layer for moving SCPI data between endpoints

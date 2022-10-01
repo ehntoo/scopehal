@@ -27,9 +27,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
-#include "../scopehal/AlignedAllocator.h"
 #include "JitterSpectrumFilter.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

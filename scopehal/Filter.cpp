@@ -33,7 +33,6 @@
 	@brief Implementation of Filter
  */
 
-#include "scopehal.h"
 #include "Filter.h"
 #ifdef __x86_64__
 #include <immintrin.h>

@@ -35,6 +35,8 @@
 #ifndef QuadratureDecoder_h
 #define QuadratureDecoder_h
 
+#include "Filter.h"
+
 /**
 	@brief Decoder for quadrature encoder signals
  */

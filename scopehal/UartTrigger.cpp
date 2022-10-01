@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "UartTrigger.h"
 #include "SiglentSCPIOscilloscope.h"
 

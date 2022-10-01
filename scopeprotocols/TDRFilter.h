@@ -35,6 +35,8 @@
 #ifndef TDRFilter_h
 #define TDRFilter_h
 
+#include "Filter.h"
+
 class TDRFilter : public Filter
 {
 public:

@@ -33,7 +33,6 @@
 	@brief Implementation of QSPIDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "QSPIDecoder.h"
 #include <algorithm>
 

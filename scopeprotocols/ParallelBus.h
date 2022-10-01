@@ -35,6 +35,8 @@
 #ifndef ParallelBus_h
 #define ParallelBus_h
 
+#include "Filter.h"
+
 class ParallelBus : public Filter
 {
 public:

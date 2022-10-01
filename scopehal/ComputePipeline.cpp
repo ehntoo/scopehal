@@ -27,8 +27,9 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
+#include "ComputePipeline.h"
 #include "PipelineCacheManager.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

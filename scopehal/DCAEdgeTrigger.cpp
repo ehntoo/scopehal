@@ -27,9 +27,7 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "DCAEdgeTrigger.h"
-#include "AgilentOscilloscope.h"
 
 using namespace std;
 

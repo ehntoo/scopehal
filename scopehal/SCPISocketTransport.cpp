@@ -33,7 +33,8 @@
 	@brief Implementation of SCPISocketTransport
  */
 
-#include "scopehal.h"
+#include "SCPISocketTransport.h"
+#include "log.h"
 
 using namespace std;
 

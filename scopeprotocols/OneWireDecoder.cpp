@@ -33,7 +33,6 @@
 	@brief Implementation of OneWireDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "OneWireDecoder.h"
 
 using namespace std;

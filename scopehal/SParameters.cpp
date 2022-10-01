@@ -32,7 +32,7 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of SParameters
  */
-#include "scopehal.h"
+#include "SParameters.h"
 #include <math.h>
 
 using namespace std;

@@ -27,9 +27,10 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "TDRStepDeEmbedFilter.h"
 #include "FFTFilter.h"
+#include "SParameters.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

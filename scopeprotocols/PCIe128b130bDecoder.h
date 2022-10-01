@@ -36,6 +36,9 @@
 #ifndef PCIe128b130bDecoder_h
 #define PCIe128b130bDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class PCIe128b130bSymbol
 {
 public:

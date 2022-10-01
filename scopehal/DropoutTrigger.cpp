@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "DropoutTrigger.h"
 #include "LeCroyOscilloscope.h"
 #include "TektronixOscilloscope.h"

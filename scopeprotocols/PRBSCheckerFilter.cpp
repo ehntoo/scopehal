@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "PRBSCheckerFilter.h"
 #include "PRBSGeneratorFilter.h"
 

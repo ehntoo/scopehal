@@ -35,6 +35,8 @@
 #ifndef ThresholdFilter_h
 #define ThresholdFilter_h
 
+#include "Filter.h"
+
 class ThresholdFilter : public Filter
 {
 public:

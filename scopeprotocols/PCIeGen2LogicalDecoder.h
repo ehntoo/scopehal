@@ -36,6 +36,9 @@
 #ifndef PCIe2Gen2LogicalDecoder_h
 #define PCIe2Gen2LogicalDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class PCIeLogicalSymbol
 {
 public:

@@ -27,11 +27,14 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "AgilentOscilloscope.h"
 #include "EdgeTrigger.h"
 #include "PulseWidthTrigger.h"
 #include "NthEdgeBurstTrigger.h"
+#include "SCPIDevice.h"
+#include "SCPIInstrument.h"
+#include "SCPITransport.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 
@@ -1297,10 +1300,10 @@ void AgilentOscilloscope::PushSlope(string path, NthEdgeBurstTrigger::EdgeType s
 	string slope_str;
 	switch(slope)
 	{
-		case EdgeTrigger::EDGE_RISING:
+		case NthEdgeBurstTrigger::EDGE_RISING:
 			slope_str = "POS";
 			break;
-		case EdgeTrigger::EDGE_FALLING:
+		case NthEdgeBurstTrigger::EDGE_FALLING:
 			slope_str = "NEG";
 			break;
 		default:

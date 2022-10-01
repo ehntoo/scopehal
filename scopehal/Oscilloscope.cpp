@@ -33,14 +33,14 @@
 	@brief Implementation of Oscilloscope
  */
 
-#include "scopehal.h"
-#include "OscilloscopeChannel.h"
+#include "Oscilloscope.h"
 
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/types.h>
 #include <dirent.h>
+#include <thread>
 
 #ifdef __x86_64__
 #include <immintrin.h>

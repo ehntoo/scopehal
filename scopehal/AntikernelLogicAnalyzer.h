@@ -36,6 +36,9 @@
 #ifndef AntikernelLogicAnalyzer_h
 #define AntikernelLogicAnalyzer_h
 
+#include "Oscilloscope.h"
+#include "SCPIDevice.h"
+
 class AntikernelLogicAnalyzer
 	: public virtual Oscilloscope
 	, public SCPIDevice

@@ -33,7 +33,6 @@
 	@brief Implementation of DVIDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "TMDSDecoder.h"
 #include "DVIDecoder.h"
 

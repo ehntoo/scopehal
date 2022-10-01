@@ -35,6 +35,9 @@
 #ifndef Waterfall_h
 #define Waterfall_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class WaterfallWaveform : public WaveformBase
 {
 public:

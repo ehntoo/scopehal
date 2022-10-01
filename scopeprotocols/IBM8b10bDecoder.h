@@ -36,6 +36,9 @@
 #ifndef IBM8b10bDecoder_h
 #define IBM8b10bDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class IBM8b10bSymbol
 {
 public:

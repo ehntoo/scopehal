@@ -35,6 +35,8 @@
 #ifndef ClockRecoveryFilter_h
 #define ClockRecoveryFilter_h
 
+#include "Filter.h"
+
 class ClockRecoveryFilter : public Filter
 {
 public:

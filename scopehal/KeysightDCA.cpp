@@ -27,9 +27,9 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopehal.h"
 #include "KeysightDCA.h"
 #include "DCAEdgeTrigger.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

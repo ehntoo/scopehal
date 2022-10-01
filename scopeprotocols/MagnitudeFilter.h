@@ -35,6 +35,8 @@
 #ifndef MagnitudeFilter_h
 #define MagnitudeFilter_h
 
+#include "Filter.h"
+
 class MagnitudeFilter : public Filter
 {
 public:

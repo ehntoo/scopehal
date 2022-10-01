@@ -35,6 +35,8 @@
 #ifndef DownconvertFilter_h
 #define DownconvertFilter_h
 
+#include "Filter.h"
+
 /**
 	@brief Downconvert - generates a local oscillator in two phases and mixes it with a signal
  */

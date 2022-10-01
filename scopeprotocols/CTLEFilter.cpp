@@ -27,10 +27,10 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "CTLEFilter.h"
 #include <ffts.h>
 #include <complex>
+#include "ScopehalUtils.h"
 
 using namespace std;
 

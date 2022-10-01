@@ -72,19 +72,20 @@
  * archive if needed.
  */
 
-#include "scopehal.h"
 #include "SiglentSCPIOscilloscope.h"
-#include "base64.h"
 #include <locale>
 #include <stdarg.h>
 #include <omp.h>
 #include <thread>
 #include <chrono>
+#include <string>
+#include <vector>
 
 #include "DropoutTrigger.h"
 #include "EdgeTrigger.h"
 #include "PulseWidthTrigger.h"
 #include "RuntTrigger.h"
+#include "ScopehalUtils.h"
 #include "SlewRateTrigger.h"
 #include "UartTrigger.h"
 #include "WindowTrigger.h"

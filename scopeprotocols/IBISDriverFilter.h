@@ -35,6 +35,9 @@
 #ifndef IBISDriverFilter_h
 #define IBISDriverFilter_h
 
+#include "Filter.h"
+#include "IBISParser.h"
+
 class IBISDriverFilter : public Filter
 {
 public:

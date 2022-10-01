@@ -31,6 +31,7 @@
 #define KeysightDCA_h
 
 #include "DCAEdgeTrigger.h"
+#include "SCPIOscilloscope.h"
 
 class KeysightDCA : public virtual SCPIOscilloscope
 {

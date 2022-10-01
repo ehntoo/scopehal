@@ -35,6 +35,8 @@
 #ifndef UartClockRecoveryFilter_h
 #define UartClockRecoveryFilter_h
 
+#include "Filter.h"
+
 class UartClockRecoveryFilter : public Filter
 {
 public:

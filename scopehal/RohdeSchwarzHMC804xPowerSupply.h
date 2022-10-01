@@ -30,6 +30,8 @@
 #ifndef RohdeSchwarzHMC804xPowerSupply_h
 #define RohdeSchwarzHMC804xPowerSupply_h
 
+#include "SCPIPowerSupply.h"
+
 /**
 	@brief A Rohde & Schwarz HMC804x power supply
  */

@@ -27,9 +27,7 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "TCPDecoder.h"
-#include "EthernetProtocolDecoder.h"
 
 using namespace std;
 

@@ -30,6 +30,8 @@
 #ifndef RFSignalGenerator_h
 #define RFSignalGenerator_h
 
+#include "Instrument.h"
+
 /**
 	@brief An RF waveform generator which creates a carrier and optionally modulates it
  */

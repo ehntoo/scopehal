@@ -35,6 +35,8 @@
 #ifndef USB2ActivityDecoder_h
 #define USB2ActivityDecoder_h
 
+#include "Filter.h"
+
 class USB2ActivityDecoder : public Filter
 {
 public:

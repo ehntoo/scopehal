@@ -39,6 +39,7 @@
 #include <stdlib.h>
 //#include <string.h>
 
+// TODO - remove this includes and fix up any errors that pop up.
 #include "scopehal.h"
 
 #include <gpib/ib.h>

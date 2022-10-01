@@ -35,6 +35,8 @@
 #ifndef ToneGeneratorFilter_h
 #define ToneGeneratorFilter_h
 
+#include "Filter.h"
+
 class ToneGeneratorFilter : public Filter
 {
 public:

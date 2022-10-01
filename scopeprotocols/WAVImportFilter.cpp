@@ -27,8 +27,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "WAVImportFilter.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

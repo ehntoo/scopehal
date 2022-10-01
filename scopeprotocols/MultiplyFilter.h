@@ -35,6 +35,8 @@
 #ifndef MultiplyFilter_h
 #define MultiplyFilter_h
 
+#include "Filter.h"
+
 class MultiplyFilter : public Filter
 {
 public:

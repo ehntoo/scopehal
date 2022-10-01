@@ -30,6 +30,8 @@
 #ifndef RigolOscilloscope_h
 #define RigolOscilloscope_h
 
+#include "SCPIOscilloscope.h"
+
 class EdgeTrigger;
 
 class RigolOscilloscope : public virtual SCPIOscilloscope

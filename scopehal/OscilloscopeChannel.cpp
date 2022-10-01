@@ -33,7 +33,7 @@
 	@brief Implementation of OscilloscopeChannel
  */
 
-#include "scopehal.h"
+#include "Oscilloscope.h"
 #include "OscilloscopeChannel.h"
 
 using namespace std;

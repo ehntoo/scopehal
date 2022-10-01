@@ -33,7 +33,6 @@
 	@brief Implementation of DSIFrameDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "DSIPacketDecoder.h"
 #include "DSIFrameDecoder.h"
 

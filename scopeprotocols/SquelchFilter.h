@@ -35,6 +35,8 @@
 #ifndef SquelchFilter_h
 #define SquelchFilter_h
 
+#include "Filter.h"
+
 class SquelchFilter : public Filter
 {
 public:

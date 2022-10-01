@@ -30,6 +30,8 @@
 #ifndef FunctionGenerator_h
 #define FunctionGenerator_h
 
+#include "Instrument.h"
+
 /**
 	@brief A baseband waveform generator
  */

@@ -32,8 +32,11 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of TouchstoneParser
  */
-#include "scopehal.h"
+#include "SParameters.h"
+#include "TouchstoneParser.h"
+#include "log.h"
 #include <math.h>
+#include <string>
 
 using namespace std;
 

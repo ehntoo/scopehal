@@ -39,7 +39,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#include "scopehal.h"
+#include "SCPINullTransport.h"
 
 using namespace std;
 

@@ -27,8 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
-#include "EthernetProtocolDecoder.h"
 #include "MilStd1553Decoder.h"
 
 using namespace std;

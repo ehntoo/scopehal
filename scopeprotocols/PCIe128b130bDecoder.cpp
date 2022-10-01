@@ -33,7 +33,6 @@
 	@brief Implementation of PCIe128b130bDecoder
  */
 
-#include "../scopehal/scopehal.h"
 #include "PCIe128b130bDecoder.h"
 
 using namespace std;

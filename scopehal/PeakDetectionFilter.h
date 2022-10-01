@@ -35,6 +35,10 @@
 #ifndef PeakDetectionFilter_h
 #define PeakDetectionFilter_h
 
+#include <cstdint>
+#include <vector>
+#include "Filter.h"
+
 class Peak
 {
 public:

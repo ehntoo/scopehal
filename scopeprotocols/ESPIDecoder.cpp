@@ -27,9 +27,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "ESPIDecoder.h"
-#include "SPIDecoder.h"
+#include "ScopehalUtils.h"
 
 using namespace std;
 

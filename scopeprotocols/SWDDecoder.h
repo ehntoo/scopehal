@@ -36,6 +36,9 @@
 #ifndef SWDDecoder_h
 #define SWDDecoder_h
 
+#include "Filter.h"
+#include "Waveform.h"
+
 class SWDSymbol
 {
 public:

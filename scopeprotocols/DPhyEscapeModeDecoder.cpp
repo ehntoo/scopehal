@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "../scopehal/scopehal.h"
 #include "DPhyEscapeModeDecoder.h"
 #include "DPhySymbolDecoder.h"
 

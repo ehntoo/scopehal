@@ -35,6 +35,8 @@
 #ifndef JitterFilter_h
 #define JitterFilter_h
 
+#include "Filter.h"
+
 class JitterFilter : public Filter
 {
 public:

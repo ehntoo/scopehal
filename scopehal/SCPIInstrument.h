@@ -30,6 +30,10 @@
 #ifndef SCPIInstrument_h
 #define SCPIInstrument_h
 
+#include "Instrument.h"
+#include "SCPIDevice.h"
+#include "SCPITransport.h"
+
 /**
 	@brief An SCPI-based oscilloscope
  */

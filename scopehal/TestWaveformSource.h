@@ -37,6 +37,7 @@
 #define TestWaveformSource_h
 
 #include "../scopehal/AlignedAllocator.h"
+#include "Waveform.h"
 #include <ffts.h>
 #include <random>
 
