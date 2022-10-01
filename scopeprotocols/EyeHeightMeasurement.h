@@ -35,6 +35,8 @@
 #ifndef EyeHeightMeasurement_h
 #define EyeHeightMeasurement_h
 
+#include "Filter.h"
+
 class EyeHeightMeasurement : public Filter
 {
 public:

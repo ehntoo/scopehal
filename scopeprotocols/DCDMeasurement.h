@@ -35,6 +35,8 @@
 #ifndef DCDMeasurement_h
 #define DCDMeasurement_h
 
+#include "Filter.h"
+
 class DCDMeasurement : public Filter
 {
 public:

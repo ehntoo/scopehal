@@ -27,7 +27,7 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
+#include "EthernetRGMIIDecoder.h"
 #include <algorithm>
 
 using namespace std;

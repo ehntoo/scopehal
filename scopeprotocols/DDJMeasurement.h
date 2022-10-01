@@ -35,6 +35,8 @@
 #ifndef DDJMeasurement_h
 #define DDJMeasurement_h
 
+#include "Filter.h"
+
 class DDJMeasurement : public Filter
 {
 public:

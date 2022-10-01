@@ -35,6 +35,8 @@
 #ifndef HorizontalBathtub_h
 #define HorizontalBathtub_h
 
+#include "Filter.h"
+
 class HorizontalBathtub : public Filter
 {
 public:

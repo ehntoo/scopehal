@@ -27,8 +27,9 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
+#include "Ethernet1000BaseXDecoder.h"
 #include <algorithm>
+#include "IBM8b10bDecoder.h"
 
 using namespace std;
 

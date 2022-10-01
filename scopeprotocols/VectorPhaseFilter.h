@@ -35,6 +35,8 @@
 #ifndef VectorPhaseFilter_h
 #define VectorPhaseFilter_h
 
+#include "Filter.h"
+
 class VectorPhaseFilter : public Filter
 {
 public:

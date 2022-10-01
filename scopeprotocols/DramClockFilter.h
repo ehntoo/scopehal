@@ -35,6 +35,8 @@
 #ifndef DramClockFilter_h
 #define DramClockFilter_h
 
+#include "Filter.h"
+
 class DramClockFilter : public Filter
 {
 public:

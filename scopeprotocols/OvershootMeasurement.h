@@ -35,6 +35,8 @@
 #ifndef OvershootMeasurement_h
 #define OvershootMeasurement_h
 
+#include "Filter.h"
+
 class OvershootMeasurement : public Filter
 {
 public:

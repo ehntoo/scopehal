@@ -35,6 +35,8 @@
 #ifndef BurstWidthMeasurement_h
 #define BurstWidthMeasurement_h
 
+#include "Filter.h"
+
 class BurstWidthMeasurement : public Filter
 {
 public:

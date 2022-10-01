@@ -36,6 +36,8 @@
 #ifndef MaximumStatistic_h
 #define MaximumStatistic_h
 
+#include "Statistic.h"
+
 class MaximumStatistic : public Statistic
 {
 public:

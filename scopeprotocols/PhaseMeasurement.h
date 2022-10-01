@@ -35,6 +35,8 @@
 #ifndef PhaseMeasurement_h
 #define PhaseMeasurement_h
 
+#include "Filter.h"
+
 class PhaseMeasurement : public Filter
 {
 public:

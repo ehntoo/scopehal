@@ -35,6 +35,8 @@
 #ifndef DutyCycleMeasurement_h
 #define DutyCycleMeasurement_h
 
+#include "Filter.h"
+
 class DutyCycleMeasurement : public Filter
 {
 public:

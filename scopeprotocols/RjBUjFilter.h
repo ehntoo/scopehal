@@ -35,6 +35,8 @@
 #ifndef RjBUjFilter_h
 #define RjBUjFilter_h
 
+#include "Filter.h"
+
 class RjBUjFilter : public Filter
 {
 public:

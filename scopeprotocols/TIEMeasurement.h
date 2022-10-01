@@ -35,6 +35,8 @@
 #ifndef TIEMeasurement_h
 #define TIEMeasurement_h
 
+#include "Filter.h"
+
 class TIEMeasurement : public Filter
 {
 public:

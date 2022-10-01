@@ -32,7 +32,7 @@
 	@author Andrew D. Zonenberg
 	@brief Implementation of SParameterCascadeFilter
  */
-#include "scopeprotocols.h"
+#include "SParameterCascadeFilter.h"
 
 using namespace std;
 

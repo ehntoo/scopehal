@@ -35,6 +35,8 @@
 #ifndef Ethernet1000BaseXDecoder_h
 #define Ethernet1000BaseXDecoder_h
 
+#include "EthernetProtocolDecoder.h"
+
 class Ethernet1000BaseXDecoder : public EthernetProtocolDecoder
 {
 public:

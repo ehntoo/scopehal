@@ -33,8 +33,9 @@
 	@brief Implementation of EyeMask
  */
 
-#include "scopeprotocols.h"
 #include "EyeMask.h"
+#include "EyePattern.h"
+#include "log.h"
 
 using namespace std;
 

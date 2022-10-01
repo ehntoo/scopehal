@@ -35,6 +35,8 @@
 #ifndef TimeOutsideLevelMeasurement_h
 #define TimeOutsideLevelMeasurement_h
 
+#include "Filter.h"
+
 class TimeOutsideLevelMeasurement : public Filter
 {
 public:

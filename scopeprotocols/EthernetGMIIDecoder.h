@@ -35,6 +35,8 @@
 #ifndef EthernetGMIIDecoder_h
 #define EthernetGMIIDecoder_h
 
+#include "EthernetProtocolDecoder.h"
+
 class EthernetGMIIDecoder : public EthernetProtocolDecoder
 {
 public:

@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
 #include "TimeOutsideLevelMeasurement.h"
 
 using namespace std;

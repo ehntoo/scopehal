@@ -35,6 +35,8 @@
 #ifndef TappedDelayLineFilter_h
 #define TappedDelayLineFilter_h
 
+#include "Filter.h"
+
 /**
 	@brief Performs an 8-tap FIR filter with a multi-sample delay between taps.
 

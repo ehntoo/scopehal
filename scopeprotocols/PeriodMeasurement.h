@@ -35,6 +35,8 @@
 #ifndef PeriodMeasurement_h
 #define PeriodMeasurement_h
 
+#include "Filter.h"
+
 class PeriodMeasurement : public Filter
 {
 public:

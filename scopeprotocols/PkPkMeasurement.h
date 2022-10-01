@@ -35,6 +35,8 @@
 #ifndef PkPkMeasurement_h
 #define PkPkMeasurement_h
 
+#include "Filter.h"
+
 class PkPkMeasurement : public Filter
 {
 public:

@@ -35,6 +35,8 @@
 #ifndef FallMeasurement_h
 #define FallMeasurement_h
 
+#include "Filter.h"
+
 class FallMeasurement : public Filter
 {
 public:

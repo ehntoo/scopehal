@@ -35,6 +35,8 @@
 #ifndef FrequencyMeasurement_h
 #define FrequencyMeasurement_h
 
+#include "Filter.h"
+
 class FrequencyMeasurement : public Filter
 {
 public:

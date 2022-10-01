@@ -35,6 +35,8 @@
 #ifndef TachometerFilter_h
 #define TachometerFilter_h
 
+#include "Filter.h"
+
 class TachometerFilter : public Filter
 {
 public:

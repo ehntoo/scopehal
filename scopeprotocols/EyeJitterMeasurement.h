@@ -35,6 +35,8 @@
 #ifndef EyeJitterMeasurement_h
 #define EyeJitterMeasurement_h
 
+#include "Filter.h"
+
 class EyeJitterMeasurement : public Filter
 {
 public:

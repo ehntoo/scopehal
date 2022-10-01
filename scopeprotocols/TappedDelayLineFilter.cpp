@@ -27,7 +27,6 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "scopeprotocols.h"
 #include "TappedDelayLineFilter.h"
 #ifdef __x86_64__
 #include <immintrin.h>
