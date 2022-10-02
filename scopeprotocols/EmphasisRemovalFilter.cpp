@@ -36,7 +36,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-EmphasisRemovalFilter::EmphasisRemovalFilter(const string& color)
+EmphasisRemovalFilter::EmphasisRemovalFilter(const ScopehalColor color)
 	: Filter(color, CAT_ANALYSIS)
 	, m_dataRateName("Data Rate")
 	, m_emphasisTypeName("Emphasis Type")

@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // SDRAMDecoderBase
 
-SDRAMDecoderBase::SDRAMDecoderBase(const string& color)
+SDRAMDecoderBase::SDRAMDecoderBase(const ScopehalColor color)
 	: Filter(color, CAT_MEMORY)
 {
 	AddProtocolStream("data");
@@ -48,7 +48,7 @@ SDRAMDecoderBase::~SDRAMDecoderBase()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Pretty printing
 
-Gdk::Color SDRAMWaveform::GetColor(size_t i)
+ScopehalColor SDRAMWaveform::GetColor(size_t i)
 {
 	const SDRAMSymbol& s = m_samples[i];
 

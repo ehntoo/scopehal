@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-SParameterSourceFilter::SParameterSourceFilter(const string& color, Category cat)
+SParameterSourceFilter::SParameterSourceFilter(const ScopehalColor color, Category cat)
 	: Filter(color, cat, Unit(Unit::UNIT_HZ))
 {
 	SetupStreams();

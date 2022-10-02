@@ -40,7 +40,7 @@
 class TachometerFilter : public Filter
 {
 public:
-	TachometerFilter(const std::string& color);
+	TachometerFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

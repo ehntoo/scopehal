@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-MovingAverageFilter::MovingAverageFilter(const string& color)
+MovingAverageFilter::MovingAverageFilter(const ScopehalColor color)
 	: Filter(color, CAT_MATH)
 {
 	AddStream(Unit(Unit::UNIT_VOLTS), "data", Stream::STREAM_TYPE_ANALOG);

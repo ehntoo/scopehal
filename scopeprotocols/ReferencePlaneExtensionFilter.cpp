@@ -41,7 +41,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-ReferencePlaneExtensionFilter::ReferencePlaneExtensionFilter(const string& color)
+ReferencePlaneExtensionFilter::ReferencePlaneExtensionFilter(const ScopehalColor color)
 	: SParameterFilter(color, CAT_RF)
 {
 	m_parameters[m_portCountName].signal_changed().connect(sigc::mem_fun(*this, &ReferencePlaneExtensionFilter::OnPortCountChanged));

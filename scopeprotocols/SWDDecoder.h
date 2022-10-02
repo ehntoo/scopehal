@@ -78,7 +78,7 @@ class SWDWaveform : public SparseWaveform<SWDSymbol>
 public:
 	SWDWaveform () : SparseWaveform<SWDSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class SWDDecoder : public Filter
@@ -94,7 +94,7 @@ private:
 	static const uint8_t c_wakeup[16];
 
 public:
-	SWDDecoder(const std::string& color);
+	SWDDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

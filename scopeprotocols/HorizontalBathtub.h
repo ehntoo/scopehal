@@ -40,7 +40,7 @@
 class HorizontalBathtub : public Filter
 {
 public:
-	HorizontalBathtub(const std::string& color);
+	HorizontalBathtub(const ScopehalColor color);
 
 	virtual void Refresh();
 

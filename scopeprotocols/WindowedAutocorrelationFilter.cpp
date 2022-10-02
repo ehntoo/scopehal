@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-WindowedAutocorrelationFilter::WindowedAutocorrelationFilter(const string& color)
+WindowedAutocorrelationFilter::WindowedAutocorrelationFilter(const ScopehalColor color)
 	: Filter(color, CAT_MATH)
 {
 	AddStream(Unit(Unit::UNIT_VOLTS), "data", Stream::STREAM_TYPE_ANALOG);

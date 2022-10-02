@@ -63,7 +63,7 @@ struct ComplexToMagnitudeArgs
 class FFTFilter : public PeakDetectionFilter
 {
 public:
-	FFTFilter(const std::string& color);
+	FFTFilter(const ScopehalColor color);
 	virtual ~FFTFilter();
 
 	virtual void Refresh(vk::raii::CommandBuffer& cmdBuf, vk::raii::Queue& queue);

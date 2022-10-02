@@ -27,6 +27,7 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
+#include "ScopehalColor.h"
 #ifdef _WIN32
 #include <chrono>
 #include <thread>
@@ -153,7 +154,7 @@ PicoOscilloscope::PicoOscilloscope(SCPITransport* transport)
 		new OscilloscopeChannel(
 		this,
 		"EX",
-		"",
+		ScopehalColor(),
 		Unit(Unit::UNIT_FS),
 		Unit(Unit::UNIT_COUNTS),
 		Stream::STREAM_TYPE_TRIGGER,

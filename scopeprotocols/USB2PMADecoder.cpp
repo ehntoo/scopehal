@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-USB2PMADecoder::USB2PMADecoder(const string& color)
+USB2PMADecoder::USB2PMADecoder(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 {
 	AddProtocolStream("data");
@@ -199,7 +199,7 @@ void USB2PMADecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color USB2PMAWaveform::GetColor(size_t i)
+ScopehalColor USB2PMAWaveform::GetColor(size_t i)
 {
 	auto sample = m_samples[i];
 	switch(sample.m_type)

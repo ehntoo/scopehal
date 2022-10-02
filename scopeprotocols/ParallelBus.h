@@ -40,7 +40,7 @@
 class ParallelBus : public Filter
 {
 public:
-	ParallelBus(const std::string& color);
+	ParallelBus(const ScopehalColor color);
 
 	virtual void Refresh();
 

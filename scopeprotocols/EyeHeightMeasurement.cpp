@@ -36,7 +36,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-EyeHeightMeasurement::EyeHeightMeasurement(const string& color)
+EyeHeightMeasurement::EyeHeightMeasurement(const ScopehalColor color)
 	: Filter(color, CAT_MEASUREMENT)
 {
 	m_xAxisUnit = Unit(Unit::UNIT_FS);

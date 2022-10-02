@@ -116,13 +116,13 @@ class SPIFlashWaveform : public SparseWaveform<SPIFlashSymbol>
 public:
 	SPIFlashWaveform () : SparseWaveform<SPIFlashSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class SPIFlashDecoder : public PacketDecoder
 {
 public:
-	SPIFlashDecoder(const std::string& color);
+	SPIFlashDecoder(const ScopehalColor color);
 	virtual ~SPIFlashDecoder();
 
 	virtual void Refresh();

@@ -40,7 +40,7 @@
 class DigitalToNRZFilter : public WaveformGenerationFilter
 {
 public:
-	DigitalToNRZFilter(const std::string& color);
+	DigitalToNRZFilter(const ScopehalColor color);
 
 	static std::string GetProtocolName();
 

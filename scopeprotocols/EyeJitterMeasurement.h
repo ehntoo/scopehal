@@ -40,7 +40,7 @@
 class EyeJitterMeasurement : public Filter
 {
 public:
-	EyeJitterMeasurement(const std::string& color);
+	EyeJitterMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

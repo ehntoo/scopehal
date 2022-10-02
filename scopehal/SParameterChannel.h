@@ -44,7 +44,7 @@ class SParameterChannel : public OscilloscopeChannel
 public:
 	SParameterChannel(Oscilloscope* scope,
 		const std::string& hwname,
-		const std::string& color,
+		const ScopehalColor color,
 		size_t index)
 		: OscilloscopeChannel(scope, hwname, color, Unit(Unit::UNIT_HZ), index)
 	{

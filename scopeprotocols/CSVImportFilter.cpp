@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-CSVImportFilter::CSVImportFilter(const string& color)
+CSVImportFilter::CSVImportFilter(const ScopehalColor color)
 	: ImportFilter(color)
 {
 	m_fpname = "CSV File";

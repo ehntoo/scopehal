@@ -76,13 +76,13 @@ class DSIFrameWaveform : public SparseWaveform<DSIFrameSymbol>
 public:
 	DSIFrameWaveform () : SparseWaveform<DSIFrameSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class DSIFrameDecoder : public PacketDecoder
 {
 public:
-	DSIFrameDecoder(const std::string& color);
+	DSIFrameDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

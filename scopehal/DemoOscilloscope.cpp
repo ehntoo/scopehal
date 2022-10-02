@@ -36,6 +36,7 @@
 #include <thread>
 #include "OscilloscopeChannel.h"
 #include "DemoOscilloscope.h"
+#include "ScopehalColor.h"
 #include "ScopehalUtils.h"
 
 using namespace std;
@@ -61,8 +62,17 @@ DemoOscilloscope::DemoOscilloscope(SCPITransport* transport)
 	m_serial = "12345";
 
 	//Create a bunch of channels
-	static const char* colors[8] =
-	{ "#ffff00", "#ff6abc", "#00ffff", "#00c100", "#d7ffd7", "#8482ff", "#ff0000", "#ff8000" };
+	static const ScopehalColor colors[8] =
+	{
+		ScopehalColor("#ffff00"),
+		ScopehalColor("#ff6abc"),
+		ScopehalColor("#00ffff"),
+		ScopehalColor("#00c100"),
+		ScopehalColor("#d7ffd7"),
+		ScopehalColor("#8482ff"),
+		ScopehalColor("#ff0000"),
+		ScopehalColor("#ff8000"),
+	};
 
 	for(size_t i=0; i<4; i++)
 	{

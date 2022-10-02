@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-TCPDecoder::TCPDecoder(const string& color)
+TCPDecoder::TCPDecoder(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 {
 	AddProtocolStream("data");
@@ -393,7 +393,7 @@ void TCPDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color TCPWaveform::GetColor(size_t i)
+ScopehalColor TCPWaveform::GetColor(size_t i)
 {
 	switch(m_samples[i].m_type)
 	{

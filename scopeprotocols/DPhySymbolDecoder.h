@@ -70,7 +70,7 @@ class DPhySymbolWaveform : public SparseWaveform<DPhySymbol>
 public:
 	DPhySymbolWaveform () : SparseWaveform<DPhySymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 /**
@@ -81,7 +81,7 @@ public:
 class DPhySymbolDecoder : public Filter
 {
 public:
-	DPhySymbolDecoder(const std::string& color);
+	DPhySymbolDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

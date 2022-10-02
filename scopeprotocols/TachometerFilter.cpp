@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-TachometerFilter::TachometerFilter(const string& color)
+TachometerFilter::TachometerFilter(const ScopehalColor color)
 	: Filter(color, CAT_MISC)
 {
 	AddStream(Unit(Unit::UNIT_RPM), "data", Stream::STREAM_TYPE_ANALOG);

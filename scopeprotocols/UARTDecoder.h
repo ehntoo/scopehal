@@ -37,22 +37,23 @@
 #define UARTDecoder_h
 
 #include "../scopehal/PacketDecoder.h"
+#include "ScopehalColor.h"
 
 class ByteWaveform : public SparseWaveform<char>
 {
 public:
-	ByteWaveform (const std::string& color) : SparseWaveform<char>(), m_color(color) {};
+	ByteWaveform (const ScopehalColor color) : SparseWaveform<char>(), m_color(color) {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 
 private:
-	const std::string& m_color;
+	const ScopehalColor m_color;
 };
 
 class UARTDecoder : public PacketDecoder
 {
 public:
-	UARTDecoder(const std::string& color);
+	UARTDecoder(const ScopehalColor color);
 	virtual ~UARTDecoder();
 
 	virtual void Refresh();

@@ -51,7 +51,7 @@ struct DeEmbedNormalizationArgs
 class DeEmbedFilter : public Filter
 {
 public:
-	DeEmbedFilter(const std::string& color);
+	DeEmbedFilter(const ScopehalColor color);
 	virtual ~DeEmbedFilter();
 
 	virtual void Refresh(vk::raii::CommandBuffer& cmdBuf, vk::raii::Queue& queue);

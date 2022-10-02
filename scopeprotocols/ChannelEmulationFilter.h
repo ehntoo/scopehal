@@ -40,7 +40,7 @@
 class ChannelEmulationFilter : public DeEmbedFilter
 {
 public:
-	ChannelEmulationFilter(const std::string& color);
+	ChannelEmulationFilter(const ScopehalColor color);
 
 	virtual void Refresh(vk::raii::CommandBuffer& cmdBuf, vk::raii::Queue& queue);
 

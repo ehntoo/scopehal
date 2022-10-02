@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DCDMeasurement::DCDMeasurement(const string& color)
+DCDMeasurement::DCDMeasurement(const ScopehalColor color)
 	: Filter(color, CAT_MEASUREMENT)
 {
 	AddStream(Unit(Unit::UNIT_FS), "data", Stream::STREAM_TYPE_ANALOG);

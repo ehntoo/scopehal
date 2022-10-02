@@ -41,7 +41,7 @@
 class TDRStepDeEmbedFilter : public Filter
 {
 public:
-	TDRStepDeEmbedFilter(const std::string& color);
+	TDRStepDeEmbedFilter(const ScopehalColor color);
 	virtual ~TDRStepDeEmbedFilter();
 
 	virtual void Refresh();

@@ -40,7 +40,7 @@
 class DivideFilter : public Filter
 {
 public:
-	DivideFilter(const std::string& color);
+	DivideFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

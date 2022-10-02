@@ -78,13 +78,13 @@ class VICPWaveform : public SparseWaveform<VICPSymbol>
 public:
 	VICPWaveform () : SparseWaveform<VICPSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class VICPDecoder : public PacketDecoder
 {
 public:
-	VICPDecoder(const std::string& color);
+	VICPDecoder(const ScopehalColor color);
 	virtual ~VICPDecoder();
 
 	virtual void Refresh();

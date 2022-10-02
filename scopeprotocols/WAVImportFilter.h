@@ -40,7 +40,7 @@
 class WAVImportFilter : public ImportFilter
 {
 public:
-	WAVImportFilter(const std::string& color);
+	WAVImportFilter(const ScopehalColor color);
 
 	static std::string GetProtocolName();
 

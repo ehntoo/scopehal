@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-MDIODecoder::MDIODecoder(const string& color)
+MDIODecoder::MDIODecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_SERIAL)
 {
 	//Set up channels
@@ -622,7 +622,7 @@ vector<string> MDIODecoder::GetHeaders()
 	return ret;
 }
 
-Gdk::Color MDIOWaveform::GetColor(size_t i)
+ScopehalColor MDIOWaveform::GetColor(size_t i)
 {
 	const MDIOSymbol& s = m_samples[i];
 

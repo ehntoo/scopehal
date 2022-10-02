@@ -36,6 +36,7 @@
 #define ESPIDecoder_h
 
 #include "../scopehal/PacketDecoder.h"
+#include "ScopehalColor.h"
 
 class ESPISymbol
 {
@@ -189,7 +190,7 @@ class ESPIWaveform : public SparseWaveform<ESPISymbol>
 public:
 	ESPIWaveform () : SparseWaveform<ESPISymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 /**
@@ -200,7 +201,7 @@ public:
 class ESPIDecoder : public PacketDecoder
 {
 public:
-	ESPIDecoder(const std::string& color);
+	ESPIDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

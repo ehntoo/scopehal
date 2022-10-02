@@ -40,7 +40,7 @@
 class EmphasisRemovalFilter : public Filter
 {
 public:
-	EmphasisRemovalFilter(const std::string& color);
+	EmphasisRemovalFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

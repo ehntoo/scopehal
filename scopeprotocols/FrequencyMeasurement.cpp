@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-FrequencyMeasurement::FrequencyMeasurement(const string& color)
+FrequencyMeasurement::FrequencyMeasurement(const ScopehalColor color)
 	: Filter(color, CAT_MEASUREMENT)
 {
 	AddStream(Unit(Unit::UNIT_HZ), "data", Stream::STREAM_TYPE_ANALOG);

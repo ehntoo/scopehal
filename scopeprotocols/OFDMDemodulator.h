@@ -41,7 +41,7 @@
 class OFDMDemodulator : public Filter
 {
 public:
-	OFDMDemodulator(const std::string& color);
+	OFDMDemodulator(const ScopehalColor color);
 	virtual ~OFDMDemodulator();
 
 	virtual void Refresh();

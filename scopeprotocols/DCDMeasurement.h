@@ -40,7 +40,7 @@
 class DCDMeasurement : public Filter
 {
 public:
-	DCDMeasurement(const std::string& color);
+	DCDMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

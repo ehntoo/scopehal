@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-ParallelBus::ParallelBus(const string& color)
+ParallelBus::ParallelBus(const ScopehalColor color)
 	: Filter(color, CAT_BUS)
 {
 	AddStream( Unit(Unit::UNIT_COUNTS), "data", Stream::STREAM_TYPE_DIGITAL_BUS);

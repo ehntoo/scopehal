@@ -41,7 +41,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DDR3Decoder::DDR3Decoder(const string& color)
+DDR3Decoder::DDR3Decoder(const ScopehalColor color)
 	: SDRAMDecoderBase(color)
 {
 	CreateInput("CLK");

@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-TopMeasurement::TopMeasurement(const string& color)
+TopMeasurement::TopMeasurement(const ScopehalColor color)
 	: Filter(color, CAT_MEASUREMENT)
 {
 	AddStream(Unit(Unit::UNIT_VOLTS), "data", Stream::STREAM_TYPE_ANALOG);

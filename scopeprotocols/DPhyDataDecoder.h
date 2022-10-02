@@ -36,6 +36,7 @@
 #define DPhyDataDecoder_h
 
 #include "Filter.h"
+#include "ScopehalColor.h"
 #include "Waveform.h"
 
 class DPhyDataSymbol
@@ -69,13 +70,13 @@ class DPhyDataWaveform : public SparseWaveform<DPhyDataSymbol>
 public:
 	DPhyDataWaveform () : SparseWaveform<DPhyDataSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class DPhyDataDecoder : public Filter
 {
 public:
-	DPhyDataDecoder(const std::string& color);
+	DPhyDataDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

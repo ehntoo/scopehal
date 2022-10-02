@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-TIEMeasurement::TIEMeasurement(const string& color)
+TIEMeasurement::TIEMeasurement(const ScopehalColor color)
 	: Filter(color, CAT_CLOCK)
 	, m_threshname("Threshold")
 	, m_skipname("Skip Start")

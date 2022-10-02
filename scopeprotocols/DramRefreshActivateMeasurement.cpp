@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DramRefreshActivateMeasurement::DramRefreshActivateMeasurement(const string& color)
+DramRefreshActivateMeasurement::DramRefreshActivateMeasurement(const ScopehalColor color)
 	: Filter(color, CAT_MEASUREMENT)
 {
 	AddStream(Unit(Unit::UNIT_FS), "data", Stream::STREAM_TYPE_ANALOG);

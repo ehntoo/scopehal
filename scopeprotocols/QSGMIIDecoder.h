@@ -44,7 +44,7 @@
 class QSGMIIDecoder : public Filter
 {
 public:
-	QSGMIIDecoder(const std::string& color);
+	QSGMIIDecoder(const ScopehalColor color);
 	virtual ~QSGMIIDecoder();
 
 	virtual void Refresh();

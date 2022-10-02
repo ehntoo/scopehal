@@ -41,7 +41,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-SDCmdDecoder::SDCmdDecoder(const string& color)
+SDCmdDecoder::SDCmdDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_MEMORY)
 	, m_cardtypename("Card Type")
 {
@@ -380,7 +380,7 @@ bool SDCmdDecoder::GetShowDataColumn()
 	return false;
 }
 
-Gdk::Color SDCmdWaveform::GetColor(size_t i)
+ScopehalColor SDCmdWaveform::GetColor(size_t i)
 {
 	auto s = m_samples[i];
 	switch(s.m_stype)

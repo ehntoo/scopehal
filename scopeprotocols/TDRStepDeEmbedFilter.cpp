@@ -37,7 +37,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-TDRStepDeEmbedFilter::TDRStepDeEmbedFilter(const string& color)
+TDRStepDeEmbedFilter::TDRStepDeEmbedFilter(const ScopehalColor color)
 	: Filter(color, CAT_ANALYSIS)
 {
 	m_xAxisUnit = Unit(Unit::UNIT_HZ);

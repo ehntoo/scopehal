@@ -28,19 +28,20 @@
 ***********************************************************************************************************************/
 
 #include "PacketDecoder.h"
+#include "ScopehalColor.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Color schemes
 
-Gdk::Color PacketDecoder::m_backgroundColors[PROTO_STANDARD_COLOR_COUNT] =
+ScopehalColor PacketDecoder::m_backgroundColors[PROTO_STANDARD_COLOR_COUNT] =
 {
-	Gdk::Color("#101010"),		//PROTO_COLOR_DEFAULT
-	Gdk::Color("#800000"),		//PROTO_COLOR_ERROR
-	Gdk::Color("#000080"),		//PROTO_COLOR_STATUS
-	Gdk::Color("#808000"),		//PROTO_COLOR_CONTROL
-	Gdk::Color("#336699"),		//PROTO_COLOR_DATA_READ
-	Gdk::Color("#339966"),		//PROTO_COLOR_DATA_WRITE
-	Gdk::Color("#600050"),		//PROTO_COLOR_COMMAND
+	{0x10, 0x10, 0x10},		//PROTO_COLOR_DEFAULT
+	{0x80, 0x00, 0x00},		//PROTO_COLOR_ERROR
+	{0x00, 0x00, 0x80},		//PROTO_COLOR_STATUS
+	{0x80, 0x80, 0x00},		//PROTO_COLOR_CONTROL
+	{0x33, 0x66, 0x99},		//PROTO_COLOR_DATA_READ
+	{0x33, 0x99, 0x66},		//PROTO_COLOR_DATA_WRITE
+	{0x60, 0x00, 0x50},		//PROTO_COLOR_COMMAND
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,7 +50,7 @@ Gdk::Color PacketDecoder::m_backgroundColors[PROTO_STANDARD_COLOR_COUNT] =
 Packet::Packet()
 	: m_offset(0)
 	, m_len(0)
-	, m_displayForegroundColor(Gdk::Color("#ffffff"))
+	, m_displayForegroundColor(0xFF, 0xFF, 0xFF)
 	, m_displayBackgroundColor(PacketDecoder::m_backgroundColors[PacketDecoder::PROTO_COLOR_DEFAULT])
 {
 }
@@ -61,7 +62,7 @@ Packet::~Packet()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-PacketDecoder::PacketDecoder(const std::string& color, Category cat)
+PacketDecoder::PacketDecoder(const ScopehalColor color, Category cat)
 	: Filter(color, cat, Unit(Unit::UNIT_FS))
 {
 	AddProtocolStream("data");

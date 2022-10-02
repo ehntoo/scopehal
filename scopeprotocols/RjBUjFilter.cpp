@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-RjBUjFilter::RjBUjFilter(const string& color)
+RjBUjFilter::RjBUjFilter(const ScopehalColor color)
 	: Filter(color, CAT_CLOCK)
 {
 	AddStream(Unit(Unit::UNIT_FS), "data", Stream::STREAM_TYPE_ANALOG);

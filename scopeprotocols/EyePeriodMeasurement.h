@@ -40,7 +40,7 @@
 class EyePeriodMeasurement : public Filter
 {
 public:
-	EyePeriodMeasurement(const std::string& color);
+	EyePeriodMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

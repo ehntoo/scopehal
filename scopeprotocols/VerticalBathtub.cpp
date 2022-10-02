@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-VerticalBathtub::VerticalBathtub(const string& color)
+VerticalBathtub::VerticalBathtub(const ScopehalColor color)
 	: Filter(color, CAT_ANALYSIS)
 {
 	m_xAxisUnit = Unit(Unit::UNIT_MILLIVOLTS);

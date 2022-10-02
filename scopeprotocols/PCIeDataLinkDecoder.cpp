@@ -41,7 +41,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-PCIeDataLinkDecoder::PCIeDataLinkDecoder(const string& color)
+PCIeDataLinkDecoder::PCIeDataLinkDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_BUS)
 	, m_framingMode("Framing Mode")
 {
@@ -671,7 +671,7 @@ uint32_t PCIeDataLinkDecoder::CalculateTlpCRC(Packet* pack)
 		return CRC32(&pack->m_data[0], 0, len - 1);
 }
 
-Gdk::Color PCIeDataLinkWaveform::GetColor(size_t i)
+ScopehalColor PCIeDataLinkWaveform::GetColor(size_t i)
 {
 	auto s = m_samples[i];
 

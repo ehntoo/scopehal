@@ -40,7 +40,7 @@
 class VCDImportFilter : public ImportFilter
 {
 public:
-	VCDImportFilter(const std::string& color);
+	VCDImportFilter(const ScopehalColor color);
 
 	static std::string GetProtocolName();
 

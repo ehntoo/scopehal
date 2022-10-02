@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-PCIeGen2LogicalDecoder::PCIeGen2LogicalDecoder(const string& color)
+PCIeGen2LogicalDecoder::PCIeGen2LogicalDecoder(const ScopehalColor color)
 	: Filter(color, CAT_BUS)
 	, m_portCountName("Lane Count")
 {
@@ -341,7 +341,7 @@ uint8_t PCIeGen2LogicalDecoder::RunScrambler(uint16_t& state)
 	return ret;
 }
 
-Gdk::Color PCIeLogicalWaveform::GetColor(size_t i)
+ScopehalColor PCIeLogicalWaveform::GetColor(size_t i)
 {
 	const PCIeLogicalSymbol& s = m_samples[i];
 

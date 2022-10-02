@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-VCDImportFilter::VCDImportFilter(const string& color)
+VCDImportFilter::VCDImportFilter(const ScopehalColor color)
 	: ImportFilter(color)
 {
 	m_fpname = "VCD File";

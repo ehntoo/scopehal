@@ -40,7 +40,7 @@
 class FSKDecoder : public Filter
 {
 public:
-	FSKDecoder(const std::string& color);
+	FSKDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

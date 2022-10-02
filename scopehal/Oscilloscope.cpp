@@ -271,7 +271,7 @@ string Oscilloscope::SerializeConfiguration(IDTable& table)
 		config += tmp;
 		snprintf(tmp, sizeof(tmp), "                index:       %zu\n", i);
 		config += tmp;
-		snprintf(tmp, sizeof(tmp), "                color:       \"%s\"\n", chan->m_displaycolor.c_str());
+		snprintf(tmp, sizeof(tmp), "                color:       \"0x%02x%02x%02x\"\n", chan->m_displaycolor.red, chan->m_displaycolor.green, chan->m_displaycolor.blue);
 		config += tmp;
 		snprintf(tmp, sizeof(tmp), "                nick:        \"%s\"\n", chan->GetDisplayName().c_str());
 		config += tmp;

@@ -40,7 +40,7 @@
 class PhaseMeasurement : public Filter
 {
 public:
-	PhaseMeasurement(const std::string& color);
+	PhaseMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

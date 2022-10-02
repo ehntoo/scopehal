@@ -40,7 +40,7 @@
 class GroupDelayFilter : public Filter
 {
 public:
-	GroupDelayFilter(const std::string& color);
+	GroupDelayFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

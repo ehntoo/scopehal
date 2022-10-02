@@ -64,13 +64,13 @@ class Ethernet64b66bWaveform : public SparseWaveform<Ethernet64b66bSymbol>
 public:
 	Ethernet64b66bWaveform () : SparseWaveform<Ethernet64b66bSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class Ethernet64b66bDecoder : public Filter
 {
 public:
-	Ethernet64b66bDecoder(const std::string& color);
+	Ethernet64b66bDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

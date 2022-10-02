@@ -63,7 +63,7 @@ float blackman(float x, float width)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-UpsampleFilter::UpsampleFilter(const string& color)
+UpsampleFilter::UpsampleFilter(const ScopehalColor color)
 	: Filter(color, CAT_MATH)
 	, m_computePipeline("shaders/UpsampleFilter.spv", 3, sizeof(UpsampleFilterArgs))
 {

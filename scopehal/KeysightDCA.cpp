@@ -29,6 +29,7 @@
 
 #include "KeysightDCA.h"
 #include "DCAEdgeTrigger.h"
+#include "ScopehalColor.h"
 #include "ScopehalUtils.h"
 
 using namespace std;
@@ -104,7 +105,7 @@ void KeysightDCA::AddTriggerSource(string hw_name, string display_name)
 	auto channel = new OscilloscopeChannel(
 		this,
 		hw_name,
-		"",
+		ScopehalColor(),
 		Unit(Unit::UNIT_FS),
 		Unit(Unit::UNIT_VOLTS),
 		Stream::STREAM_TYPE_TRIGGER,

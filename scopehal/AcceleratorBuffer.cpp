@@ -27,30 +27,25 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#ifndef StandardColors_h
-#define StandardColors_h
+#include "AcceleratorBuffer.h"
 
-#include "ScopehalColor.h"
+using namespace std;
 
-// TODO: This doesn't seem like it belongs in scopehal
-
-namespace StandardColors
+void AcceleratorBufferUtil::VkBufferCopy()
 {
-	enum FilterColor
-	{
-		COLOR_DATA,			//protocol data
-		COLOR_CONTROL,		//generic control sequences
-		COLOR_ADDRESS,		//addresses or device IDs
-		COLOR_PREAMBLE,		//preambles, start bits, and other constant framing
-		COLOR_CHECKSUM_OK,	//valid CRC/checksum
-		COLOR_CHECKSUM_BAD,	//invalid CRC/checksum
-		COLOR_ERROR,		//malformed traffic
-		COLOR_IDLE,			//downtime between frames
+	std::lock_guard<std::mutex> lock(g_vkTransferMutex);
 
-		STANDARD_COLOR_COUNT
-	};
+	//Make the transfer request
+	g_vkTransferCommandBuffer->begin({});
+	vk::BufferCopy region(0, 0, m_size * sizeof(T));
+	g_vkTransferCommandBuffer->copyBuffer(**rhs.m_gpuBuffer, **m_gpuBuffer, {region});
+	g_vkTransferCommandBuffer->end();
 
-	extern ScopehalColor colors[STANDARD_COLOR_COUNT];
+	//Submit the request and block until it completes
+	vk::raii::Fence fence(*g_vkComputeDevice, vk::FenceCreateInfo());
+	vk::SubmitInfo info({}, {}, **g_vkTransferCommandBuffer);
+	g_vkTransferQueue->submit(info, *fence);
+	while(vk::Result::eTimeout == g_vkComputeDevice->waitForFences({*fence}, VK_TRUE, 1000 * 1000))
+	{}
+
 }
-
-#endif // StandardColors_h

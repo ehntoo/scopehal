@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-MilStd1553Decoder::MilStd1553Decoder(const string& color)
+MilStd1553Decoder::MilStd1553Decoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_BUS)
 {
 	CreateInput("in");
@@ -678,7 +678,7 @@ void MilStd1553Decoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color MilStd1553Waveform::GetColor(size_t i)
+ScopehalColor MilStd1553Waveform::GetColor(size_t i)
 {
 	const MilStd1553Symbol& s = m_samples[i];
 	switch(s.m_stype)

@@ -31,15 +31,15 @@
 
 namespace StandardColors
 {
-	Gdk::Color colors[StandardColors::STANDARD_COLOR_COUNT] =
+	ScopehalColor colors[StandardColors::STANDARD_COLOR_COUNT] =
 	{
-		Gdk::Color("#336699"),	//COLOR_DATA
-		Gdk::Color("#c000a0"),	//COLOR_CONTROL
-		Gdk::Color("#ffff00"),	//COLOR_ADDRESS
-		Gdk::Color("#808080"),	//COLOR_PREAMBLE
-		Gdk::Color("#00ff00"),	//COLOR_CHECKSUM_OK
-		Gdk::Color("#ff0000"),	//COLOR_CHECKSUM_BAD
-		Gdk::Color("#ff0000"),	//COLOR_ERROR
-		Gdk::Color("#404040")	//COLOR_IDLE
+		{0x33, 0x66, 0x99},	//COLOR_DATA
+		{0xc0, 0x00, 0xa0},	//COLOR_CONTROL
+		{0xff, 0xff, 0x00},	//COLOR_ADDRESS
+		{0x80, 0x80, 0x80},	//COLOR_PREAMBLE
+		{0x00, 0xff, 0x00},	//COLOR_CHECKSUM_OK
+		{0xff, 0x00, 0x00},	//COLOR_CHECKSUM_BAD
+		{0xff, 0x00, 0x00},	//COLOR_ERROR
+		{0x40, 0x40, 0x40}	//COLOR_IDLE
 	};
 }

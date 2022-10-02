@@ -36,7 +36,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-EyeBitRateMeasurement::EyeBitRateMeasurement(const string& color)
+EyeBitRateMeasurement::EyeBitRateMeasurement(const ScopehalColor color)
 	: Filter(color, CAT_MEASUREMENT)
 {
 	AddStream(Unit(Unit::UNIT_BITRATE), "data", Stream::STREAM_TYPE_ANALOG);

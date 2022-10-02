@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-ClockRecoveryFilter::ClockRecoveryFilter(const string& color)
+ClockRecoveryFilter::ClockRecoveryFilter(const ScopehalColor color)
 	: Filter(color, CAT_CLOCK)
 {
 	AddDigitalStream("data");

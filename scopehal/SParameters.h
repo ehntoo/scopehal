@@ -36,6 +36,7 @@
 #define SParameters_h
 
 #include <complex>
+#include <map>
 #include "Waveform.h"
 #include "log.h"
 

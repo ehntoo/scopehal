@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-PhaseMeasurement::PhaseMeasurement(const string& color)
+PhaseMeasurement::PhaseMeasurement(const ScopehalColor color)
 	: Filter(color, CAT_MEASUREMENT)
 	, m_freqModeName("Frequency Mode")
 	, m_freqName("Center Frequency")

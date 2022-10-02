@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-CurrentShuntFilter::CurrentShuntFilter(const string& color)
+CurrentShuntFilter::CurrentShuntFilter(const ScopehalColor color)
 	: Filter(color, CAT_POWER)
 {
 	AddStream(Unit(Unit::UNIT_AMPS), "data", Stream::STREAM_TYPE_ANALOG);

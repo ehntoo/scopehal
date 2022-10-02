@@ -40,7 +40,7 @@
 class JitterSpectrumFilter : public FFTFilter
 {
 public:
-	JitterSpectrumFilter(const std::string& color);
+	JitterSpectrumFilter(const ScopehalColor color);
 	virtual ~JitterSpectrumFilter();
 
 	virtual void Refresh(vk::raii::CommandBuffer& cmdBuf, vk::raii::Queue& queue);

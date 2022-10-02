@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-PeakHoldFilter::PeakHoldFilter(const string& color)
+PeakHoldFilter::PeakHoldFilter(const ScopehalColor color)
 	: PeakDetectionFilter(color, CAT_MATH)
 {
 	AddStream(Unit(Unit::UNIT_VOLTS), "data", Stream::STREAM_TYPE_ANALOG);

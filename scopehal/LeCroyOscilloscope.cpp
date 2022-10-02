@@ -28,6 +28,7 @@
 ***********************************************************************************************************************/
 
 #include "LeCroyOscilloscope.h"
+#include "ScopehalColor.h"
 #include "base64.h"
 #include <locale>
 #include <omp.h>
@@ -93,7 +94,7 @@ void LeCroyOscilloscope::SharedCtorInit()
 	m_extTrigChannel = new OscilloscopeChannel(
 		this,
 		"Ext",
-		"",
+		ScopehalColor(),
 		Unit(Unit::UNIT_FS),
 		Unit(Unit::UNIT_VOLTS),
 		Stream::STREAM_TYPE_TRIGGER,

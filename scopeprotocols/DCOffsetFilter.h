@@ -40,7 +40,7 @@
 class DCOffsetFilter : public Filter
 {
 public:
-	DCOffsetFilter(const std::string& color);
+	DCOffsetFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

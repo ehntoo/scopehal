@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-QSGMIIDecoder::QSGMIIDecoder(const string& color)
+QSGMIIDecoder::QSGMIIDecoder(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 {
 	CreateInput("data");

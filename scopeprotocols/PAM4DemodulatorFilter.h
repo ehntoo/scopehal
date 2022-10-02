@@ -40,7 +40,7 @@
 class PAM4DemodulatorFilter : public Filter
 {
 public:
-	PAM4DemodulatorFilter(const std::string& color);
+	PAM4DemodulatorFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

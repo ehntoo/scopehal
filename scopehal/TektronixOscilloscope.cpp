@@ -229,7 +229,7 @@ TektronixOscilloscope::TektronixOscilloscope(SCPITransport* transport)
 			m_extTrigChannel = new OscilloscopeChannel(
 				this,
 				"AUX",
-				"",
+				ScopehalColor(),
 				Unit(Unit::UNIT_FS),
 				Unit(Unit::UNIT_VOLTS),
 				Stream::STREAM_TYPE_TRIGGER,
@@ -241,7 +241,7 @@ TektronixOscilloscope::TektronixOscilloscope(SCPITransport* transport)
 			m_extTrigChannel = new OscilloscopeChannel(
 				this,
 				"EX",
-				"",
+				ScopehalColor(),
 				Unit(Unit::UNIT_FS),
 				Unit(Unit::UNIT_VOLTS),
 				Stream::STREAM_TYPE_TRIGGER,

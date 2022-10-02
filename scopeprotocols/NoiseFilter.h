@@ -41,7 +41,7 @@
 class NoiseFilter : public Filter
 {
 public:
-	NoiseFilter(const std::string& color);
+	NoiseFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

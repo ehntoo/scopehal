@@ -40,7 +40,7 @@
 class InvertFilter : public Filter
 {
 public:
-	InvertFilter(const std::string& color);
+	InvertFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

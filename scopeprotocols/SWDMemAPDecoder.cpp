@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-SWDMemAPDecoder::SWDMemAPDecoder(const string& color)
+SWDMemAPDecoder::SWDMemAPDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_MEMORY)
 {
 	CreateInput("swd");
@@ -341,7 +341,7 @@ void SWDMemAPDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color SWDMemAPWaveform::GetColor(size_t /*i*/)
+ScopehalColor SWDMemAPWaveform::GetColor(size_t /*i*/)
 {
 	return StandardColors::colors[StandardColors::COLOR_DATA];
 }

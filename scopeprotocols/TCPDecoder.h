@@ -77,13 +77,13 @@ class TCPWaveform : public SparseWaveform<TCPSymbol>
 public:
 	TCPWaveform () : SparseWaveform<TCPSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class TCPDecoder : public Filter
 {
 public:
-	TCPDecoder(const std::string& color);
+	TCPDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

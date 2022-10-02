@@ -40,7 +40,7 @@
 class DutyCycleMeasurement : public Filter
 {
 public:
-	DutyCycleMeasurement(const std::string& color);
+	DutyCycleMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

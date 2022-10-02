@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-Ethernet64b66bDecoder::Ethernet64b66bDecoder(const string& color)
+Ethernet64b66bDecoder::Ethernet64b66bDecoder(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 {
 	AddProtocolStream("data");
@@ -179,7 +179,7 @@ void Ethernet64b66bDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color Ethernet64b66bWaveform::GetColor(size_t i)
+ScopehalColor Ethernet64b66bWaveform::GetColor(size_t i)
 {
 	const Ethernet64b66bSymbol& s = m_samples[i];
 

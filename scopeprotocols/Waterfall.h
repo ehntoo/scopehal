@@ -89,7 +89,7 @@ protected:
 class Waterfall : public Filter
 {
 public:
-	Waterfall(const std::string& color);
+	Waterfall(const ScopehalColor color);
 
 	//not copyable or assignable
 	Waterfall(const Waterfall&) =delete;

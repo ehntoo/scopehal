@@ -85,6 +85,7 @@
 #include "EdgeTrigger.h"
 #include "PulseWidthTrigger.h"
 #include "RuntTrigger.h"
+#include "ScopehalColor.h"
 #include "ScopehalUtils.h"
 #include "SlewRateTrigger.h"
 #include "UartTrigger.h"
@@ -176,7 +177,7 @@ void SiglentSCPIOscilloscope::SharedCtorInit()
 		new OscilloscopeChannel(
 			this,
 			"EX",
-			"",
+			ScopehalColor(),
 			Unit(Unit::UNIT_FS),
 			Unit(Unit::UNIT_VOLTS),
 			Stream::STREAM_TYPE_TRIGGER,

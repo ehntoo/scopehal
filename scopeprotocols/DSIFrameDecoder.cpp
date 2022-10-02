@@ -41,7 +41,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DSIFrameDecoder::DSIFrameDecoder(const string& color)
+DSIFrameDecoder::DSIFrameDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_SERIAL)
 {
 	AddProtocolStream("data");
@@ -282,7 +282,7 @@ void DSIFrameDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color DSIFrameWaveform::GetColor(size_t i)
+ScopehalColor DSIFrameWaveform::GetColor(size_t i)
 {
 	auto s = m_samples[i];
 	switch(s.m_type)
@@ -293,9 +293,7 @@ Gdk::Color DSIFrameWaveform::GetColor(size_t i)
 
 		case DSIFrameSymbol::TYPE_VIDEO:
 			{
-				Gdk::Color ret;
-				ret.set_rgb_p(s.m_red / 255.0f, s.m_green / 255.0f, s.m_blue / 255.0f);
-				return ret;
+				return ScopehalColor {(unsigned char) (s.m_red / 255.0f), (unsigned char) (s.m_green / 255.0f), (unsigned char) (s.m_blue / 255.0f)};
 			}
 
 		case DSIFrameSymbol::TYPE_ERROR:

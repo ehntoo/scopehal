@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DCOffsetFilter::DCOffsetFilter(const string& color)
+DCOffsetFilter::DCOffsetFilter(const ScopehalColor color)
 	: Filter(color, CAT_MATH, Unit(Unit::UNIT_FS))
 {
 	AddStream(Unit(Unit::UNIT_VOLTS), "data", Stream::STREAM_TYPE_ANALOG);

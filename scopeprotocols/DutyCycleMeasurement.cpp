@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DutyCycleMeasurement::DutyCycleMeasurement(const string& color)
+DutyCycleMeasurement::DutyCycleMeasurement(const ScopehalColor color)
 	: Filter(color, CAT_MEASUREMENT)
 {
 	AddStream(Unit(Unit::UNIT_PERCENT), "data", Stream::STREAM_TYPE_ANALOG);

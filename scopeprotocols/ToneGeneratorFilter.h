@@ -40,7 +40,7 @@
 class ToneGeneratorFilter : public Filter
 {
 public:
-	ToneGeneratorFilter(const std::string& color);
+	ToneGeneratorFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

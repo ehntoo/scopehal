@@ -34,6 +34,7 @@
 #include "SCPIDevice.h"
 #include "SCPIInstrument.h"
 #include "SCPITransport.h"
+#include "ScopehalColor.h"
 #include "ScopehalUtils.h"
 
 using namespace std;
@@ -105,7 +106,7 @@ AgilentOscilloscope::AgilentOscilloscope(SCPITransport* transport)
 	m_extTrigChannel = new OscilloscopeChannel(
 		this,
 		"EX",
-		"",
+		ScopehalColor(),
 		Unit(Unit::UNIT_FS),
 		Unit(Unit::UNIT_VOLTS),
 		Stream::STREAM_TYPE_TRIGGER,
@@ -154,7 +155,7 @@ AgilentOscilloscope::AgilentOscilloscope(SCPITransport* transport)
 			auto chan = new OscilloscopeChannel(
 				this,
 				"DIG" + to_string(i),
-				"#00ffff",
+				ScopehalColor("#00ffff"),
 				Unit(Unit::UNIT_FS),
 				Unit(Unit::UNIT_VOLTS),
 				Stream::STREAM_TYPE_DIGITAL,

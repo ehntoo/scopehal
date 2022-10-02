@@ -40,7 +40,7 @@
 class JitterFilter : public Filter
 {
 public:
-	JitterFilter(const std::string& color);
+	JitterFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

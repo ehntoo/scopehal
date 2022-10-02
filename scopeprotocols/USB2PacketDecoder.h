@@ -99,13 +99,13 @@ class USB2PacketWaveform : public SparseWaveform<USB2PacketSymbol>
 public:
 	USB2PacketWaveform () : SparseWaveform<USB2PacketSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class USB2PacketDecoder : public PacketDecoder
 {
 public:
-	USB2PacketDecoder(const std::string& color);
+	USB2PacketDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

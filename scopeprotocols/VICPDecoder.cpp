@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-VICPDecoder::VICPDecoder(const string& color)
+VICPDecoder::VICPDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_SERIAL)
 {
 	CreateInput("TX");
@@ -477,7 +477,7 @@ void VICPDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color VICPWaveform::GetColor(size_t i)
+ScopehalColor VICPWaveform::GetColor(size_t i)
 {
 	const VICPSymbol& s = m_samples[i];
 

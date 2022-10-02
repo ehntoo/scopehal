@@ -40,7 +40,7 @@
 class ThresholdFilter : public Filter
 {
 public:
-	ThresholdFilter(const std::string& color);
+	ThresholdFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

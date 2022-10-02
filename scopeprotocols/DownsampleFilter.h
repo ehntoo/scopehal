@@ -43,7 +43,7 @@
 class DownsampleFilter : public Filter
 {
 public:
-	DownsampleFilter(const std::string& color);
+	DownsampleFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

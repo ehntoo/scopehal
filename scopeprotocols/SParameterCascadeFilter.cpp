@@ -39,7 +39,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-SParameterCascadeFilter::SParameterCascadeFilter(const string& color)
+SParameterCascadeFilter::SParameterCascadeFilter(const ScopehalColor color)
 	: SParameterFilter(color, CAT_RF)
 {
 	//Set up output ports

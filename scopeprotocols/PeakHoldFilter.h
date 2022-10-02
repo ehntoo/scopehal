@@ -40,7 +40,7 @@
 class PeakHoldFilter : public PeakDetectionFilter
 {
 public:
-	PeakHoldFilter(const std::string& color);
+	PeakHoldFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

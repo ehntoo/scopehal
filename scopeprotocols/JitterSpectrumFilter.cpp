@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-JitterSpectrumFilter::JitterSpectrumFilter(const string& color)
+JitterSpectrumFilter::JitterSpectrumFilter(const ScopehalColor color)
 	: FFTFilter(color)
 {
 	m_xAxisUnit = Unit(Unit::UNIT_HZ);

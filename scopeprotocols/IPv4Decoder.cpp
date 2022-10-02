@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-IPv4Decoder::IPv4Decoder(const string& color)
+IPv4Decoder::IPv4Decoder(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 {
 	AddProtocolStream("data");
@@ -404,7 +404,7 @@ void IPv4Decoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color IPv4Waveform::GetColor(size_t i)
+ScopehalColor IPv4Waveform::GetColor(size_t i)
 {
 	switch(m_samples[i].m_type)
 	{

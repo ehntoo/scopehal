@@ -37,7 +37,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-CTLEFilter::CTLEFilter(const string& color)
+CTLEFilter::CTLEFilter(const ScopehalColor color)
 	: DeEmbedFilter(color)
 {
 	//delete the de-embed params

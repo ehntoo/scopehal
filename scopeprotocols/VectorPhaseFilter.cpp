@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-VectorPhaseFilter::VectorPhaseFilter(const string& color)
+VectorPhaseFilter::VectorPhaseFilter(const ScopehalColor color)
 	: Filter(color, CAT_RF)
 {
 	AddStream(Unit(Unit::UNIT_DEGREES), "data", Stream::STREAM_TYPE_ANALOG);

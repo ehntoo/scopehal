@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-ToneGeneratorFilter::ToneGeneratorFilter(const string& color)
+ToneGeneratorFilter::ToneGeneratorFilter(const ScopehalColor color)
 	: Filter(color, CAT_GENERATION)
 	, m_ratename("Sample Rate")
 	, m_freqname("Frequency")

@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-EthernetRMIIDecoder::EthernetRMIIDecoder(const string& color)
+EthernetRMIIDecoder::EthernetRMIIDecoder(const ScopehalColor color)
 	: EthernetProtocolDecoder(color)
 {
 	//Digital inputs, so need to undo some stuff for the PHY layer decodes

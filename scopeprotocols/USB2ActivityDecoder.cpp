@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-USB2ActivityDecoder::USB2ActivityDecoder(const string& color)
+USB2ActivityDecoder::USB2ActivityDecoder(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 {
 	AddDigitalStream("data");

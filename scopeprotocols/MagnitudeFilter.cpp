@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-MagnitudeFilter::MagnitudeFilter(const string& color)
+MagnitudeFilter::MagnitudeFilter(const ScopehalColor color)
 	: Filter(color, CAT_RF)
 {
 	AddStream(Unit(Unit::UNIT_VOLTS), "data", Stream::STREAM_TYPE_ANALOG);

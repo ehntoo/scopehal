@@ -40,7 +40,7 @@
 class MultiplyFilter : public Filter
 {
 public:
-	MultiplyFilter(const std::string& color);
+	MultiplyFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

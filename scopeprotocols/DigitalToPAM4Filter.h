@@ -40,7 +40,7 @@
 class DigitalToPAM4Filter : public WaveformGenerationFilter
 {
 public:
-	DigitalToPAM4Filter(const std::string& color);
+	DigitalToPAM4Filter(const ScopehalColor color);
 
 	static std::string GetProtocolName();
 

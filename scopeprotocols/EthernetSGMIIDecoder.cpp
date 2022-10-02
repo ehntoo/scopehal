@@ -36,7 +36,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-EthernetSGMIIDecoder::EthernetSGMIIDecoder(const string& color)
+EthernetSGMIIDecoder::EthernetSGMIIDecoder(const ScopehalColor color)
 	: Ethernet1000BaseXDecoder(color)
 	, m_speedName("Speed")
 {

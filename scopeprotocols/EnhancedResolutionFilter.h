@@ -40,7 +40,7 @@
 class EnhancedResolutionFilter : public FIRFilter
 {
 public:
-	EnhancedResolutionFilter(const std::string& color);
+	EnhancedResolutionFilter(const ScopehalColor color);
 
 	virtual void Refresh(vk::raii::CommandBuffer& cmdBuf, vk::raii::Queue& queue);
 	virtual void SetDefaultName();

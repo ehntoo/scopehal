@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DivideFilter::DivideFilter(const string& color)
+DivideFilter::DivideFilter(const ScopehalColor color)
 	: Filter(color, CAT_MATH)
 	, m_formatName("Output Format")
 {

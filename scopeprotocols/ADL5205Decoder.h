@@ -61,18 +61,18 @@ public:
 class ADL5205Waveform : public SparseWaveform<ADL5205Symbol>
 {
 public:
-	ADL5205Waveform (const std::string& color) : SparseWaveform<ADL5205Symbol>(), m_color(color) {};
+	ADL5205Waveform (const ScopehalColor color) : SparseWaveform<ADL5205Symbol>(), m_color(color) {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 
 private:
-	const std::string& m_color;
+	const ScopehalColor m_color;
 };
 
 class ADL5205Decoder : public Filter
 {
 public:
-	ADL5205Decoder(const std::string& color);
+	ADL5205Decoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

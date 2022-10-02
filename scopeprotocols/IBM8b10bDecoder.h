@@ -71,7 +71,7 @@ class IBM8b10bWaveform : public SparseWaveform<IBM8b10bSymbol>
 public:
 	IBM8b10bWaveform (FilterParameter& displayformat) : SparseWaveform<IBM8b10bSymbol>(), m_displayformat(displayformat) {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 
 	FilterParameter& m_displayformat;
 };
@@ -79,7 +79,7 @@ public:
 class IBM8b10bDecoder : public Filter
 {
 public:
-	IBM8b10bDecoder(const std::string& color);
+	IBM8b10bDecoder(const ScopehalColor color);
 
 	static FilterParameter MakeIBM8b10bDisplayFormatParameter();
 

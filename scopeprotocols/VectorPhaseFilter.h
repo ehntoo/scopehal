@@ -40,7 +40,7 @@
 class VectorPhaseFilter : public Filter
 {
 public:
-	VectorPhaseFilter(const std::string& color);
+	VectorPhaseFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

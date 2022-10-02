@@ -40,7 +40,7 @@
 class EthernetRMIIDecoder : public EthernetProtocolDecoder
 {
 public:
-	EthernetRMIIDecoder(const std::string& color);
+	EthernetRMIIDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 	static std::string GetProtocolName();

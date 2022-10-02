@@ -39,7 +39,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DownconvertFilter::DownconvertFilter(const string& color)
+DownconvertFilter::DownconvertFilter(const ScopehalColor color)
 	: Filter(color, CAT_RF)
 {
 	//Set up channels

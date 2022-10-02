@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-PAM4DemodulatorFilter::PAM4DemodulatorFilter(const string& color)
+PAM4DemodulatorFilter::PAM4DemodulatorFilter(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 	, m_lowerThreshName("Lower Threshold")
 	, m_midThreshName("Middle Threshold")

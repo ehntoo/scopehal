@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-OFDMDemodulator::OFDMDemodulator(const string& color)
+OFDMDemodulator::OFDMDemodulator(const ScopehalColor color)
 	: Filter(color, CAT_RF)
 {
 	AddStream(Unit(Unit::UNIT_VOLTS), "data", Stream::STREAM_TYPE_ANALOG);

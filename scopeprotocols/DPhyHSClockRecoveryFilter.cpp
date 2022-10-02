@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DPhyHSClockRecoveryFilter::DPhyHSClockRecoveryFilter(const string& color)
+DPhyHSClockRecoveryFilter::DPhyHSClockRecoveryFilter(const ScopehalColor color)
 	: Filter(color, CAT_CLOCK)
 {
 	AddDigitalStream("data");

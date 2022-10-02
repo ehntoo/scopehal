@@ -41,7 +41,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-SDDataDecoder::SDDataDecoder(const string& color)
+SDDataDecoder::SDDataDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_MEMORY)
 {
 	CreateInput("clk");
@@ -260,7 +260,7 @@ void SDDataDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color SDDataWaveform::GetColor(size_t i)
+ScopehalColor SDDataWaveform::GetColor(size_t i)
 {
 	const SDDataSymbol& s = m_samples[i];
 	switch(s.m_stype)

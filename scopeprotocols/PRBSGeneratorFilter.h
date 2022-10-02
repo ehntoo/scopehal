@@ -40,7 +40,7 @@
 class PRBSGeneratorFilter : public Filter
 {
 public:
-	PRBSGeneratorFilter(const std::string& color);
+	PRBSGeneratorFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

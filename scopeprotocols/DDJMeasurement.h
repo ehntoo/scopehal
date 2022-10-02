@@ -40,7 +40,7 @@
 class DDJMeasurement : public Filter
 {
 public:
-	DDJMeasurement(const std::string& color);
+	DDJMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

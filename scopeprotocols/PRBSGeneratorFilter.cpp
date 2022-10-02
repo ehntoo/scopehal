@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-PRBSGeneratorFilter::PRBSGeneratorFilter(const string& color)
+PRBSGeneratorFilter::PRBSGeneratorFilter(const ScopehalColor color)
 	: Filter(color, CAT_GENERATION)
 	, m_baudname("Data Rate")
 	, m_polyname("Polynomial")

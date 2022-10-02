@@ -48,7 +48,7 @@ struct UpsampleFilterArgs
 class UpsampleFilter : public Filter
 {
 public:
-	UpsampleFilter(const std::string& color);
+	UpsampleFilter(const ScopehalColor color);
 
 	virtual void Refresh(vk::raii::CommandBuffer& cmdBuf, vk::raii::Queue& queue);
 	virtual DataLocation GetInputLocation();

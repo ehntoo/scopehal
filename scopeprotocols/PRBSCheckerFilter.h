@@ -40,7 +40,7 @@
 class PRBSCheckerFilter : public Filter
 {
 public:
-	PRBSCheckerFilter(const std::string& color);
+	PRBSCheckerFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

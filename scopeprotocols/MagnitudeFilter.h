@@ -40,7 +40,7 @@
 class MagnitudeFilter : public Filter
 {
 public:
-	MagnitudeFilter(const std::string& color);
+	MagnitudeFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

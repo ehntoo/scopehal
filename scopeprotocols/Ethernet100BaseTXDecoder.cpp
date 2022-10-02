@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-Ethernet100BaseTXDecoder::Ethernet100BaseTXDecoder(const string& color)
+Ethernet100BaseTXDecoder::Ethernet100BaseTXDecoder(const ScopehalColor color)
 	: EthernetProtocolDecoder(color)
 {
 	m_signalNames.clear();

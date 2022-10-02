@@ -135,7 +135,7 @@ public:
 		return "(unimplemented)";
 	}
 
-	virtual Gdk::Color GetColor(size_t /*i*/)
+	virtual ScopehalColor GetColor(size_t /*i*/)
 	{
 		return StandardColors::colors[StandardColors::COLOR_ERROR];
 	}

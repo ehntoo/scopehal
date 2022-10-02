@@ -43,7 +43,7 @@
 class DownconvertFilter : public Filter
 {
 public:
-	DownconvertFilter(const std::string& color);
+	DownconvertFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

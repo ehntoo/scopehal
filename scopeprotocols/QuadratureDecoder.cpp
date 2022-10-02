@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-QuadratureDecoder::QuadratureDecoder(const string& color)
+QuadratureDecoder::QuadratureDecoder(const ScopehalColor color)
 	: Filter(color, CAT_MISC)
 {
 	AddStream(Unit(Unit::UNIT_DEGREES), "data", Stream::STREAM_TYPE_ANALOG);

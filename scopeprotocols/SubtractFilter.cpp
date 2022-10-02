@@ -38,7 +38,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-SubtractFilter::SubtractFilter(const string& color)
+SubtractFilter::SubtractFilter(const ScopehalColor color)
 	: Filter(color, CAT_MATH)
 	, m_computePipeline("shaders/SubtractFilter.spv", 3, sizeof(uint32_t))
 {

@@ -40,7 +40,7 @@
 class BaseMeasurement : public Filter
 {
 public:
-	BaseMeasurement(const std::string& color);
+	BaseMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

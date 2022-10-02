@@ -31,6 +31,7 @@
 #include "SCPISocketTransport.h"
 #include "EdgeTrigger.h"
 #include "Filter.h"
+#include "ScopehalColor.h"
 #include "ScopehalUtils.h"
 
 using namespace std;
@@ -64,23 +65,23 @@ AntikernelLabsOscilloscope::AntikernelLabsOscilloscope(SCPITransport* transport)
 		chname[1] += i;
 
 		//Color the channels based on Antikernel Labs's color sequence
-		string color = "#ffffff";
+		ScopehalColor color;
 		switch(i)
 		{
 			case 0:
-				color = "#ffff80";
+				color = {0xff, 0xff, 0x80};
 				break;
 
 			case 1:
-				color = "#ff8080";
+				color = {0xff, 0x80, 0x80};
 				break;
 
 			case 2:
-				color = "#80ffff";
+				color = {0x80, 0xff, 0xff};
 				break;
 
 			case 3:
-				color = "#80ff80";
+				color = {0x80, 0xff, 0x80};
 				break;
 
 			//TODO: colors for the other 4 channels

@@ -40,7 +40,7 @@
 class TDRFilter : public Filter
 {
 public:
-	TDRFilter(const std::string& color);
+	TDRFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

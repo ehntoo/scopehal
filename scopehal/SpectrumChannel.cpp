@@ -37,7 +37,7 @@ using namespace std;
 SpectrumChannel::SpectrumChannel(
 	Oscilloscope* scope,
 	const string& hwname,
-	const string& color,
+	const ScopehalColor color,
 	size_t index)
 	: OscilloscopeChannel(scope, hwname, color, Unit(Unit::UNIT_HZ), index)
 {

@@ -35,6 +35,7 @@
 
 #include "OscilloscopeChannel.h"
 #include "MockOscilloscope.h"
+#include "ScopehalColor.h"
 
 using namespace std;
 
@@ -180,7 +181,7 @@ void MockOscilloscope::LoadConfiguration(const YAML::Node& node, IDTable& table)
 		auto chan = new OscilloscopeChannel(
 			this,
 			cnode["name"].as<string>(),
-			cnode["color"].as<string>(),
+			ScopehalColor(cnode["color"].as<string>()),
 			Unit(Unit::UNIT_FS),
 			Unit(Unit::UNIT_VOLTS),
 			type,

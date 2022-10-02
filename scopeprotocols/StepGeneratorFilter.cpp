@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-StepGeneratorFilter::StepGeneratorFilter(const string& color)
+StepGeneratorFilter::StepGeneratorFilter(const ScopehalColor color)
 	: Filter(color, CAT_GENERATION)
 	, m_lowname("Beginning Level")
 	, m_highname("Ending Level")

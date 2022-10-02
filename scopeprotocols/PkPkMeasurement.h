@@ -40,7 +40,7 @@
 class PkPkMeasurement : public Filter
 {
 public:
-	PkPkMeasurement(const std::string& color);
+	PkPkMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

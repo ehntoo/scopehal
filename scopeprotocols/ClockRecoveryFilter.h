@@ -40,7 +40,7 @@
 class ClockRecoveryFilter : public Filter
 {
 public:
-	ClockRecoveryFilter(const std::string& color);
+	ClockRecoveryFilter(const ScopehalColor color);
 	virtual ~ClockRecoveryFilter();
 
 	virtual void Refresh();

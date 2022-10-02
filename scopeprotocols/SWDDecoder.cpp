@@ -53,7 +53,7 @@ const uint8_t SWDDecoder::c_wakeup[16] = {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-SWDDecoder::SWDDecoder(const string& color) : Filter(color, CAT_BUS)
+SWDDecoder::SWDDecoder(const ScopehalColor color) : Filter(color, CAT_BUS)
 {
 	AddProtocolStream("data");
 	CreateInput("SWCLK");
@@ -439,7 +439,7 @@ void SWDDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color SWDWaveform::GetColor(size_t i)
+ScopehalColor SWDWaveform::GetColor(size_t i)
 {
 	const SWDSymbol& s = m_samples[i];
 

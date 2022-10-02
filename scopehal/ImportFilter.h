@@ -45,7 +45,7 @@
 class ImportFilter : public Filter
 {
 public:
-	ImportFilter(const std::string& color, Unit xunit = Unit(Unit::UNIT_FS));
+	ImportFilter(const ScopehalColor color, Unit xunit = Unit(Unit::UNIT_FS));
 
 	virtual void Refresh();
 

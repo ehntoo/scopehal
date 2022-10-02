@@ -40,7 +40,7 @@
 class WFMImportFilter : public ImportFilter
 {
 public:
-	WFMImportFilter(const std::string& color);
+	WFMImportFilter(const ScopehalColor color);
 
 	static std::string GetProtocolName();
 

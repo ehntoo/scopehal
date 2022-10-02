@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-SPIFlashDecoder::SPIFlashDecoder(const string& color)
+SPIFlashDecoder::SPIFlashDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_MEMORY)
 {
 	CreateInput("spi_in");
@@ -1007,7 +1007,7 @@ void SPIFlashDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color SPIFlashWaveform::GetColor(size_t i)
+ScopehalColor SPIFlashWaveform::GetColor(size_t i)
 {
 	const SPIFlashSymbol& s = m_samples[i];
 

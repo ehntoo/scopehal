@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-WAVImportFilter::WAVImportFilter(const string& color)
+WAVImportFilter::WAVImportFilter(const ScopehalColor color)
 	: ImportFilter(color)
 {
 	m_fpname = "WAV File";

@@ -82,13 +82,13 @@ class EthernetWaveform : public SparseWaveform<EthernetFrameSegment>
 public:
 	EthernetWaveform () : SparseWaveform<EthernetFrameSegment>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class EthernetProtocolDecoder : public PacketDecoder
 {
 public:
-	EthernetProtocolDecoder(const std::string& color);
+	EthernetProtocolDecoder(const ScopehalColor color);
 	virtual ~EthernetProtocolDecoder();
 
 	virtual bool ValidateChannel(size_t i, StreamDescriptor stream);

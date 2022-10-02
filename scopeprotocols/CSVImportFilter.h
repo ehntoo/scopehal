@@ -40,7 +40,7 @@
 class CSVImportFilter : public ImportFilter
 {
 public:
-	CSVImportFilter(const std::string& color);
+	CSVImportFilter(const ScopehalColor color);
 
 	static std::string GetProtocolName();
 

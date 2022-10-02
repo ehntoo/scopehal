@@ -81,13 +81,13 @@ class IPv4Waveform : public SparseWaveform<IPv4Symbol>
 public:
 	IPv4Waveform () : SparseWaveform<IPv4Symbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class IPv4Decoder : public Filter
 {
 public:
-	IPv4Decoder(const std::string& color);
+	IPv4Decoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

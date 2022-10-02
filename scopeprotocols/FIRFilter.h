@@ -50,7 +50,7 @@ struct FIRFilterArgs
 class FIRFilter : public Filter
 {
 public:
-	FIRFilter(const std::string& color);
+	FIRFilter(const ScopehalColor color);
 
 	virtual void Refresh(vk::raii::CommandBuffer& cmdBuf, vk::raii::Queue& queue);
 	virtual DataLocation GetInputLocation();

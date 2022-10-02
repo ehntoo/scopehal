@@ -157,7 +157,7 @@ class PeakDetectionFilter
 	, public PeakDetector
 {
 public:
-	PeakDetectionFilter(const std::string& color, Category cat);
+	PeakDetectionFilter(const ScopehalColor color, Category cat);
 	virtual ~PeakDetectionFilter();
 
 protected:

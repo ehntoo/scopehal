@@ -74,13 +74,13 @@ class SDDataWaveform : public SparseWaveform<SDDataSymbol>
 public:
 	SDDataWaveform () : SparseWaveform<SDDataSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class SDDataDecoder : public PacketDecoder
 {
 public:
-	SDDataDecoder(const std::string& color);
+	SDDataDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

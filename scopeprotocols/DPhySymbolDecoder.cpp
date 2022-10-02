@@ -34,13 +34,14 @@
  */
 
 #include "DPhySymbolDecoder.h"
+#include "ScopehalColor.h"
 
 using namespace std;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DPhySymbolDecoder::DPhySymbolDecoder(const string& color)
+DPhySymbolDecoder::DPhySymbolDecoder(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 {
 	AddProtocolStream("data");
@@ -320,7 +321,7 @@ void DPhySymbolDecoder::Refresh()
 }
 
 
-Gdk::Color DPhySymbolWaveform::GetColor(size_t i)
+ScopehalColor DPhySymbolWaveform::GetColor(size_t i)
 {
 	const DPhySymbol& s = m_samples[i];
 

@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-EthernetAutonegotiationDecoder::EthernetAutonegotiationDecoder(const string& color)
+EthernetAutonegotiationDecoder::EthernetAutonegotiationDecoder(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 {
 	AddProtocolStream("data");
@@ -161,7 +161,7 @@ void EthernetAutonegotiationDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color EthernetAutonegotiationWaveform::GetColor(size_t /*i*/)
+ScopehalColor EthernetAutonegotiationWaveform::GetColor(size_t /*i*/)
 {
 	return StandardColors::colors[StandardColors::COLOR_DATA];
 }

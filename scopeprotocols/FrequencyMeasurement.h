@@ -40,7 +40,7 @@
 class FrequencyMeasurement : public Filter
 {
 public:
-	FrequencyMeasurement(const std::string& color);
+	FrequencyMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

@@ -29,13 +29,14 @@
 
 #include "ADL5205Decoder.h"
 #include "SPIDecoder.h"
+#include "ScopehalColor.h"
 
 using namespace std;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-ADL5205Decoder::ADL5205Decoder(const string& color)
+ADL5205Decoder::ADL5205Decoder(ScopehalColor color)
 	: Filter(color, CAT_MISC)
 {
 	AddProtocolStream("data");
@@ -158,9 +159,9 @@ void ADL5205Decoder::Refresh()
 	SetData(cap, 0);
 }
 
-Gdk::Color ADL5205Waveform::GetColor(size_t /*i*/)
+ScopehalColor ADL5205Waveform::GetColor(size_t /*i*/)
 {
-	return Gdk::Color(m_color);
+	return m_color;
 }
 
 string ADL5205Waveform::GetText(size_t i)

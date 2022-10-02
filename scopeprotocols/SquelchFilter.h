@@ -40,7 +40,7 @@
 class SquelchFilter : public Filter
 {
 public:
-	SquelchFilter(const std::string& color);
+	SquelchFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

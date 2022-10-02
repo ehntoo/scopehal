@@ -41,7 +41,7 @@
 class IBISDriverFilter : public Filter
 {
 public:
-	IBISDriverFilter(const std::string& color);
+	IBISDriverFilter(const ScopehalColor color);
 
 	static std::string GetProtocolName();
 

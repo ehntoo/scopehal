@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-FSKDecoder::FSKDecoder(const string& color)
+FSKDecoder::FSKDecoder(const ScopehalColor color)
 	: Filter(color, CAT_RF)
 {
 	AddDigitalStream("data");

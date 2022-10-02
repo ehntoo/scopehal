@@ -47,7 +47,7 @@ VideoScanlinePacket::~VideoScanlinePacket()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DVIDecoder::DVIDecoder(const string& color)
+DVIDecoder::DVIDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_SERIAL)
 {
 	//Set up channels
@@ -276,7 +276,7 @@ void DVIDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color DVIWaveform::GetColor(size_t i)
+ScopehalColor DVIWaveform::GetColor(size_t i)
 {
 	auto s = m_samples[i];
 	switch(s.m_type)
@@ -290,9 +290,7 @@ Gdk::Color DVIWaveform::GetColor(size_t i)
 
 		case DVISymbol::DVI_TYPE_VIDEO:
 			{
-				Gdk::Color ret;
-				ret.set_rgb_p(s.m_red / 255.0f, s.m_green / 255.0f, s.m_blue / 255.0f);
-				return ret;
+				return ScopehalColor {(unsigned char) (s.m_red / 255.0f), (unsigned char) (s.m_green / 255.0f), (unsigned char) (s.m_blue / 255.0f)};
 			}
 
 		case DVISymbol::DVI_TYPE_ERROR:

@@ -40,7 +40,7 @@
 class RjBUjFilter : public Filter
 {
 public:
-	RjBUjFilter(const std::string& color);
+	RjBUjFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

@@ -40,7 +40,7 @@
 class VectorFrequencyFilter : public Filter
 {
 public:
-	VectorFrequencyFilter(const std::string& color);
+	VectorFrequencyFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

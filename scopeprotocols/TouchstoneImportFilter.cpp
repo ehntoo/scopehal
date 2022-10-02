@@ -36,7 +36,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-TouchstoneImportFilter::TouchstoneImportFilter(const string& color)
+TouchstoneImportFilter::TouchstoneImportFilter(const ScopehalColor color)
 	: SParameterSourceFilter(color, CAT_GENERATION)
 	, m_fpname("Touchstone File")
 {

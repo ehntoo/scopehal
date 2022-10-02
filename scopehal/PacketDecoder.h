@@ -31,6 +31,7 @@
 #define PacketDecoder_h
 
 #include "Filter.h"
+#include "ScopehalColor.h"
 
 /**
 	@class
@@ -55,10 +56,10 @@ public:
 	std::vector<uint8_t> m_data;
 
 	//Text color of the packet
-	Gdk::Color m_displayForegroundColor;
+	ScopehalColor m_displayForegroundColor;
 
 	//Background color of the packet
-	Gdk::Color m_displayBackgroundColor;
+	ScopehalColor m_displayBackgroundColor;
 };
 
 /**
@@ -68,7 +69,7 @@ public:
 class PacketDecoder : public Filter
 {
 public:
-	PacketDecoder(const std::string& color, Filter::Category cat);
+	PacketDecoder(const ScopehalColor color, Filter::Category cat);
 	virtual ~PacketDecoder();
 
 	const std::vector<Packet*>& GetPackets()
@@ -100,7 +101,7 @@ public:
 		PROTO_STANDARD_COLOR_COUNT
 	};
 
-	static Gdk::Color m_backgroundColors[PROTO_STANDARD_COLOR_COUNT];
+	static ScopehalColor m_backgroundColors[PROTO_STANDARD_COLOR_COUNT];
 
 protected:
 	void ClearPackets();

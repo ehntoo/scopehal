@@ -41,7 +41,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-SPIDecoder::SPIDecoder(const string& color)
+SPIDecoder::SPIDecoder(const ScopehalColor color)
 	: Filter(color, CAT_BUS)
 {
 	AddProtocolStream("data");
@@ -261,7 +261,7 @@ void SPIDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color SPIWaveform::GetColor(size_t i)
+ScopehalColor SPIWaveform::GetColor(size_t i)
 {
 	const SPISymbol& s = m_samples[i];
 	switch(s.m_stype)

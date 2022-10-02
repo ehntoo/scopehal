@@ -45,7 +45,7 @@ PeakDetector::~PeakDetector()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-PeakDetectionFilter::PeakDetectionFilter(const string& color, Category cat)
+PeakDetectionFilter::PeakDetectionFilter(const ScopehalColor color, Category cat)
 	: Filter(color, cat, Unit(Unit::UNIT_HZ))
 	, m_numpeaksname("Number of Peaks")
 	, m_peakwindowname("Peak Window")

@@ -41,7 +41,7 @@
 class TRCImportFilter : public ImportFilter
 {
 public:
-	TRCImportFilter(const std::string& color);
+	TRCImportFilter(const ScopehalColor color);
 	virtual ~TRCImportFilter();
 
 	static std::string GetProtocolName();

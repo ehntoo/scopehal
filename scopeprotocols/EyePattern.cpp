@@ -101,7 +101,7 @@ void EyeWaveform::Normalize()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-EyePattern::EyePattern(const string& color)
+EyePattern::EyePattern(const ScopehalColor color)
 	: Filter(color, CAT_ANALYSIS)
 	, m_height(1)
 	, m_width(1)

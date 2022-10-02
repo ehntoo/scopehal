@@ -44,7 +44,7 @@
 class PCIeGen3LogicalDecoder : public PCIeGen2LogicalDecoder
 {
 public:
-	PCIeGen3LogicalDecoder(const std::string& color);
+	PCIeGen3LogicalDecoder(const ScopehalColor color);
 	virtual ~PCIeGen3LogicalDecoder();
 
 	virtual void Refresh();

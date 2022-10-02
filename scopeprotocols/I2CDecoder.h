@@ -76,13 +76,13 @@ class I2CWaveform : public SparseWaveform<I2CSymbol>
 public:
 	I2CWaveform () : SparseWaveform<I2CSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class I2CDecoder : public Filter
 {
 public:
-	I2CDecoder(const std::string& color);
+	I2CDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

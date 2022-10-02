@@ -37,7 +37,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-TRCImportFilter::TRCImportFilter(const string& color)
+TRCImportFilter::TRCImportFilter(const ScopehalColor color)
 	: ImportFilter(color)
 {
 	m_fpname = "TRC File";

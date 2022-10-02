@@ -43,7 +43,7 @@
 class SParameterFilter : public SParameterSourceFilter
 {
 public:
-	SParameterFilter(const std::string& color, Category cat);
+	SParameterFilter(const ScopehalColor color, Category cat);
 	~SParameterFilter();
 
 	virtual bool ValidateChannel(size_t i, StreamDescriptor stream);

@@ -41,7 +41,7 @@
 class MultimeterTrendFilter : public Filter
 {
 public:
-	MultimeterTrendFilter(const std::string& color);
+	MultimeterTrendFilter(const ScopehalColor color);
 
 	void SetMeter(Multimeter* meter)
 	{ m_meter = meter; }

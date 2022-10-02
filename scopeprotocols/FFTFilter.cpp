@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-FFTFilter::FFTFilter(const string& color)
+FFTFilter::FFTFilter(const ScopehalColor color)
 	: PeakDetectionFilter(color, CAT_RF)
 	, m_windowName("Window")
 	, m_roundingName("Length Rounding")

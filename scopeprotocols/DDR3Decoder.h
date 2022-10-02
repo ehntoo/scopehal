@@ -41,7 +41,7 @@
 class DDR3Decoder : public SDRAMDecoderBase
 {
 public:
-	DDR3Decoder(const std::string& color);
+	DDR3Decoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

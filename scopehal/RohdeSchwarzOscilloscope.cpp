@@ -39,6 +39,7 @@
 
 #include "RohdeSchwarzOscilloscope.h"
 #include "EdgeTrigger.h"
+#include "ScopehalColor.h"
 #include "ScopehalUtils.h"
 
 using namespace std;
@@ -104,7 +105,7 @@ RohdeSchwarzOscilloscope::RohdeSchwarzOscilloscope(SCPITransport* transport)
 	m_extTrigChannel = new OscilloscopeChannel(
 		this,
 		"EX",
-		"",
+		ScopehalColor(),
 		Unit(Unit::UNIT_FS),
 		Unit(Unit::UNIT_VOLTS),
 		Stream::STREAM_TYPE_TRIGGER,

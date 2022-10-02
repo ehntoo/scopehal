@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DramClockFilter::DramClockFilter(const string& color)
+DramClockFilter::DramClockFilter(const ScopehalColor color)
 	: Filter(color, CAT_CLOCK)
 {
 	//Set up channels

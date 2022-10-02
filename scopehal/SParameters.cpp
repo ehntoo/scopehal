@@ -34,6 +34,7 @@
  */
 #include "SParameters.h"
 #include <math.h>
+#include <cfloat>
 
 using namespace std;
 

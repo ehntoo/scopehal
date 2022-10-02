@@ -75,13 +75,13 @@ class MDIOWaveform : public SparseWaveform<MDIOSymbol>
 public:
 	MDIOWaveform () : SparseWaveform<MDIOSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class MDIODecoder : public PacketDecoder
 {
 public:
-	MDIODecoder(const std::string& color);
+	MDIODecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

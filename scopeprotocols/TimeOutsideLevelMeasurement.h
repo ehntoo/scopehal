@@ -40,7 +40,7 @@
 class TimeOutsideLevelMeasurement : public Filter
 {
 public:
-	TimeOutsideLevelMeasurement(const std::string& color);
+	TimeOutsideLevelMeasurement(const ScopehalColor color);
 
 	enum MeasurementType
 	{

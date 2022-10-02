@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-UartClockRecoveryFilter::UartClockRecoveryFilter(const string& color)
+UartClockRecoveryFilter::UartClockRecoveryFilter(const ScopehalColor color)
 	: Filter(color, CAT_CLOCK)
 {
 	AddDigitalStream("data");

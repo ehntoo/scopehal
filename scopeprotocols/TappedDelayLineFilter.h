@@ -45,7 +45,7 @@
 class TappedDelayLineFilter : public Filter
 {
 public:
-	TappedDelayLineFilter(const std::string& color);
+	TappedDelayLineFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

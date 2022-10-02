@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-ThresholdFilter::ThresholdFilter(const string& color)
+ThresholdFilter::ThresholdFilter(const ScopehalColor color)
 	: Filter(color, CAT_MATH)
 {
 	AddDigitalStream("data");

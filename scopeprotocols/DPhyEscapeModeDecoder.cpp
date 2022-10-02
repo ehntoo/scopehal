@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DPhyEscapeModeDecoder::DPhyEscapeModeDecoder(const string& color)
+DPhyEscapeModeDecoder::DPhyEscapeModeDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_SERIAL)
 {
 	AddProtocolStream("data");
@@ -307,7 +307,7 @@ void DPhyEscapeModeDecoder::Refresh()
 	}
 }
 
-Gdk::Color DPhyEscapeModeWaveform::GetColor(size_t i)
+ScopehalColor DPhyEscapeModeWaveform::GetColor(size_t i)
 {
 	const DPhyEscapeModeSymbol& s = m_samples[i];
 

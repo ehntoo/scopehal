@@ -61,7 +61,7 @@ SpectrogramWaveform::~SpectrogramWaveform()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-SpectrogramFilter::SpectrogramFilter(const string& color)
+SpectrogramFilter::SpectrogramFilter(const ScopehalColor color)
 	: Filter(color, CAT_RF)
 	, m_windowName("Window")
 	, m_fftLengthName("FFT length")

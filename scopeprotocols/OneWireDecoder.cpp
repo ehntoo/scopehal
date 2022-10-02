@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-OneWireDecoder::OneWireDecoder(const string& color)
+OneWireDecoder::OneWireDecoder(const ScopehalColor color)
 	: Filter(color, CAT_BUS)
 {
 	AddProtocolStream("data");
@@ -274,7 +274,7 @@ void OneWireDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color OneWireWaveform::GetColor(size_t i)
+ScopehalColor OneWireWaveform::GetColor(size_t i)
 {
 	const OneWireSymbol& s = m_samples[i];
 

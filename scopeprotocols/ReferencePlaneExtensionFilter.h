@@ -40,7 +40,7 @@
 class ReferencePlaneExtensionFilter : public SParameterFilter
 {
 public:
-	ReferencePlaneExtensionFilter(const std::string& color);
+	ReferencePlaneExtensionFilter(const ScopehalColor color);
 	~ReferencePlaneExtensionFilter();
 
 	static std::string GetProtocolName();

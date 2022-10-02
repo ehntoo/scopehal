@@ -40,7 +40,7 @@
 class AutocorrelationFilter : public Filter
 {
 public:
-	AutocorrelationFilter(const std::string& color);
+	AutocorrelationFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

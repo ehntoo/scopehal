@@ -37,6 +37,7 @@
 #define CANDecoder_h
 
 #include "PacketDecoder.h"
+#include "ScopehalColor.h"
 
 class CANSymbol
 {
@@ -81,13 +82,13 @@ class CANWaveform : public SparseWaveform<CANSymbol>
 public:
 	CANWaveform () : SparseWaveform<CANSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class CANDecoder : public PacketDecoder
 {
 public:
-	CANDecoder(const std::string& color);
+	CANDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

@@ -52,7 +52,7 @@ map<string, unsigned int> Filter::m_instanceCount;
 // Construction / destruction
 
 Filter::Filter(
-	const string& color,
+	const ScopehalColor color,
 	Category cat,
 	Unit xunit)
 	: OscilloscopeChannel(NULL, "", color, xunit, 0)	//TODO: handle this better?
@@ -116,11 +116,11 @@ void Filter::EnumProtocols(vector<string>& names)
 		names.push_back(it->first);
 }
 
-Filter* Filter::CreateFilter(const string& protocol, const string& color)
+Filter* Filter::CreateFilter(const string& protocol, const ScopehalColor color)
 {
 	if(m_createprocs.find(protocol) != m_createprocs.end())
 	{
-		auto f = m_createprocs[protocol](color);
+		auto f = m_createprocs[protocol](color.toString());
 		f->m_instanceNum = (m_instanceCount[protocol] ++);
 		return f;
 	}
@@ -714,7 +714,7 @@ string Filter::SerializeConfiguration(IDTable& table, size_t /*indent*/)
 	//Channel info
 	snprintf(tmp, sizeof(tmp), "        protocol:        \"%s\"\n", GetProtocolDisplayName().c_str());
 	config += tmp;
-	snprintf(tmp, sizeof(tmp), "        color:           \"%s\"\n", m_displaycolor.c_str());
+	snprintf(tmp, sizeof(tmp), "        color:           \"%s\"\n", m_displaycolor.toString().c_str());
 	config += tmp;
 	snprintf(tmp, sizeof(tmp), "        nick:            \"%s\"\n", m_displayname.c_str());
 	config += tmp;

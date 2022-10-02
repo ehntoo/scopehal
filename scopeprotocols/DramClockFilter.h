@@ -40,7 +40,7 @@
 class DramClockFilter : public Filter
 {
 public:
-	DramClockFilter(const std::string& color);
+	DramClockFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

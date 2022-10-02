@@ -41,7 +41,7 @@
 class SubtractFilter : public Filter
 {
 public:
-	SubtractFilter(const std::string& color);
+	SubtractFilter(const ScopehalColor color);
 	~SubtractFilter();
 
 	virtual void Refresh(vk::raii::CommandBuffer& cmdBuf, vk::raii::Queue& queue);

@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-PCIeGen3LogicalDecoder::PCIeGen3LogicalDecoder(const string& color)
+PCIeGen3LogicalDecoder::PCIeGen3LogicalDecoder(const ScopehalColor color)
 	: PCIeGen2LogicalDecoder(color)
 {
 }

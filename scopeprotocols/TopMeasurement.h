@@ -40,7 +40,7 @@
 class TopMeasurement : public Filter
 {
 public:
-	TopMeasurement(const std::string& color);
+	TopMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

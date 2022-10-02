@@ -36,6 +36,11 @@
 #ifndef VCDExportWizard_h
 #define VCDExportWizard_h
 
+#include "gtkmm/grid.h"
+#include "gtkmm/frame.h"
+#include "gtkmm/listviewtext.h"
+#include "gtkmm/filechooserwidget.h"
+#include "gtkmm/button.h"
 #include "ExportWizard.h"
 #include "OscilloscopeChannel.h"
 #include <vector>

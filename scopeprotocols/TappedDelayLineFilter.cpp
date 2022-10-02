@@ -37,7 +37,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-TappedDelayLineFilter::TappedDelayLineFilter(const string& color)
+TappedDelayLineFilter::TappedDelayLineFilter(const ScopehalColor color)
 	: Filter(color, CAT_MATH)
 	, m_tapDelayName("Tap Delay")
 	, m_tap0Name("Tap Value 0")

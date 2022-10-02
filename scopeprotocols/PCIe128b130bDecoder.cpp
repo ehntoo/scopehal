@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-PCIe128b130bDecoder::PCIe128b130bDecoder(const string& color)
+PCIe128b130bDecoder::PCIe128b130bDecoder(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 {
 	AddProtocolStream("data");
@@ -220,7 +220,7 @@ void PCIe128b130bDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color PCIe128b130bWaveform::GetColor(size_t i)
+ScopehalColor PCIe128b130bWaveform::GetColor(size_t i)
 {
 	const PCIe128b130bSymbol& s = m_samples[i];
 

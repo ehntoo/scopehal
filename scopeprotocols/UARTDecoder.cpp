@@ -41,7 +41,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-UARTDecoder::UARTDecoder(const string& color)
+UARTDecoder::UARTDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_BUS)
 {
 	//Set up channels
@@ -228,9 +228,9 @@ void UARTDecoder::FinishPacket(Packet* pack)
 	m_packets.push_back(pack);
 }
 
-Gdk::Color ByteWaveform::GetColor(size_t /*i*/)
+ScopehalColor ByteWaveform::GetColor(size_t /*i*/)
 {
-	return Gdk::Color(m_color);
+	return ScopehalColor(m_color);
 }
 
 string ByteWaveform::GetText(size_t i)

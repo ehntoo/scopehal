@@ -40,7 +40,7 @@
 class ISIMeasurement : public Filter
 {
 public:
-	ISIMeasurement(const std::string& color);
+	ISIMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

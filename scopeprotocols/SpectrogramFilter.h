@@ -108,7 +108,7 @@ protected:
 class SpectrogramFilter : public Filter
 {
 public:
-	SpectrogramFilter(const std::string& color);
+	SpectrogramFilter(const ScopehalColor color);
 	virtual ~SpectrogramFilter();
 
 	virtual void Refresh();

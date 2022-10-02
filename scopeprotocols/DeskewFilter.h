@@ -40,7 +40,7 @@
 class DeskewFilter : public Filter
 {
 public:
-	DeskewFilter(const std::string& color);
+	DeskewFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

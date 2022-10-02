@@ -38,7 +38,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-NoiseFilter::NoiseFilter(const string& color)
+NoiseFilter::NoiseFilter(const ScopehalColor color)
 	: Filter(color, CAT_GENERATION)
 	, m_stdevname("Deviation")
 	, m_twister(rand())

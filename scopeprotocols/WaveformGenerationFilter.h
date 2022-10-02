@@ -40,7 +40,7 @@
 class WaveformGenerationFilter : public Filter
 {
 public:
-	WaveformGenerationFilter(const std::string& color);
+	WaveformGenerationFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

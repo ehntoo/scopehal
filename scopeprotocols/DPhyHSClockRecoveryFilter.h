@@ -41,7 +41,7 @@
 class DPhyHSClockRecoveryFilter : public Filter
 {
 public:
-	DPhyHSClockRecoveryFilter(const std::string& color);
+	DPhyHSClockRecoveryFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

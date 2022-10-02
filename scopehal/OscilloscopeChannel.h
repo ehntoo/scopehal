@@ -57,14 +57,14 @@ public:
 	OscilloscopeChannel(
 		Oscilloscope* scope,
 		const std::string& hwname,
-		const std::string& color,
+		const ScopehalColor color,
 		Unit xunit = Unit(Unit::UNIT_FS),
 		size_t index = 0);
 
 	OscilloscopeChannel(
 		Oscilloscope* scope,
 		const std::string& hwname,
-		const std::string& color,
+		const ScopehalColor color,
 		Unit xunit = Unit(Unit::UNIT_FS),
 		Unit yunit = Unit(Unit::UNIT_VOLTS),
 		Stream::StreamType stype = Stream::STREAM_TYPE_ANALOG,
@@ -72,7 +72,7 @@ public:
 	virtual ~OscilloscopeChannel();
 
 	///Display color (any valid GDK format)
-	std::string m_displaycolor;
+	ScopehalColor m_displaycolor;
 
 	//Stuff here is set once at init and can't be changed
 	Stream::StreamType GetType(size_t stream)

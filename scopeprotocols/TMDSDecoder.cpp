@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-TMDSDecoder::TMDSDecoder(const string& color)
+TMDSDecoder::TMDSDecoder(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 {
 	AddProtocolStream("data");
@@ -250,7 +250,7 @@ void TMDSDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color TMDSWaveform::GetColor(size_t i)
+ScopehalColor TMDSWaveform::GetColor(size_t i)
 {
 	const TMDSSymbol& s = m_samples[i];
 

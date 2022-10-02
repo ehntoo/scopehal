@@ -40,7 +40,7 @@
 class ComplexImportFilter : public ImportFilter
 {
 public:
-	ComplexImportFilter(const std::string& color);
+	ComplexImportFilter(const ScopehalColor color);
 
 	static std::string GetProtocolName();
 

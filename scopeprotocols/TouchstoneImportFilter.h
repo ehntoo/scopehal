@@ -40,7 +40,7 @@
 class TouchstoneImportFilter : public SParameterSourceFilter
 {
 public:
-	TouchstoneImportFilter(const std::string& color);
+	TouchstoneImportFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

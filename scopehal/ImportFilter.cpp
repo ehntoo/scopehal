@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-ImportFilter::ImportFilter(const string& color, Unit xunit)
+ImportFilter::ImportFilter(const ScopehalColor color, Unit xunit)
 	: Filter(color, CAT_GENERATION, xunit)
 {
 }

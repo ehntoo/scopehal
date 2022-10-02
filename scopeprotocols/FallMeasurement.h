@@ -40,7 +40,7 @@
 class FallMeasurement : public Filter
 {
 public:
-	FallMeasurement(const std::string& color);
+	FallMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

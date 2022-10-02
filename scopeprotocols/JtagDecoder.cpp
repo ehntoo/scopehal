@@ -73,7 +73,7 @@ const char* JtagSymbol::GetName(JtagSymbol::JtagState state)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-JtagDecoder::JtagDecoder(const string& color)
+JtagDecoder::JtagDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_BUS)
 {
 	//Set up channels
@@ -332,7 +332,7 @@ void JtagDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color JtagWaveform::GetColor(size_t i)
+ScopehalColor JtagWaveform::GetColor(size_t i)
 {
 	const JtagSymbol& s = m_samples[i];
 

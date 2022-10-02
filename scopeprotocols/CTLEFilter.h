@@ -40,7 +40,7 @@
 class CTLEFilter : public DeEmbedFilter
 {
 public:
-	CTLEFilter(const std::string& color);
+	CTLEFilter(const ScopehalColor color);
 
 	virtual void Refresh(vk::raii::CommandBuffer& cmdBuf, vk::raii::Queue& queue);
 

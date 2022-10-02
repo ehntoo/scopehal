@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-SquelchFilter::SquelchFilter(const string& color)
+SquelchFilter::SquelchFilter(const ScopehalColor color)
 	: Filter(color, CAT_RF)
 {
 	//Set up channels

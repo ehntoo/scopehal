@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-WaveformGenerationFilter::WaveformGenerationFilter(const string& color)
+WaveformGenerationFilter::WaveformGenerationFilter(const ScopehalColor color)
 	: Filter(color, CAT_GENERATION)
 	, m_sampleRate("Sample Rate")
 	, m_edgeTime("Transition Time")

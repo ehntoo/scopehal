@@ -40,7 +40,7 @@
 class BurstWidthMeasurement : public Filter
 {
 public:
-	BurstWidthMeasurement(const std::string& color);
+	BurstWidthMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

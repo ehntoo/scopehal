@@ -84,7 +84,7 @@ class SDCmdWaveform : public SparseWaveform<SDCmdSymbol>
 public:
 	SDCmdWaveform (FilterParameter& cardTypeParam) : SparseWaveform<SDCmdSymbol>(), m_cardTypeParam(cardTypeParam) {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 
 	FilterParameter& m_cardTypeParam;
 };
@@ -96,7 +96,7 @@ public:
 class SDCmdDecoder : public PacketDecoder
 {
 public:
-	SDCmdDecoder(const std::string& color);
+	SDCmdDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

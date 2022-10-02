@@ -70,13 +70,13 @@ class USB2PMAWaveform : public SparseWaveform<USB2PMASymbol>
 public:
 	USB2PMAWaveform () : SparseWaveform<USB2PMASymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class USB2PMADecoder : public Filter
 {
 public:
-	USB2PMADecoder(const std::string& color);
+	USB2PMADecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

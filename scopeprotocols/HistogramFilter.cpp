@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-HistogramFilter::HistogramFilter(const string& color)
+HistogramFilter::HistogramFilter(const ScopehalColor color)
 	: Filter(color, CAT_MATH)
 {
 	AddStream(Unit(Unit::UNIT_COUNTS_SCI), "data", Stream::STREAM_TYPE_ANALOG);

@@ -44,7 +44,7 @@ using namespace std;
 OscilloscopeChannel::OscilloscopeChannel(
 	Oscilloscope* scope,
 	const string& hwname,
-	const string& color,
+	const ScopehalColor color,
 	Unit xunit,
 	size_t index)
 	: m_displaycolor(color)
@@ -60,7 +60,7 @@ OscilloscopeChannel::OscilloscopeChannel(
 OscilloscopeChannel::OscilloscopeChannel(
 	Oscilloscope* scope,
 	const string& hwname,
-	const string& color,
+	const ScopehalColor color,
 	Unit xunit,
 	Unit yunit,
 	Stream::StreamType stype,

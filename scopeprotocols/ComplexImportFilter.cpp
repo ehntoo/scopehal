@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-ComplexImportFilter::ComplexImportFilter(const string& color)
+ComplexImportFilter::ComplexImportFilter(const ScopehalColor color)
 	: ImportFilter(color)
 	, m_formatname("File Format")
 	, m_sratename("Sample Rate")

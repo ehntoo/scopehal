@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-BINImportFilter::BINImportFilter(const string& color)
+BINImportFilter::BINImportFilter(const ScopehalColor color)
 	: ImportFilter(color)
 {
 	m_fpname = "BIN File";

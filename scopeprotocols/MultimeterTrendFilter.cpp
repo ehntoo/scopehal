@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-MultimeterTrendFilter::MultimeterTrendFilter(const string& color)
+MultimeterTrendFilter::MultimeterTrendFilter(const ScopehalColor color)
 	: Filter(color, CAT_MEASUREMENT)
 	, m_meter(NULL)
 {

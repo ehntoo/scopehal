@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-IBM8b10bDecoder::IBM8b10bDecoder(const string& color)
+IBM8b10bDecoder::IBM8b10bDecoder(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 {
 	AddProtocolStream("data");
@@ -375,7 +375,7 @@ void IBM8b10bDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color IBM8b10bWaveform::GetColor(size_t i)
+ScopehalColor IBM8b10bWaveform::GetColor(size_t i)
 {
 	const IBM8b10bSymbol& s = m_samples[i];
 

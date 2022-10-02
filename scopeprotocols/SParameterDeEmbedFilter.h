@@ -43,7 +43,7 @@
 class SParameterDeEmbedFilter : public SParameterFilter
 {
 public:
-	SParameterDeEmbedFilter(const std::string& color);
+	SParameterDeEmbedFilter(const ScopehalColor color);
 	~SParameterDeEmbedFilter();
 
 	bool ValidateChannel(size_t i, StreamDescriptor stream);

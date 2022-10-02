@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-I2CEepromDecoder::I2CEepromDecoder(const string& color)
+I2CEepromDecoder::I2CEepromDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_MEMORY)
 {
 	CreateInput("i2c");
@@ -502,7 +502,7 @@ void I2CEepromDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color I2CEepromWaveform::GetColor(size_t i)
+ScopehalColor I2CEepromWaveform::GetColor(size_t i)
 {
 	const I2CEepromSymbol& s = m_samples[i];
 

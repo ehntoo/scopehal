@@ -79,7 +79,7 @@ class PCIeLogicalWaveform : public SparseWaveform<PCIeLogicalSymbol>
 public:
 	PCIeLogicalWaveform () : SparseWaveform<PCIeLogicalSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 /**
@@ -88,7 +88,7 @@ public:
 class PCIeGen2LogicalDecoder : public Filter
 {
 public:
-	PCIeGen2LogicalDecoder(const std::string& color);
+	PCIeGen2LogicalDecoder(const ScopehalColor color);
 	virtual ~PCIeGen2LogicalDecoder();
 
 	virtual void Refresh();

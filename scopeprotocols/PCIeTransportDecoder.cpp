@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-PCIeTransportDecoder::PCIeTransportDecoder(const string& color)
+PCIeTransportDecoder::PCIeTransportDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_BUS)
 {
 	//Set up channels
@@ -910,7 +910,7 @@ void PCIeTransportDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color PCIeTransportWaveform::GetColor(size_t i)
+ScopehalColor PCIeTransportWaveform::GetColor(size_t i)
 {
 	auto s = m_samples[i];
 

@@ -71,13 +71,13 @@ class OneWireWaveform : public SparseWaveform<OneWireSymbol>
 public:
 	OneWireWaveform () : SparseWaveform<OneWireSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class OneWireDecoder : public Filter
 {
 public:
-	OneWireDecoder(const std::string& color);
+	OneWireDecoder(const ScopehalColor color);
 	virtual ~OneWireDecoder();
 
 	virtual void Refresh();

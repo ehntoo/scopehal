@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-ChannelEmulationFilter::ChannelEmulationFilter(const string& color)
+ChannelEmulationFilter::ChannelEmulationFilter(const ScopehalColor color)
 	: DeEmbedFilter(color)
 {
 	m_parameters[m_maxGainName].MarkHidden();

@@ -40,7 +40,7 @@
 class SParameterCascadeFilter : public SParameterFilter
 {
 public:
-	SParameterCascadeFilter(const std::string& color);
+	SParameterCascadeFilter(const ScopehalColor color);
 	~SParameterCascadeFilter();
 
 	bool ValidateChannel(size_t i, StreamDescriptor stream);

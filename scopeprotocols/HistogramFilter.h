@@ -40,7 +40,7 @@
 class HistogramFilter : public Filter
 {
 public:
-	HistogramFilter(const std::string& color);
+	HistogramFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

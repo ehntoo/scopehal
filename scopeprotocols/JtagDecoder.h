@@ -99,13 +99,13 @@ class JtagWaveform : public SparseWaveform<JtagSymbol>
 public:
 	JtagWaveform () : SparseWaveform<JtagSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class JtagDecoder : public PacketDecoder
 {
 public:
-	JtagDecoder(const std::string& color);
+	JtagDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

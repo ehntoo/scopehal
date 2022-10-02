@@ -36,6 +36,7 @@
 #define DPhyEscapeModeDecoder_h
 
 #include "PacketDecoder.h"
+#include "ScopehalColor.h"
 
 class DPhyEscapeModeSymbol
 {
@@ -67,13 +68,13 @@ class DPhyEscapeModeWaveform : public SparseWaveform<DPhyEscapeModeSymbol>
 public:
 	DPhyEscapeModeWaveform () : SparseWaveform<DPhyEscapeModeSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class DPhyEscapeModeDecoder : public PacketDecoder
 {
 public:
-	DPhyEscapeModeDecoder(const std::string& color);
+	DPhyEscapeModeDecoder(const ScopehalColor color);
 
 	std::vector<std::string> GetHeaders();
 

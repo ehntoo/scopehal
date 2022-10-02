@@ -36,6 +36,7 @@
 #ifndef Oscilloscope_h
 #define Oscilloscope_h
 
+#include <deque>
 #include "Instrument.h"
 #include "OscilloscopeChannel.h"
 #include "SCPITransport.h"

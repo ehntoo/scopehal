@@ -40,7 +40,7 @@
 class ACCoupleFilter : public Filter
 {
 public:
-	ACCoupleFilter(const std::string& color);
+	ACCoupleFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

@@ -40,7 +40,7 @@
 class USB2ActivityDecoder : public Filter
 {
 public:
-	USB2ActivityDecoder(const std::string& color);
+	USB2ActivityDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

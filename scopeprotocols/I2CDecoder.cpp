@@ -41,7 +41,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-I2CDecoder::I2CDecoder(const string& color)
+I2CDecoder::I2CDecoder(const ScopehalColor color)
 	: Filter(color, CAT_BUS)
 {
 	AddProtocolStream("data");
@@ -240,7 +240,7 @@ void I2CDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color I2CWaveform::GetColor(size_t i)
+ScopehalColor I2CWaveform::GetColor(size_t i)
 {
 	const I2CSymbol& s = m_samples[i];
 

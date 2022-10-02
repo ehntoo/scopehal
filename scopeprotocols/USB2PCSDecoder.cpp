@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-USB2PCSDecoder::USB2PCSDecoder(const string& color)
+USB2PCSDecoder::USB2PCSDecoder(const ScopehalColor color)
 	: Filter(color, CAT_SERIAL)
 {
 	AddProtocolStream("data");
@@ -504,7 +504,7 @@ void USB2PCSDecoder::RefreshIterationData(
 	}
 }
 
-Gdk::Color USB2PCSWaveform::GetColor(size_t i)
+ScopehalColor USB2PCSWaveform::GetColor(size_t i)
 {
 	auto sample = m_samples[i];
 	switch(sample.m_type)

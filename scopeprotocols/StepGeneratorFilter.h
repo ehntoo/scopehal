@@ -40,7 +40,7 @@
 class StepGeneratorFilter : public Filter
 {
 public:
-	StepGeneratorFilter(const std::string& color);
+	StepGeneratorFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

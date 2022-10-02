@@ -40,7 +40,7 @@
 class OvershootMeasurement : public Filter
 {
 public:
-	OvershootMeasurement(const std::string& color);
+	OvershootMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

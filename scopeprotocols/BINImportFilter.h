@@ -40,7 +40,7 @@
 class BINImportFilter : public ImportFilter
 {
 public:
-	BINImportFilter(const std::string& color);
+	BINImportFilter(const ScopehalColor color);
 
 	static std::string GetProtocolName();
 

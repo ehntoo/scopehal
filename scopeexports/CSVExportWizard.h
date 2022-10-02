@@ -37,6 +37,11 @@
 #define CSVExportWizard_h
 
 #include <gtkmm/grid.h>
+#include <gtkmm/label.h>
+#include <gtkmm/comboboxtext.h>
+#include <gtkmm/listviewtext.h>
+#include <gtkmm/filechooserwidget.h>
+#include <gtkmm/frame.h>
 #include <vector>
 #include "ExportWizard.h"
 #include "FlowGraphNode.h"

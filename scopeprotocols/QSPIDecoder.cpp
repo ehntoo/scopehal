@@ -41,7 +41,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-QSPIDecoder::QSPIDecoder(const string& color)
+QSPIDecoder::QSPIDecoder(const ScopehalColor color)
 	: SPIDecoder(color)
 {
 	//Remove the x1 SPI inputs

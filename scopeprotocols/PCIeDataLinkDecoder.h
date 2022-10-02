@@ -107,7 +107,7 @@ class PCIeDataLinkWaveform : public SparseWaveform<PCIeDataLinkSymbol>
 public:
 	PCIeDataLinkWaveform () : SparseWaveform<PCIeDataLinkSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 /**
@@ -116,7 +116,7 @@ public:
 class PCIeDataLinkDecoder : public PacketDecoder
 {
 public:
-	PCIeDataLinkDecoder(const std::string& color);
+	PCIeDataLinkDecoder(const ScopehalColor color);
 	virtual ~PCIeDataLinkDecoder();
 
 	virtual void Refresh();

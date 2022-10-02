@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-WFMImportFilter::WFMImportFilter(const string& color)
+WFMImportFilter::WFMImportFilter(const ScopehalColor color)
 	: ImportFilter(color)
 {
 	m_fpname = "WFM File";

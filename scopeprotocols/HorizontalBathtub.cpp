@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-HorizontalBathtub::HorizontalBathtub(const string& color)
+HorizontalBathtub::HorizontalBathtub(const ScopehalColor color)
 	: Filter(color, CAT_ANALYSIS)
 {
 	AddStream(Unit(Unit::UNIT_LOG_BER), "data", Stream::STREAM_TYPE_ANALOG);

@@ -40,7 +40,7 @@
 class CurrentShuntFilter : public Filter
 {
 public:
-	CurrentShuntFilter(const std::string& color);
+	CurrentShuntFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

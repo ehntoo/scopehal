@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-Ethernet10BaseTDecoder::Ethernet10BaseTDecoder(const string& color)
+Ethernet10BaseTDecoder::Ethernet10BaseTDecoder(const ScopehalColor color)
 	: EthernetProtocolDecoder(color)
 {
 }

@@ -76,13 +76,13 @@ class PCIe128b130bWaveform : public SparseWaveform<PCIe128b130bSymbol>
 public:
 	PCIe128b130bWaveform () : SparseWaveform<PCIe128b130bSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class PCIe128b130bDecoder : public Filter
 {
 public:
-	PCIe128b130bDecoder(const std::string& color);
+	PCIe128b130bDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DigitalToPAM4Filter::DigitalToPAM4Filter(const string& color)
+DigitalToPAM4Filter::DigitalToPAM4Filter(const ScopehalColor color)
 	: WaveformGenerationFilter(color)
 	, m_level00("Level 00")
 	, m_level01("Level 01")

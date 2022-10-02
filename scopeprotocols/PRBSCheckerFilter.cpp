@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-PRBSCheckerFilter::PRBSCheckerFilter(const string& color)
+PRBSCheckerFilter::PRBSCheckerFilter(const ScopehalColor color)
 	: Filter(color, CAT_ANALYSIS)
 	, m_polyname("Polynomial")
 {

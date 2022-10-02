@@ -44,7 +44,7 @@ public:
 	SpectrumChannel(
 		Oscilloscope* scope,
 		const std::string& hwname,
-		const std::string& color,
+		const ScopehalColor color,
 		size_t index
 		);
 	virtual ~SpectrumChannel();

@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-GroupDelayFilter::GroupDelayFilter(const string& color)
+GroupDelayFilter::GroupDelayFilter(const ScopehalColor color)
 	: Filter(color, CAT_RF)
 {
 	AddStream(Unit(Unit::UNIT_FS), "data", Stream::STREAM_TYPE_ANALOG);

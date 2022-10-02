@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-IBISDriverFilter::IBISDriverFilter(const string& color)
+IBISDriverFilter::IBISDriverFilter(const ScopehalColor color)
 	: Filter(color, CAT_GENERATION)
 	, m_model(NULL)
 	, m_sampleRate("Sample Rate")

@@ -40,7 +40,7 @@
 class ScaleFilter : public Filter
 {
 public:
-	ScaleFilter(const std::string& color);
+	ScaleFilter(const ScopehalColor color);
 
 	virtual void Refresh();
 

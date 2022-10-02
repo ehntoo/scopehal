@@ -36,7 +36,9 @@
 #ifndef Filter_h
 #define Filter_h
 
+#include <cfloat>
 #include "OscilloscopeChannel.h"
+#include "ScopehalColor.h"
 
 /**
 	@brief Describes a particular revision of a waveform
@@ -99,7 +101,7 @@ public:
 	};
 
 	Filter(
-		const std::string& color,
+		const ScopehalColor color,
 		Category cat,
 		Unit xunit = Unit::UNIT_FS);
 	virtual ~Filter();
@@ -1072,11 +1074,11 @@ protected:
 	unsigned int m_instanceNum;
 
 public:
-	typedef Filter* (*CreateProcType)(const std::string&);
+	typedef Filter* (*CreateProcType)(const ScopehalColor);
 	static void DoAddDecoderClass(const std::string& name, CreateProcType proc);
 
 	static void EnumProtocols(std::vector<std::string>& names);
-	static Filter* CreateFilter(const std::string& protocol, const std::string& color = "#ffffff");
+	static Filter* CreateFilter(const std::string& protocol, const ScopehalColor color);
 
 protected:
 	//Class enumeration
@@ -1095,7 +1097,7 @@ protected:
 };
 
 #define PROTOCOL_DECODER_INITPROC(T) \
-	static Filter* CreateInstance(const std::string& color) \
+	static Filter* CreateInstance(const ScopehalColor color) \
 	{ \
 		return new T(color); \
 	} \

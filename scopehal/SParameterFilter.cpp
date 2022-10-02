@@ -31,7 +31,7 @@
 
 using namespace std;
 
-SParameterFilter::SParameterFilter(const string& color, Category cat)
+SParameterFilter::SParameterFilter(const ScopehalColor color, Category cat)
 	: SParameterSourceFilter(color, cat)
 	, m_portCountName("Port Count")
 {

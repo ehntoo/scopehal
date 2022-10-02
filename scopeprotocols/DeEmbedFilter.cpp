@@ -40,7 +40,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DeEmbedFilter::DeEmbedFilter(const string& color)
+DeEmbedFilter::DeEmbedFilter(const ScopehalColor color)
 	: Filter(color, CAT_ANALYSIS)
 	, m_rectangularComputePipeline("shaders/RectangularWindow.spv", 2, sizeof(WindowFunctionArgs))
 	, m_deEmbedComputePipeline("shaders/DeEmbedFilter.spv", 3, sizeof(uint32_t))

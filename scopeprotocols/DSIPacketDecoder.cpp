@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DSIPacketDecoder::DSIPacketDecoder(const string& color)
+DSIPacketDecoder::DSIPacketDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_SERIAL)
 {
 	CreateInput("data");
@@ -506,7 +506,7 @@ void DSIPacketDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color DSIWaveform::GetColor(size_t i)
+ScopehalColor DSIWaveform::GetColor(size_t i)
 {
 	const DSISymbol& s = m_samples[i];
 	switch(s.m_stype)

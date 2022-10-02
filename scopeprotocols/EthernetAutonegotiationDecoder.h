@@ -45,13 +45,13 @@ public:
 	EthernetAutonegotiationWaveform () : SparseWaveform<uint16_t>() {};
 
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class EthernetAutonegotiationDecoder : public Filter
 {
 public:
-	EthernetAutonegotiationDecoder(const std::string& color);
+	EthernetAutonegotiationDecoder(const ScopehalColor color);
 
 	virtual void Refresh();
 

@@ -79,13 +79,13 @@ class SDRAMWaveform : public SparseWaveform<SDRAMSymbol>
 public:
 	SDRAMWaveform () : SparseWaveform<SDRAMSymbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class SDRAMDecoderBase : public Filter
 {
 public:
-	SDRAMDecoderBase(const std::string& color);
+	SDRAMDecoderBase(const ScopehalColor color);
 	virtual ~SDRAMDecoderBase();
 };
 

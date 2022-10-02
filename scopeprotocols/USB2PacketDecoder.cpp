@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-USB2PacketDecoder::USB2PacketDecoder(const string& color)
+USB2PacketDecoder::USB2PacketDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_SERIAL)
 {
 	//Set up channels
@@ -814,7 +814,7 @@ void USB2PacketDecoder::DecodeData(USB2PacketWaveform* cap, size_t istart, size_
 	m_packets.push_back(pack);
 }
 
-Gdk::Color USB2PacketWaveform::GetColor(size_t i)
+ScopehalColor USB2PacketWaveform::GetColor(size_t i)
 {
 	auto sample = m_samples[i];
 	switch(sample.m_type)

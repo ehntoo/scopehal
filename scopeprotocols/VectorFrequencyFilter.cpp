@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-VectorFrequencyFilter::VectorFrequencyFilter(const string& color)
+VectorFrequencyFilter::VectorFrequencyFilter(const ScopehalColor color)
 	: Filter(color, CAT_RF)
 {
 	AddStream(Unit(Unit::UNIT_HZ), "data", Stream::STREAM_TYPE_ANALOG);

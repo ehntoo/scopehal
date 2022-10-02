@@ -40,7 +40,7 @@
 class RiseMeasurement : public Filter
 {
 public:
-	RiseMeasurement(const std::string& color);
+	RiseMeasurement(const ScopehalColor color);
 
 	virtual void Refresh();
 

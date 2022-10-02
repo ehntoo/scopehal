@@ -44,7 +44,7 @@
 class SParameterSourceFilter : public Filter
 {
 public:
-	SParameterSourceFilter(const std::string& color, Category cat);
+	SParameterSourceFilter(const ScopehalColor color, Category cat);
 	virtual ~SParameterSourceFilter();
 
 	virtual bool NeedsConfig();

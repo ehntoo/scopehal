@@ -34,6 +34,7 @@
  */
 
 #include "CANDecoder.h"
+#include "ScopehalColor.h"
 #include "ScopehalUtils.h"
 
 using namespace std;
@@ -41,7 +42,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-CANDecoder::CANDecoder(const string& color)
+CANDecoder::CANDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_BUS)
 	, m_baudrateName("Bit Rate")
 {
@@ -536,7 +537,7 @@ void CANDecoder::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-Gdk::Color CANWaveform::GetColor(size_t i)
+ScopehalColor CANWaveform::GetColor(size_t i)
 {
 	const CANSymbol& s = m_samples[i];
 

@@ -99,13 +99,13 @@ class MilStd1553Waveform : public SparseWaveform<MilStd1553Symbol>
 public:
 	MilStd1553Waveform () : SparseWaveform<MilStd1553Symbol>() {};
 	virtual std::string GetText(size_t) override;
-	virtual Gdk::Color GetColor(size_t) override;
+	virtual ScopehalColor GetColor(size_t) override;
 };
 
 class MilStd1553Decoder : public PacketDecoder
 {
 public:
-	MilStd1553Decoder(const std::string& color);
+	MilStd1553Decoder(const ScopehalColor color);
 	virtual ~MilStd1553Decoder();
 
 	virtual void Refresh();

@@ -36,7 +36,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-JitterFilter::JitterFilter(const string& color)
+JitterFilter::JitterFilter(const ScopehalColor color)
 	: Filter(color, CAT_GENERATION)
 	, m_stdevname("Rj Stdev")
 	, m_pjfreqname("Pj Frequency")

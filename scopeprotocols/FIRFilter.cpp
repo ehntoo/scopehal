@@ -39,7 +39,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-FIRFilter::FIRFilter(const string& color)
+FIRFilter::FIRFilter(const ScopehalColor color)
 	: Filter(color, CAT_MATH, Unit(Unit::UNIT_FS))
 	, m_filterTypeName("Filter Type")
 	, m_filterLengthName("Length")

@@ -35,7 +35,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-ESPIDecoder::ESPIDecoder(const string& color)
+ESPIDecoder::ESPIDecoder(const ScopehalColor color)
 	: PacketDecoder(color, CAT_BUS)
 {
 	CreateInput("clk");
@@ -1409,7 +1409,7 @@ uint8_t ESPIDecoder::UpdateCRC8(uint8_t crc, uint8_t data)
 	return crc;
 }
 
-Gdk::Color ESPIWaveform::GetColor(size_t i)
+ScopehalColor ESPIWaveform::GetColor(size_t i)
 {
 	const ESPISymbol& s = m_samples[i];
 

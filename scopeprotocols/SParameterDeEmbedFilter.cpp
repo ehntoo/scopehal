@@ -39,7 +39,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-SParameterDeEmbedFilter::SParameterDeEmbedFilter(const string& color)
+SParameterDeEmbedFilter::SParameterDeEmbedFilter(const ScopehalColor color)
 	: SParameterFilter(color, CAT_RF)
 	, m_knownSide("Known Side")
 {

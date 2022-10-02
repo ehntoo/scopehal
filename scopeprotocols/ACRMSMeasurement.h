@@ -40,7 +40,7 @@
 class ACRMSMeasurement : public Filter
 {
 public:
-	ACRMSMeasurement(const std::string& color);
+	ACRMSMeasurement(const ScopehalColor color);
 
 	enum MeasurementType
 	{

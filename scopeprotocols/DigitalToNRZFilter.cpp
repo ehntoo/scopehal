@@ -34,7 +34,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-DigitalToNRZFilter::DigitalToNRZFilter(const string& color)
+DigitalToNRZFilter::DigitalToNRZFilter(const ScopehalColor color)
 	: WaveformGenerationFilter(color)
 	, m_level0("Level 0")
 	, m_level1("Level 1")

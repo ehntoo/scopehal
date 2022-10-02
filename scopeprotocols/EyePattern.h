@@ -130,7 +130,7 @@ protected:
 class EyePattern : public Filter
 {
 public:
-	EyePattern(const std::string& color);
+	EyePattern(const ScopehalColor color);
 
 	virtual void Refresh();
 

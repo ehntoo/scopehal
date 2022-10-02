@@ -53,7 +53,7 @@ WaterfallWaveform::~WaterfallWaveform()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-Waterfall::Waterfall(const string& color)
+Waterfall::Waterfall(const ScopehalColor color)
 	: Filter(color, CAT_RF)
 	, m_pixelsPerHz(0.001)
 	, m_offsetHz(0)

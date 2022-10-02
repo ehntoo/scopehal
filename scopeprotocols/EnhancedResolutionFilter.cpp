@@ -36,7 +36,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Construction / destruction
 
-EnhancedResolutionFilter::EnhancedResolutionFilter(const string& color)
+EnhancedResolutionFilter::EnhancedResolutionFilter(const ScopehalColor color)
 	: FIRFilter(color)
 	, m_cutoffFreqName("Cutoff Frequency")
 	, m_bitsName("Bits")
