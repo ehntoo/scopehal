@@ -285,6 +285,14 @@ void FIRFilter::DoFilterKernelGeneric(
 }
 
 #ifdef __x86_64__
+__attribute__((target("default")))
+void FIRFilter::DoFilterKernelAVX2(
+	UniformAnalogWaveform* /*din*/,
+	UniformAnalogWaveform* /*cap*/)
+{
+	LogError("Invoked FIRFilter::DoFilterKernelAVX2 on platform without AVX2 support");
+}
+
 /**
 	@brief Optimized FIR implementation
 
@@ -383,6 +391,14 @@ void FIRFilter::DoFilterKernelAVX2(
 
 		cap->m_samples[i]	= v;
 	}
+}
+
+__attribute__((target("default")))
+void FIRFilter::DoFilterKernelAVX512F(
+	UniformAnalogWaveform* /*din*/,
+	UniformAnalogWaveform* /*cap*/)
+{
+	LogError("Invoked FIRfilter::DoFilterKernelAVX512F on platform without AVX512F support");
 }
 
 /**

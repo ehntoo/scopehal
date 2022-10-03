@@ -871,6 +871,12 @@ void Oscilloscope::Convert8BitSamplesGeneric(float* pout, int8_t* pin, float gai
 /**
 	@brief Optimized version of Convert8BitSamples()
  */
+__attribute__((target("default")))
+void Oscilloscope::Convert8BitSamplesAVX2(float* /*pout*/, int8_t* /*pin*/, float /*gain*/, float /*offset*/, size_t /*count*/)
+{
+	LogError("Invoked Convert8BitSamplesAVX2 on platform without AVX2 support");
+}
+
 __attribute__((target("avx2")))
 void Oscilloscope::Convert8BitSamplesAVX2(float* pout, int8_t* pin, float gain, float offset, size_t count)
 {
@@ -1003,6 +1009,12 @@ void Oscilloscope::ConvertUnsigned8BitSamplesGeneric(float* pout, uint8_t* pin, 
 /**
 	@brief Optimized version of ConvertUnsigned8BitSamples()
  */
+__attribute__((target("default")))
+void Oscilloscope::ConvertUnsigned8BitSamplesAVX2(float* /*pout*/, uint8_t* /*pin*/, float /*gain*/, float /*offset*/, size_t /*count*/)
+{
+	LogError("Invoked ConvertUnsigned8BitSamplesAVX2 on platform without AVX2 support");
+}
+
 __attribute__((target("avx2")))
 void Oscilloscope::ConvertUnsigned8BitSamplesAVX2(float* pout, uint8_t* pin, float gain, float offset, size_t count)
 {
@@ -1161,6 +1173,12 @@ void Oscilloscope::Convert16BitSamplesGeneric(float* pout, int16_t* pin, float g
 }
 
 #ifdef __x86_64__
+__attribute__((target("default")))
+void Oscilloscope::Convert16BitSamplesAVX2(float* /*pout*/, int16_t* /*pin*/, float /*gain*/, float /*offset*/, size_t /*count*/)
+{
+	LogError("Invoked Convert16BitSamplesAVX2 on platform without AVX2 support");
+}
+
 __attribute__((target("avx2")))
 void Oscilloscope::Convert16BitSamplesAVX2(float* pout, int16_t* pin, float gain, float offset, size_t count)
 {
@@ -1216,6 +1234,12 @@ void Oscilloscope::Convert16BitSamplesAVX2(float* pout, int16_t* pin, float gain
 	//Get any extras we didn't get in the SIMD loop
 	for(size_t k=end; k<count; k++)
 		pout[k] = pin[k] * gain - offset;
+}
+
+__attribute__((target("default")))
+void Oscilloscope::Convert16BitSamplesFMA(float* /*pout*/, int16_t* /*pin*/, float /*gain*/, float /*offset*/, size_t /*count*/)
+{
+	LogError("Invoked Convert16BitSamplesFMA on platform without FMA support");
 }
 
 __attribute__((target("avx2,fma")))
@@ -1291,6 +1315,12 @@ void Oscilloscope::Convert16BitSamplesFMA(float* pout, int16_t* pin, float gain,
 	//Get any extras we didn't get in the SIMD loop
 	for(size_t k=end; k<count; k++)
 		pout[k] = pin[k] * gain - offset;
+}
+
+__attribute__((target("default")))
+void Oscilloscope::Convert16BitSamplesAVX512F(float* /*pout*/, int16_t* /*pin*/, float /*gain*/, float /*offset*/, size_t /*count*/)
+{
+	LogError("Invoked Convert16BitSamplesAVX512F on platform without AVX512F support");
 }
 
 __attribute__((target("avx512f")))

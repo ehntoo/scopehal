@@ -194,6 +194,16 @@ void TappedDelayLineFilter::DoFilterKernelGeneric(
 }
 
 #ifdef __x86_64__
+__attribute__((target("default")))
+void TappedDelayLineFilter::DoFilterKernelAVX2(
+	int64_t /*tap_delay*/,
+	float* /*taps*/,
+	UniformAnalogWaveform* /*din*/,
+	UniformAnalogWaveform* /*cap*/)
+{
+	LogError("Invoked TappedDelayLineFilter::DoFilterKernelAVX2 on platform without AVX2 support");
+}
+
 __attribute__((target("avx2")))
 void TappedDelayLineFilter::DoFilterKernelAVX2(
 	int64_t tap_delay,

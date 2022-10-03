@@ -42,6 +42,12 @@
 
 #include "avx_mathfun.h"
 
+__attribute__((target("default")))
+v8sf _mm256_log_ps(v8sf /*x*/)
+{
+	LogError("Invoked _mm256_log_ps on platform without AVX2 support");
+}
+
 /* natural logarithm computed for 8 simultaneous float
    return NaN for x <= 0
 */
@@ -138,6 +144,12 @@ v8sf _mm256_log_ps(v8sf x)
   return x;
 }
 
+__attribute__((target("default")))
+v8sf exp256_ps(v8sf /*x*/)
+{
+	LogError("Invoked exp256_ps on platform without AVX2 support");
+}
+
 __attribute__((target("avx2")))
 v8sf exp256_ps(v8sf x)
 {
@@ -213,6 +225,12 @@ v8sf exp256_ps(v8sf x)
   v8sf pow2n = _mm256_castsi256_ps(imm0);
   y = _mm256_mul_ps(y, pow2n);
   return y;
+}
+
+__attribute__((target("default")))
+v8sf _mm256_sin_ps(v8sf /*x*/)
+{
+	LogError("Invoked _mm256_sin_ps on platform without AVX2 support");
 }
 
 /* evaluation of 8 sines at onces using AVX intrisics
@@ -334,6 +352,12 @@ v8sf _mm256_sin_ps(v8sf x)
   return y;
 }
 
+__attribute__((target("default")))
+v8sf _mm256_cos_ps(v8sf /*x*/)
+{
+	LogError("Invoked _mm256_cos_ps on platform without AVX2 support");
+}
+
 /* almost the same as sin_ps */
 __attribute__((target("avx2")))
 v8sf _mm256_cos_ps(v8sf x)
@@ -433,10 +457,16 @@ v8sf _mm256_cos_ps(v8sf x)
   return y;
 }
 
+__attribute__((target("default")))
+void _mm256_sincos_ps(v8sf /*x*/, v8sf */*s*/, v8sf */*c*/)
+{
+	LogError("Invoked _mm256_sincos_ps on platform without AVX2 support");
+}
+
 /* since _mm256_sin_ps and _mm256_cos_ps are almost identical, _mm256_sincos_ps could replace both of them..
    it is almost as fast, and gives you a free cosine with your sine */
 __attribute__((target("avx2")))
-void _mm256_sincos_ps(v8sf x, v8sf *s, v8sf *c)\
+void _mm256_sincos_ps(v8sf x, v8sf *s, v8sf *c)
 {
   _PS256_CONST_TYPE(sign_mask, int, (int)0x80000000);
   _PS256_CONST_TYPE(inv_sign_mask, int, ~0x80000000);

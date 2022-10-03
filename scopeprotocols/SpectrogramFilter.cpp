@@ -270,6 +270,19 @@ void SpectrogramFilter::ProcessSpectrumGeneric(
 }
 
 #ifdef __x86_64__
+__attribute__((target("default")))
+void SpectrogramFilter::ProcessSpectrumAVX2FMA(
+	size_t /*nblocks*/,
+	size_t /*block*/,
+	size_t /*nouts*/,
+	float /*minscale*/,
+	float /*range*/,
+	float /*scale*/,
+	float* /*data*/)
+{
+	LogError("Invoked SpectrogramFilter::ProcessSpectrumAVX2FMA on platform without FMA support");
+}
+
 __attribute__((target("avx2,fma")))
 void SpectrogramFilter::ProcessSpectrumAVX2FMA(
 	size_t nblocks,

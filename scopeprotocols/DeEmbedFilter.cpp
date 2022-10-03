@@ -498,6 +498,12 @@ void DeEmbedFilter::MainLoop(size_t nouts)
 }
 
 #ifdef __x86_64__
+__attribute__((target("default")))
+void DeEmbedFilter::MainLoopAVX2(size_t /*nouts*/)
+{
+	LogError("Invoked DeEmbedFilter::MainLoopAVX2 on platform without AVX2 support");
+}
+
 __attribute__((target("avx2")))
 void DeEmbedFilter::MainLoopAVX2(size_t nouts)
 {

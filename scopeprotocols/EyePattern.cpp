@@ -509,6 +509,23 @@ void EyePattern::Refresh()
 }
 
 #ifdef __x86_64__
+__attribute__((target("default")))
+void EyePattern::DensePackedInnerLoopAVX2(
+	UniformAnalogWaveform* /*waveform*/,
+	vector<int64_t>& /*clock_edges*/,
+	int64_t* /*data*/,
+	size_t /*wend*/,
+	size_t /*cend*/,
+	int32_t /*xmax*/,
+	int32_t /*ymax*/,
+	float /*xtimescale*/,
+	float /*yscale*/,
+	float /*yoff*/
+	)
+{
+	LogError("Invoked EyePattern::DensePackedInnerLoopAVX2 on platform without AVX2 support");
+}
+
 __attribute__((target("avx2")))
 void EyePattern::DensePackedInnerLoopAVX2(
 	UniformAnalogWaveform* waveform,

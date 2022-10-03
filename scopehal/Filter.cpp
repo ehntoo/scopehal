@@ -286,6 +286,12 @@ void Filter::FillDurationsGeneric(SparseWaveformBase& wfm)
 }
 
 #ifdef __x86_64__
+__attribute__((target("default")))
+void Filter::FillDurationsAVX2(SparseWaveformBase& /*wfm*/)
+{
+	LogError("Invoked Filter::FillDurationsAVX2 on platform without AVX2 support");
+}
+
 /**
 	@brief AVX2 optimized version of FillDurationsGeneric()
  */

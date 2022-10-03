@@ -225,6 +225,12 @@ void SubtractFilter::InnerLoop(float* out, float* a, float* b, size_t len)
 }
 
 #ifdef __x86_64__
+__attribute__((target("default")))
+void SubtractFilter::InnerLoopAVX2(float* /*out*/, float* /*a*/, float* /*b*/, size_t /*len*/)
+{
+	LogError("Invoked SubtractFilter::InnerLoopAVX2 on platform without AVX2 support");
+}
+
 __attribute__((target("avx2")))
 void SubtractFilter::InnerLoopAVX2(float* out, float* a, float* b, size_t len)
 {

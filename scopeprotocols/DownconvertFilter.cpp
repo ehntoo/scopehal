@@ -161,6 +161,17 @@ void DownconvertFilter::DoFilterKernelGeneric(
 }
 
 #ifdef __x86_64__
+__attribute__((target("default")))
+void DownconvertFilter::DoFilterKernelAVX2DensePacked(
+	UniformAnalogWaveform* /*din*/,
+	UniformAnalogWaveform* /*cap_i*/,
+	UniformAnalogWaveform* /*cap_q*/,
+	float /*lo_rad_per_sample*/,
+	float /*trigger_phase_rad*/)
+{
+	LogError("Invoked DownconvertFilter::DoFilterKernelAVX2DensePacked on platform without AVX2 support");
+}
+
 __attribute__((target("avx2")))
 void DownconvertFilter::DoFilterKernelAVX2DensePacked(
 	UniformAnalogWaveform* din,

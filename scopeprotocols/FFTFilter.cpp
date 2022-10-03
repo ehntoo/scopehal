@@ -422,6 +422,12 @@ void FFTFilter::NormalizeOutputLinear(AcceleratorBuffer<float>& data, size_t nou
 }
 
 #ifdef __x86_64__
+__attribute__((target("default")))
+void FFTFilter::NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& /*data*/, size_t /*nouts*/, float /*scale*/)
+{
+	LogError("Invoked FFTFilter::NormalizeOutputLogAVX2FMA on platform without FMA support");
+}
+
 /**
 	@brief Normalize FFT output and convert to dBm (optimized AVX2 implementation)
  */
@@ -487,6 +493,12 @@ void FFTFilter::NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& data, size_t
 
 		pout[k] = dbm;
 	}
+}
+
+__attribute__((target("default")))
+void FFTFilter::NormalizeOutputLinearAVX2(AcceleratorBuffer<float>& /*data*/, size_t /*nouts*/, float /*scale*/)
+{
+	LogError("Invoked FFTFilter::NormalizeOutputLinearAVX2 on platform without AVX2 support");
 }
 
 /**
@@ -586,6 +598,12 @@ void FFTFilter::CosineSumWindow(const float* data, size_t len, float* out, float
 }
 
 #ifdef __x86_64__
+__attribute__((target("default")))
+void FFTFilter::CosineSumWindowAVX2(const float* /*data*/, size_t /*len*/, float* /*out*/, float /*alpha0*/)
+{
+	LogError("Invoked FFTFilter::CosineSumWindowAVX2 on platform without AVX2 support");
+}
+
 __attribute__((target("avx2")))
 void FFTFilter::CosineSumWindowAVX2(const float* data, size_t len, float* out, float alpha0)
 {
@@ -644,6 +662,12 @@ void FFTFilter::BlackmanHarrisWindow(const float* data, size_t len, float* out)
 }
 
 #ifdef __x86_64__
+__attribute__((target("default")))
+void FFTFilter::BlackmanHarrisWindowAVX2(const float* /*data*/, size_t /*len*/, float* /*out*/)
+{
+	LogError("Invoked FFTFilter::BlackmanHarrisWindowAVX2 on platform without AVX2 support");
+}
+
 __attribute__((target("avx2")))
 void FFTFilter::BlackmanHarrisWindowAVX2(const float* data, size_t len, float* out)
 {
