@@ -194,7 +194,7 @@ void TappedDelayLineFilter::DoFilterKernelGeneric(
 }
 
 #ifdef __x86_64__
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void TappedDelayLineFilter::DoFilterKernelAVX2(
 	int64_t tap_delay,
 	float* taps,

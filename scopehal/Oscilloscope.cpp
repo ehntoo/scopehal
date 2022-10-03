@@ -871,7 +871,7 @@ void Oscilloscope::Convert8BitSamplesGeneric(float* pout, int8_t* pin, float gai
 /**
 	@brief Optimized version of Convert8BitSamples()
  */
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void Oscilloscope::Convert8BitSamplesAVX2(float* pout, int8_t* pin, float gain, float offset, size_t count)
 {
 #include <avx2intrin.h>
@@ -1004,7 +1004,7 @@ void Oscilloscope::ConvertUnsigned8BitSamplesGeneric(float* pout, uint8_t* pin, 
 /**
 	@brief Optimized version of ConvertUnsigned8BitSamples()
  */
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void Oscilloscope::ConvertUnsigned8BitSamplesAVX2(float* pout, uint8_t* pin, float gain, float offset, size_t count)
 {
 #include <avx2intrin.h>
@@ -1163,7 +1163,7 @@ void Oscilloscope::Convert16BitSamplesGeneric(float* pout, int16_t* pin, float g
 }
 
 #ifdef __x86_64__
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void Oscilloscope::Convert16BitSamplesAVX2(float* pout, int16_t* pin, float gain, float offset, size_t count)
 {
 #include <avx2intrin.h>
@@ -1221,7 +1221,7 @@ void Oscilloscope::Convert16BitSamplesAVX2(float* pout, int16_t* pin, float gain
 		pout[k] = pin[k] * gain - offset;
 }
 
-__attribute__((target("avx2,fma")))
+__attribute__((target("avx,avx2,fma")))
 void Oscilloscope::Convert16BitSamplesFMA(float* pout, int16_t* pin, float gain, float offset, size_t count)
 {
 #include <avx2intrin.h>
@@ -1298,7 +1298,7 @@ void Oscilloscope::Convert16BitSamplesFMA(float* pout, int16_t* pin, float gain,
 		pout[k] = pin[k] * gain - offset;
 }
 
-__attribute__((target("avx512f")))
+__attribute__((target("avx,avx2,avx512f")))
 void Oscilloscope::Convert16BitSamplesAVX512F(float* pout, int16_t* pin, float gain, float offset, size_t count)
 {
 #include <avx512fintrin.h>

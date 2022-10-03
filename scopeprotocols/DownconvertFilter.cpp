@@ -161,7 +161,7 @@ void DownconvertFilter::DoFilterKernelGeneric(
 }
 
 #ifdef __x86_64__
-__attribute__((target("-mavx,-mavx2")))
+__attribute__((target("avx,avx2")))
 void DownconvertFilter::DoFilterKernelAVX2DensePacked(
 #include <avx2intrin.h>
 	UniformAnalogWaveform* din,

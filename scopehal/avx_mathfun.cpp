@@ -46,7 +46,7 @@
 /* natural logarithm computed for 8 simultaneous float
    return NaN for x <= 0
 */
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 v8sf _mm256_log_ps(v8sf x)
 {
   _PS256_CONST(cephes_SQRTHF, 0.707106781186547524);
@@ -139,7 +139,7 @@ v8sf _mm256_log_ps(v8sf x)
   return x;
 }
 
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 v8sf exp256_ps(v8sf x)
 {
   _PS256_CONST(exp_hi,	88.3762626647949f);
@@ -228,7 +228,7 @@ v8sf exp256_ps(v8sf x)
    surprising but correct result.
 
 */
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 v8sf _mm256_sin_ps(v8sf x)
 { // any x
   _PS256_CONST_TYPE(sign_mask, int, (int)0x80000000);
@@ -336,7 +336,7 @@ v8sf _mm256_sin_ps(v8sf x)
 }
 
 /* almost the same as sin_ps */
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 v8sf _mm256_cos_ps(v8sf x)
 { // any x
 
@@ -436,7 +436,7 @@ v8sf _mm256_cos_ps(v8sf x)
 
 /* since _mm256_sin_ps and _mm256_cos_ps are almost identical, _mm256_sincos_ps could replace both of them..
    it is almost as fast, and gives you a free cosine with your sine */
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void _mm256_sincos_ps(v8sf x, v8sf *s, v8sf *c)\
 {
   _PS256_CONST_TYPE(sign_mask, int, (int)0x80000000);

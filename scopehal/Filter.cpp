@@ -289,7 +289,7 @@ void Filter::FillDurationsGeneric(SparseWaveformBase& wfm)
 /**
 	@brief AVX2 optimized version of FillDurationsGeneric()
  */
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void Filter::FillDurationsAVX2(SparseWaveformBase& wfm)
 {
 #include <avx2intrin.h>

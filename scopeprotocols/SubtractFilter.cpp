@@ -225,7 +225,7 @@ void SubtractFilter::InnerLoop(float* out, float* a, float* b, size_t len)
 }
 
 #ifdef __x86_64__
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void SubtractFilter::InnerLoopAVX2(float* out, float* a, float* b, size_t len)
 {
 #include <avx2intrin.h>

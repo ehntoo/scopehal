@@ -498,7 +498,7 @@ void DeEmbedFilter::MainLoop(size_t nouts)
 }
 
 #ifdef __x86_64__
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void DeEmbedFilter::MainLoopAVX2(size_t nouts)
 {
 #include <avx2intrin.h>

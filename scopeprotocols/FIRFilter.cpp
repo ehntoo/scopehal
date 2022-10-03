@@ -290,7 +290,7 @@ void FIRFilter::DoFilterKernelGeneric(
 
 	Uses AVX2, but not AVX512 or FMA.
  */
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void FIRFilter::DoFilterKernelAVX2(
 	UniformAnalogWaveform* din,
 	UniformAnalogWaveform* cap)
@@ -389,7 +389,7 @@ void FIRFilter::DoFilterKernelAVX2(
 /**
 	@brief Optimized AVX512F implementation
  */
-__attribute__((target("avx512f")))
+__attribute__((target("avx,avx2,avx512f")))
 void FIRFilter::DoFilterKernelAVX512F(
 	UniformAnalogWaveform* din,
 	UniformAnalogWaveform* cap)

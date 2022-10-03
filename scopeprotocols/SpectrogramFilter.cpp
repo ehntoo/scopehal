@@ -270,7 +270,7 @@ void SpectrogramFilter::ProcessSpectrumGeneric(
 }
 
 #ifdef __x86_64__
-__attribute__((target("avx2,fma")))
+__attribute__((target("avx,avx2,fma")))
 void SpectrogramFilter::ProcessSpectrumAVX2FMA(
 	size_t nblocks,
 	size_t block,

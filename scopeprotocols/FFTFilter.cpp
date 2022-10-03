@@ -425,7 +425,7 @@ void FFTFilter::NormalizeOutputLinear(AcceleratorBuffer<float>& data, size_t nou
 /**
 	@brief Normalize FFT output and convert to dBm (optimized AVX2 implementation)
  */
-__attribute__((target("avx2,fma")))
+__attribute__((target("avx,avx2,fma")))
 void FFTFilter::NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& data, size_t nouts, float scale)
 {
 #include <avx2intrin.h>
@@ -494,7 +494,7 @@ void FFTFilter::NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& data, size_t
 /**
 	@brief Normalize FFT output and keep in native units (optimized AVX2 implementation)
  */
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void FFTFilter::NormalizeOutputLinearAVX2(AcceleratorBuffer<float>& data, size_t nouts, float scale)
 {
 #include <avx2intrin.h>
@@ -589,7 +589,7 @@ void FFTFilter::CosineSumWindow(const float* data, size_t len, float* out, float
 }
 
 #ifdef __x86_64__
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void FFTFilter::CosineSumWindowAVX2(const float* data, size_t len, float* out, float alpha0)
 {
 #include <avx2intrin.h>
@@ -648,7 +648,7 @@ void FFTFilter::BlackmanHarrisWindow(const float* data, size_t len, float* out)
 }
 
 #ifdef __x86_64__
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void FFTFilter::BlackmanHarrisWindowAVX2(const float* data, size_t len, float* out)
 {
 #include <avx2intrin.h>
