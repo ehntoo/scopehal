@@ -201,6 +201,7 @@ void TappedDelayLineFilter::DoFilterKernelAVX2(
 	UniformAnalogWaveform* din,
 	UniformAnalogWaveform* cap)
 {
+#include <avx2intrin.h>
 	//For now, no resampling. Assume tap delay is an integer number of samples.
 	int64_t samples_per_tap = tap_delay / cap->m_timescale;
 

@@ -295,6 +295,7 @@ void FIRFilter::DoFilterKernelAVX2(
 	UniformAnalogWaveform* din,
 	UniformAnalogWaveform* cap)
 {
+#include <avx2intrin.h>
 	//Save some pointers and sizes
 	size_t len = din->size();
 	size_t filterlen = m_coefficients.size();
@@ -393,6 +394,7 @@ void FIRFilter::DoFilterKernelAVX512F(
 	UniformAnalogWaveform* din,
 	UniformAnalogWaveform* cap)
 {
+#include <avx512fintrin.h>
 	//Save some pointers and sizes
 	size_t len = din->size();
 	size_t filterlen = m_coefficients.size();

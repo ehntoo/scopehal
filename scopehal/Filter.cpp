@@ -292,6 +292,7 @@ void Filter::FillDurationsGeneric(SparseWaveformBase& wfm)
 __attribute__((target("avx2")))
 void Filter::FillDurationsAVX2(SparseWaveformBase& wfm)
 {
+#include <avx2intrin.h>
 	size_t len = wfm.size();
 	wfm.m_durations.resize(len);
 

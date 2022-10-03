@@ -228,6 +228,7 @@ void SubtractFilter::InnerLoop(float* out, float* a, float* b, size_t len)
 __attribute__((target("avx2")))
 void SubtractFilter::InnerLoopAVX2(float* out, float* a, float* b, size_t len)
 {
+#include <avx2intrin.h>
 	size_t end = len - (len % 8);
 
 	//AVX2

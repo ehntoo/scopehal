@@ -428,6 +428,8 @@ void FFTFilter::NormalizeOutputLinear(AcceleratorBuffer<float>& data, size_t nou
 __attribute__((target("avx2,fma")))
 void FFTFilter::NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& data, size_t nouts, float scale)
 {
+#include <avx2intrin.h>
+#include <fmaintrin.h>
 	size_t end = nouts - (nouts % 8);
 
 	//double since we only look at positive half
@@ -495,6 +497,7 @@ void FFTFilter::NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& data, size_t
 __attribute__((target("avx2")))
 void FFTFilter::NormalizeOutputLinearAVX2(AcceleratorBuffer<float>& data, size_t nouts, float scale)
 {
+#include <avx2intrin.h>
 	size_t end = nouts - (nouts % 8);
 
 	//double since we only look at positive half
@@ -589,6 +592,7 @@ void FFTFilter::CosineSumWindow(const float* data, size_t len, float* out, float
 __attribute__((target("avx2")))
 void FFTFilter::CosineSumWindowAVX2(const float* data, size_t len, float* out, float alpha0)
 {
+#include <avx2intrin.h>
 	float alpha1 = 1 - alpha0;
 	float scale = 2.0f * (float)M_PI / len;
 
@@ -647,6 +651,7 @@ void FFTFilter::BlackmanHarrisWindow(const float* data, size_t len, float* out)
 __attribute__((target("avx2")))
 void FFTFilter::BlackmanHarrisWindowAVX2(const float* data, size_t len, float* out)
 {
+#include <avx2intrin.h>
 	float alpha0 = 0.35875;
 	float alpha1 = 0.48829;
 	float alpha2 = 0.14128;

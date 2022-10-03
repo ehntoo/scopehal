@@ -121,6 +121,7 @@ void NoiseFilter::CopyWithAwgnNative(float* dest, float* src, size_t len, float 
 __attribute__((target("avx2")))
 void NoiseFilter::CopyWithAwgnAVX2(float* dest, float* src, size_t len, float sigma)
 {
+#include <avx2intrin.h>
 	size_t end = len - (len % 16);
 
 	//Box-Muller setup

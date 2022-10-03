@@ -41,6 +41,7 @@
 #ifdef __x86_64__
 
 #include "avx_mathfun.h"
+#include <avx2intrin.h>
 
 /* natural logarithm computed for 8 simultaneous float
    return NaN for x <= 0

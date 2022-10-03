@@ -501,6 +501,7 @@ void DeEmbedFilter::MainLoop(size_t nouts)
 __attribute__((target("avx2")))
 void DeEmbedFilter::MainLoopAVX2(size_t nouts)
 {
+#include <avx2intrin.h>
 	unsigned int end = nouts - (nouts % 8);
 
 	//Vectorized loop doing 8 elements at once

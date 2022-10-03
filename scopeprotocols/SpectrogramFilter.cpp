@@ -280,6 +280,8 @@ void SpectrogramFilter::ProcessSpectrumAVX2FMA(
 	float scale,
 	float* data)
 {
+#include <avx2intrin.h>
+#include <fmaintrin.h>
 	const float impedance = 50;
 	const float logscale = 10 / log(10);
 	const float irange = 1.0 / range;
