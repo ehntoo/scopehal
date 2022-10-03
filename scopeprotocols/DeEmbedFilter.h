@@ -91,6 +91,9 @@ protected:
 
 	void MainLoop(size_t nouts);
 #ifdef __x86_64__
+	__attribute__((target("avx2")))
+	void MainLoopAVX2(size_t nouts);
+	__attribute__((target("default")))
 	void MainLoopAVX2(size_t nouts);
 #endif
 

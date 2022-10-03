@@ -93,10 +93,20 @@ protected:
 		UniformAnalogWaveform* cap);
 
 #ifdef __x86_64__
+	__attribute__((target("avx2")))
+	void DoFilterKernelAVX2(
+		UniformAnalogWaveform* din,
+		UniformAnalogWaveform* cap);
+	__attribute__((target("default")))
 	void DoFilterKernelAVX2(
 		UniformAnalogWaveform* din,
 		UniformAnalogWaveform* cap);
 
+	__attribute__((target("avx512f")))
+	void DoFilterKernelAVX512F(
+		UniformAnalogWaveform* din,
+		UniformAnalogWaveform* cap);
+	__attribute__((target("default")))
 	void DoFilterKernelAVX512F(
 		UniformAnalogWaveform* din,
 		UniformAnalogWaveform* cap);

@@ -54,6 +54,9 @@ public:
 protected:
 	void InnerLoop(float* out, float* a, float* b, size_t len);
 #ifdef __x86_64__
+	__attribute__((target("avx2")))
+	void InnerLoopAVX2(float* out, float* a, float* b, size_t len);
+	__attribute__((target("default")))
 	void InnerLoopAVX2(float* out, float* a, float* b, size_t len);
 #endif
 

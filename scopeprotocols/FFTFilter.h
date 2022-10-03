@@ -98,7 +98,13 @@ public:
 	static void BlackmanHarrisWindow(const float* data, size_t len, float* out);
 
 #ifdef __x86_64__
+	__attribute__((target("avx2")))
 	static void CosineSumWindowAVX2(const float* data, size_t len, float* out, float alpha0);
+	__attribute__((target("default")))
+	static void CosineSumWindowAVX2(const float* data, size_t len, float* out, float alpha0);
+	__attribute__((target("avx2")))
+	static void BlackmanHarrisWindowAVX2(const float* data, size_t len, float* out);
+	__attribute__((target("default")))
 	static void BlackmanHarrisWindowAVX2(const float* data, size_t len, float* out);
 #endif
 
@@ -109,9 +115,17 @@ public:
 
 protected:
 	void NormalizeOutputLog(AcceleratorBuffer<float>& data, size_t nouts, float scale);
-	void NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& data, size_t nouts, float scale);
 	void NormalizeOutputLinear(AcceleratorBuffer<float>& data, size_t nouts, float scale);
+#ifdef __x86_64__
+	__attribute__((target("avx2,fma")))
+	void NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& data, size_t nouts, float scale);
+	__attribute__((target("default")))
+	void NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& data, size_t nouts, float scale);
+	__attribute__((target("avx2")))
 	void NormalizeOutputLinearAVX2(AcceleratorBuffer<float>& data, size_t nouts, float scale);
+	__attribute__((target("default")))
+	void NormalizeOutputLinearAVX2(AcceleratorBuffer<float>& data, size_t nouts, float scale);
+#endif
 
 	void ReallocateBuffers(size_t npoints_raw, size_t npoints, size_t nouts);
 

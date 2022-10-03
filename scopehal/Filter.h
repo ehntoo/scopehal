@@ -1054,6 +1054,9 @@ protected:
 	//Helpers for sparse waveforms
 	static void FillDurationsGeneric(SparseWaveformBase& wfm);
 #ifdef __x86_64__
+	__attribute__((target("avx2")))
+	static void FillDurationsAVX2(SparseWaveformBase& wfm);
+	__attribute__((target("default")))
 	static void FillDurationsAVX2(SparseWaveformBase& wfm);
 #endif
 

@@ -138,6 +138,16 @@ protected:
 		float* data);
 
 #ifdef __x86_64__
+	__attribute__((target("avx2,fma")))
+	void ProcessSpectrumAVX2FMA(
+		size_t nblocks,
+		size_t block,
+		size_t nouts,
+		float minscale,
+		float range,
+		float scale,
+		float* data);
+	__attribute__((target("default")))
 	void ProcessSpectrumAVX2FMA(
 		size_t nblocks,
 		size_t block,

@@ -62,6 +62,14 @@ protected:
 		float trigger_phase_rad);
 
 #ifdef __x86_64__
+	__attribute__((target("avx2")))
+	void DoFilterKernelAVX2DensePacked(
+		UniformAnalogWaveform* din,
+		UniformAnalogWaveform* cap_i,
+		UniformAnalogWaveform* cap_q,
+		float lo_rad_per_sample,
+		float trigger_phase_rad);
+	__attribute__((target("default")))
 	void DoFilterKernelAVX2DensePacked(
 		UniformAnalogWaveform* din,
 		UniformAnalogWaveform* cap_i,

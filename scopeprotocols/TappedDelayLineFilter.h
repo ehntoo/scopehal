@@ -68,6 +68,13 @@ protected:
 		UniformAnalogWaveform* cap);
 
 #ifdef __x86_64__
+	__attribute__((target("avx2")))
+	static void DoFilterKernelAVX2(
+		int64_t tap_delay,
+		float* taps,
+		UniformAnalogWaveform* din,
+		UniformAnalogWaveform* cap);
+	__attribute__((target("default")))
 	static void DoFilterKernelAVX2(
 		int64_t tap_delay,
 		float* taps,
