@@ -218,81 +218,7 @@ void FIRFilter::Refresh(vk::raii::CommandBuffer& cmdBuf, vk::raii::Queue& queue)
 	cap->m_triggerPhase = (radius * fs_per_sample) + din->m_triggerPhase;
 }
 
-void FIRFilter::DoFilterKernel(
-	vk::raii::CommandBuffer& cmdBuf,
-	vk::raii::Queue& queue,
-	UniformAnalogWaveform* din,
-	UniformAnalogWaveform* cap)
-{
-	if(g_gpuFilterEnabled)
-	{
-		cmdBuf.begin({});
-
-		FIRFilterArgs args;
-		args.end = din->size() - m_coefficients.size();
-		args.filterlen = m_coefficients.size();
-
-		m_computePipeline.BindBufferNonblocking(0, din->m_samples, cmdBuf);
-		m_computePipeline.BindBufferNonblocking(1, m_coefficients, cmdBuf);
-		m_computePipeline.BindBufferNonblocking(2, cap->m_samples, cmdBuf, true);
-		m_computePipeline.Dispatch(cmdBuf, args, GetComputeBlockCount(args.end, 64));
-
-		cmdBuf.end();
-		SubmitAndBlock(cmdBuf, queue);
-
-		cap->m_samples.MarkModifiedFromGpu();
-	}
-
-	else
-	{
-		din->PrepareForCpuAccess();
-		cap->PrepareForCpuAccess();
-
-		#ifdef __x86_64__
-		if(g_hasAvx512F)
-			DoFilterKernelAVX512F(din, cap);
-		else if(g_hasAvx2)
-			DoFilterKernelAVX2(din, cap);
-		else
-		#endif
-			DoFilterKernelGeneric(din, cap);
-
-		cap->MarkModifiedFromCpu();
-	}
-}
-
-/**
-	@brief Performs a FIR filter (does not assume symmetric)
- */
-void FIRFilter::DoFilterKernelGeneric(
-	UniformAnalogWaveform* din,
-	UniformAnalogWaveform* cap)
-{
-	//Setup
-	size_t len = din->size();
-	size_t filterlen = m_coefficients.size();
-	size_t end = len - filterlen;
-
-	//Do the filter
-	for(size_t i=0; i<end; i++)
-	{
-		float v = 0;
-		for(size_t j=0; j<filterlen; j++)
-			v += din->m_samples[i + j] * m_coefficients[j];
-
-		cap->m_samples[i]	= v;
-	}
-}
-
 #ifdef __x86_64__
-__attribute__((target("default")))
-void FIRFilter::DoFilterKernelAVX2(
-	UniformAnalogWaveform* /*din*/,
-	UniformAnalogWaveform* /*cap*/)
-{
-	LogError("Invoked FIRFilter::DoFilterKernelAVX2 on platform without AVX2 support");
-}
-
 /**
 	@brief Optimized FIR implementation
 
@@ -394,11 +320,11 @@ void FIRFilter::DoFilterKernelAVX2(
 }
 
 __attribute__((target("default")))
-void FIRFilter::DoFilterKernelAVX512F(
-	UniformAnalogWaveform* /*din*/,
-	UniformAnalogWaveform* /*cap*/)
+void FIRFilter::DoFilterKernelAVX2(
+	UniformAnalogWaveform* din,
+	UniformAnalogWaveform* cap)
 {
-	LogError("Invoked FIRfilter::DoFilterKernelAVX512F on platform without AVX512F support");
+	LogError("Invoked FIRFilter::DoFilterKernelAVX2 on platform without AVX2 support");
 }
 
 /**
@@ -469,7 +395,81 @@ void FIRFilter::DoFilterKernelAVX512F(
 		cap->m_samples[i]	= v;
 	}
 }
+
+__attribute__((target("default")))
+void FIRFilter::DoFilterKernelAVX512F(
+	UniformAnalogWaveform* din,
+	UniformAnalogWaveform* cap)
+{
+	LogError("Invoked FIRfilter::DoFilterKernelAVX512F on platform without AVX512F support");
+}
 #endif /* __x86_64__ */
+
+void FIRFilter::DoFilterKernel(
+	vk::raii::CommandBuffer& cmdBuf,
+	vk::raii::Queue& queue,
+	UniformAnalogWaveform* din,
+	UniformAnalogWaveform* cap)
+{
+	if(g_gpuFilterEnabled)
+	{
+		cmdBuf.begin({});
+
+		FIRFilterArgs args;
+		args.end = din->size() - m_coefficients.size();
+		args.filterlen = m_coefficients.size();
+
+		m_computePipeline.BindBufferNonblocking(0, din->m_samples, cmdBuf);
+		m_computePipeline.BindBufferNonblocking(1, m_coefficients, cmdBuf);
+		m_computePipeline.BindBufferNonblocking(2, cap->m_samples, cmdBuf, true);
+		m_computePipeline.Dispatch(cmdBuf, args, GetComputeBlockCount(args.end, 64));
+
+		cmdBuf.end();
+		SubmitAndBlock(cmdBuf, queue);
+
+		cap->m_samples.MarkModifiedFromGpu();
+	}
+
+	else
+	{
+		din->PrepareForCpuAccess();
+		cap->PrepareForCpuAccess();
+
+		#ifdef __x86_64__
+		if(g_hasAvx512F)
+			DoFilterKernelAVX512F(din, cap);
+		else if(g_hasAvx2)
+			DoFilterKernelAVX2(din, cap);
+		else
+		#endif
+			DoFilterKernelGeneric(din, cap);
+
+		cap->MarkModifiedFromCpu();
+	}
+}
+
+/**
+	@brief Performs a FIR filter (does not assume symmetric)
+ */
+void FIRFilter::DoFilterKernelGeneric(
+	UniformAnalogWaveform* din,
+	UniformAnalogWaveform* cap)
+{
+	//Setup
+	size_t len = din->size();
+	size_t filterlen = m_coefficients.size();
+	size_t end = len - filterlen;
+
+	//Do the filter
+	for(size_t i=0; i<end; i++)
+	{
+		float v = 0;
+		for(size_t j=0; j<filterlen; j++)
+			v += din->m_samples[i + j] * m_coefficients[j];
+
+		cap->m_samples[i]	= v;
+	}
+}
 
 /**
 	@brief Calculates FIR coefficients

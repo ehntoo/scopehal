@@ -118,12 +118,6 @@ void NoiseFilter::CopyWithAwgnNative(float* dest, float* src, size_t len, float 
 }
 
 #ifdef __x86_64__
-__attribute__((target("default")))
-void NoiseFilter::CopyWithAwgnAVX2(float* /*dest*/, float* /*src*/, size_t /*len*/, float /*sigma*/)
-{
-	LogError("Invoked NoiseFilter::CopyWithAwgnAVX2 on platform without AVX2 support");
-}
-
 __attribute__((target("avx2")))
 void NoiseFilter::CopyWithAwgnAVX2(float* dest, float* src, size_t len, float sigma)
 {
@@ -200,5 +194,11 @@ void NoiseFilter::CopyWithAwgnAVX2(float* dest, float* src, size_t len, float si
 	for(size_t i=end; i<len; i++)
 		dest[i] = src[i] + noise(rng);
 #pragma GCC diagnostic pop
+}
+
+__attribute__((target("default")))
+void NoiseFilter::CopyWithAwgnAVX2(float* dest, float* src, size_t len, float sigma)
+{
+	LogError("Invoked NoiseFilter::CopyWithAwgnAVX2 on platform without AVX2 support");
 }
 #endif /* __x86_64__ */

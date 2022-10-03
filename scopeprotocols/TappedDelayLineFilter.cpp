@@ -155,55 +155,7 @@ void TappedDelayLineFilter::Refresh()
 	cap->MarkModifiedFromCpu();
 }
 
-void TappedDelayLineFilter::DoFilterKernel(
-	int64_t tap_delay,
-	float* taps,
-	UniformAnalogWaveform* din,
-	UniformAnalogWaveform* cap)
-{
-	#ifdef __x86_64__
-	if(g_hasAvx2)
-		DoFilterKernelAVX2(tap_delay, taps, din, cap);
-	else
-	#endif
-		DoFilterKernelGeneric(tap_delay, taps, din, cap);
-}
-
-void TappedDelayLineFilter::DoFilterKernelGeneric(
-	int64_t tap_delay,
-	float* taps,
-	UniformAnalogWaveform* din,
-	UniformAnalogWaveform* cap)
-{
-	//For now, no resampling. Assume tap delay is an integer number of samples.
-	int64_t samples_per_tap = tap_delay / cap->m_timescale;
-
-	//Setup
-	size_t len = din->m_samples.size();
-	size_t filterlen = 8*samples_per_tap;
-	size_t end = len - filterlen;
-
-	//Do the filter
-	for(size_t i=0; i<end; i++)
-	{
-		float v = 0;
-		for(int64_t j=0; j<8; j++)
-			v += din->m_samples[i + j*samples_per_tap] * taps[7 - j];
-		cap->m_samples[i]	= v;
-	}
-}
-
 #ifdef __x86_64__
-__attribute__((target("default")))
-void TappedDelayLineFilter::DoFilterKernelAVX2(
-	int64_t /*tap_delay*/,
-	float* /*taps*/,
-	UniformAnalogWaveform* /*din*/,
-	UniformAnalogWaveform* /*cap*/)
-{
-	LogError("Invoked TappedDelayLineFilter::DoFilterKernelAVX2 on platform without AVX2 support");
-}
-
 __attribute__((target("avx2")))
 void TappedDelayLineFilter::DoFilterKernelAVX2(
 	int64_t tap_delay,
@@ -298,4 +250,52 @@ void TappedDelayLineFilter::DoFilterKernelAVX2(
 		cap->m_samples[i]	= v;
 	}
 }
+
+__attribute__((target("default")))
+void TappedDelayLineFilter::DoFilterKernelAVX2(
+	int64_t tap_delay,
+	float* taps,
+	UniformAnalogWaveform* din,
+	UniformAnalogWaveform* cap)
+{
+	LogError("Invoked TappedDelayLineFilter::DoFilterKernelAVX2 on platform without AVX2 support");
+}
 #endif /* __x86_64__ */
+
+void TappedDelayLineFilter::DoFilterKernel(
+	int64_t tap_delay,
+	float* taps,
+	UniformAnalogWaveform* din,
+	UniformAnalogWaveform* cap)
+{
+	#ifdef __x86_64__
+	if(g_hasAvx2)
+		DoFilterKernelAVX2(tap_delay, taps, din, cap);
+	else
+	#endif
+		DoFilterKernelGeneric(tap_delay, taps, din, cap);
+}
+
+void TappedDelayLineFilter::DoFilterKernelGeneric(
+	int64_t tap_delay,
+	float* taps,
+	UniformAnalogWaveform* din,
+	UniformAnalogWaveform* cap)
+{
+	//For now, no resampling. Assume tap delay is an integer number of samples.
+	int64_t samples_per_tap = tap_delay / cap->m_timescale;
+
+	//Setup
+	size_t len = din->m_samples.size();
+	size_t filterlen = 8*samples_per_tap;
+	size_t end = len - filterlen;
+
+	//Do the filter
+	for(size_t i=0; i<end; i++)
+	{
+		float v = 0;
+		for(int64_t j=0; j<8; j++)
+			v += din->m_samples[i + j*samples_per_tap] * taps[7 - j];
+		cap->m_samples[i]	= v;
+	}
+}

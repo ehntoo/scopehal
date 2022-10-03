@@ -77,48 +77,6 @@ string DownconvertFilter::GetProtocolName()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Actual decoder logic
 
-void DownconvertFilter::Refresh()
-{
-	//Make sure we've got valid inputs
-	if(!VerifyAllInputsOKAndUniformAnalog())
-	{
-		SetData(NULL, 0);
-		SetData(NULL, 1);
-		return;
-	}
-
-	//Get the input data
-	auto din = dynamic_cast<UniformAnalogWaveform*>(GetInputWaveform(0));
-	din->PrepareForCpuAccess();
-
-	//Calculate phase velocity
-	double lo_freq = m_parameters[m_freqname].GetFloatVal();
-	double sample_freq = FS_PER_SECOND / din->m_timescale;
-	double lo_cycles_per_sample = lo_freq / sample_freq;
-	double lo_rad_per_sample = lo_cycles_per_sample * 2 * M_PI;
-	double lo_rad_per_fs = lo_rad_per_sample / din->m_timescale;
-	double trigger_phase_rad = din->m_triggerPhase * lo_rad_per_fs;
-
-	//Do the actual mixing
-	auto cap_i = SetupEmptyUniformAnalogOutputWaveform(din, 0);
-	auto cap_q = SetupEmptyUniformAnalogOutputWaveform(din, 1);
-	cap_i->PrepareForCpuAccess();
-	cap_q->PrepareForCpuAccess();
-	size_t len = din->size();
-	cap_i->Resize(len);
-	cap_q->Resize(len);
-
-	#ifdef __x86_64__
-	if(g_hasAvx2)
-		DoFilterKernelAVX2DensePacked(din, cap_i, cap_q, lo_rad_per_sample, trigger_phase_rad);
-	else
-	#endif
-		DoFilterKernelGeneric(din, cap_i, cap_q, lo_rad_per_sample, trigger_phase_rad);
-
-	cap_i->MarkModifiedFromCpu();
-	cap_q->MarkModifiedFromCpu();
-}
-
 void DownconvertFilter::DoFilterKernelGeneric(
 	UniformAnalogWaveform* din,
 	UniformAnalogWaveform* cap_i,
@@ -161,17 +119,6 @@ void DownconvertFilter::DoFilterKernelGeneric(
 }
 
 #ifdef __x86_64__
-__attribute__((target("default")))
-void DownconvertFilter::DoFilterKernelAVX2DensePacked(
-	UniformAnalogWaveform* /*din*/,
-	UniformAnalogWaveform* /*cap_i*/,
-	UniformAnalogWaveform* /*cap_q*/,
-	float /*lo_rad_per_sample*/,
-	float /*trigger_phase_rad*/)
-{
-	LogError("Invoked DownconvertFilter::DoFilterKernelAVX2DensePacked on platform without AVX2 support");
-}
-
 __attribute__((target("avx2")))
 void DownconvertFilter::DoFilterKernelAVX2DensePacked(
 	UniformAnalogWaveform* din,
@@ -249,4 +196,57 @@ void DownconvertFilter::DoFilterKernelAVX2DensePacked(
 		cap_q->m_samples[i] 	= samp * cos(nphase);
 	}
 }
+
+__attribute__((target("default")))
+void DownconvertFilter::DoFilterKernelAVX2DensePacked(
+	UniformAnalogWaveform* din,
+	UniformAnalogWaveform* cap_i,
+	UniformAnalogWaveform* cap_q,
+	float lo_rad_per_sample,
+	float trigger_phase_rad)
+{
+	LogError("Invoked DownconvertFilter::DoFilterKernelAVX2DensePacked on platform without AVX2 support");
+}
 #endif /* __x86_64__ */
+
+void DownconvertFilter::Refresh()
+{
+	//Make sure we've got valid inputs
+	if(!VerifyAllInputsOKAndUniformAnalog())
+	{
+		SetData(NULL, 0);
+		SetData(NULL, 1);
+		return;
+	}
+
+	//Get the input data
+	auto din = dynamic_cast<UniformAnalogWaveform*>(GetInputWaveform(0));
+	din->PrepareForCpuAccess();
+
+	//Calculate phase velocity
+	double lo_freq = m_parameters[m_freqname].GetFloatVal();
+	double sample_freq = FS_PER_SECOND / din->m_timescale;
+	double lo_cycles_per_sample = lo_freq / sample_freq;
+	double lo_rad_per_sample = lo_cycles_per_sample * 2 * M_PI;
+	double lo_rad_per_fs = lo_rad_per_sample / din->m_timescale;
+	double trigger_phase_rad = din->m_triggerPhase * lo_rad_per_fs;
+
+	//Do the actual mixing
+	auto cap_i = SetupEmptyUniformAnalogOutputWaveform(din, 0);
+	auto cap_q = SetupEmptyUniformAnalogOutputWaveform(din, 1);
+	cap_i->PrepareForCpuAccess();
+	cap_q->PrepareForCpuAccess();
+	size_t len = din->size();
+	cap_i->Resize(len);
+	cap_q->Resize(len);
+
+	#ifdef __x86_64__
+	if(g_hasAvx2)
+		DoFilterKernelAVX2DensePacked(din, cap_i, cap_q, lo_rad_per_sample, trigger_phase_rad);
+	else
+	#endif
+		DoFilterKernelGeneric(din, cap_i, cap_q, lo_rad_per_sample, trigger_phase_rad);
+
+	cap_i->MarkModifiedFromCpu();
+	cap_q->MarkModifiedFromCpu();
+}

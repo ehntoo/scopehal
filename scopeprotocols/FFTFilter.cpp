@@ -214,6 +214,141 @@ void FFTFilter::Refresh(vk::raii::CommandBuffer& cmdBuf, vk::raii::Queue& queue)
 	DoRefresh(din, din->m_samples, din->m_timescale, npoints, nouts, true, cmdBuf, queue);
 }
 
+#ifdef __x86_64__
+/**
+	@brief Normalize FFT output and convert to dBm (optimized AVX2 implementation)
+ */
+__attribute__((target("avx2,fma")))
+void FFTFilter::NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& data, size_t nouts, float scale)
+{
+	size_t end = nouts - (nouts % 8);
+
+	//double since we only look at positive half
+	float impedance = 50;
+	const float sscale = scale*scale / impedance;
+	__m256 vscale = { sscale, sscale, sscale, sscale, sscale, sscale, sscale, sscale };
+
+	//Constant values for dBm conversion
+	const float logscale = 10 / log(10);
+	__m256 vlogscale = { logscale, logscale, logscale, logscale, logscale, logscale, logscale, logscale };
+	__m256 const_30 = {30, 30, 30, 30, 30, 30, 30, 30 };
+
+	float* pout = data.GetCpuPointer();
+	float* pin = &m_rdoutbuf[0];
+
+	//Vectorized processing (8 samples per iteration)
+	for(size_t k=0; k<end; k += 8)
+	{
+		//Read interleaved real/imaginary FFT output (riririri riririri)
+		__m256 din0 = _mm256_load_ps(pin + k*2);
+		__m256 din1 = _mm256_load_ps(pin + k*2 + 8);
+
+		//Step 1: Shuffle 32-bit values within 128-bit lanes to get rriirrii rriirrii.
+		din0 = _mm256_permute_ps(din0, 0xd8);
+		din1 = _mm256_permute_ps(din1, 0xd8);
+
+		//Step 2: Shuffle 64-bit values to get rrrriiii rrrriiii.
+		__m256i block0 = _mm256_permute4x64_epi64(_mm256_castps_si256(din0), 0xd8);
+		__m256i block1 = _mm256_permute4x64_epi64(_mm256_castps_si256(din1), 0xd8);
+
+		//Step 3: Shuffle 128-bit values to get rrrrrrrr iiiiiiii.
+		__m256 real = _mm256_castsi256_ps(_mm256_permute2x128_si256(block0, block1, 0x20));
+		__m256 imag = _mm256_castsi256_ps(_mm256_permute2x128_si256(block0, block1, 0x31));
+
+		//Actual vector normalization
+		real = _mm256_mul_ps(real, real);
+		imag = _mm256_mul_ps(imag, imag);
+		__m256 vsq = _mm256_add_ps(real, imag);
+		vsq = _mm256_mul_ps(vsq, vscale);
+
+		//Convert to dBm
+		vsq = _mm256_log_ps(vsq);
+		__m256 dbm = _mm256_fmadd_ps(vsq, vlogscale, const_30);
+
+		//and store the actual output
+		_mm256_store_ps(pout + k, dbm);
+	}
+
+	//Get any extras we didn't get in the SIMD loop
+	for(size_t k=end; k<nouts; k++)
+	{
+		float real = m_rdoutbuf[k*2];
+		float imag = m_rdoutbuf[k*2 + 1];
+
+		float vsq = real*real + imag*imag;
+		float dbm = (logscale * log(vsq * sscale) + 30);
+
+		pout[k] = dbm;
+	}
+}
+
+__attribute__((target("default")))
+void FFTFilter::NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& data, size_t nouts, float scale)
+{
+	LogError("Invoked FFTFilter::NormalizeOutputLogAVX2FMA on platform without FMA support");
+}
+
+/**
+	@brief Normalize FFT output and keep in native units (optimized AVX2 implementation)
+ */
+__attribute__((target("avx2")))
+void FFTFilter::NormalizeOutputLinearAVX2(AcceleratorBuffer<float>& data, size_t nouts, float scale)
+{
+	size_t end = nouts - (nouts % 8);
+
+	//double since we only look at positive half
+	__m256 norm_f = { scale, scale, scale, scale, scale, scale, scale, scale };
+
+	float* pout = data.GetCpuPointer();
+	float* pin = &m_rdoutbuf[0];
+
+	//Vectorized processing (8 samples per iteration)
+	for(size_t k=0; k<end; k += 8)
+	{
+		//Read interleaved real/imaginary FFT output (riririri riririri)
+		__m256 din0 = _mm256_load_ps(pin + k*2);
+		__m256 din1 = _mm256_load_ps(pin + k*2 + 8);
+
+		//Step 1: Shuffle 32-bit values within 128-bit lanes to get rriirrii rriirrii.
+		din0 = _mm256_permute_ps(din0, 0xd8);
+		din1 = _mm256_permute_ps(din1, 0xd8);
+
+		//Step 2: Shuffle 64-bit values to get rrrriiii rrrriiii.
+		__m256i block0 = _mm256_permute4x64_epi64(_mm256_castps_si256(din0), 0xd8);
+		__m256i block1 = _mm256_permute4x64_epi64(_mm256_castps_si256(din1), 0xd8);
+
+		//Step 3: Shuffle 128-bit values to get rrrrrrrr iiiiiiii.
+		__m256 real = _mm256_castsi256_ps(_mm256_permute2x128_si256(block0, block1, 0x20));
+		__m256 imag = _mm256_castsi256_ps(_mm256_permute2x128_si256(block0, block1, 0x31));
+
+		//Actual vector normalization
+		real = _mm256_mul_ps(real, real);
+		imag = _mm256_mul_ps(imag, imag);
+		__m256 sum = _mm256_add_ps(real, imag);
+		__m256 mag = _mm256_sqrt_ps(sum);
+		mag = _mm256_mul_ps(mag, norm_f);
+
+		//and store the result
+		_mm256_store_ps(pout + k, mag);
+	}
+
+	//Get any extras we didn't get in the SIMD loop
+	for(size_t k=end; k<nouts; k++)
+	{
+		float real = m_rdoutbuf[k*2];
+		float imag = m_rdoutbuf[k*2 + 1];
+
+		pout[k] = sqrtf(real*real + imag*imag) * scale;
+	}
+}
+
+__attribute__((target("default")))
+void FFTFilter::NormalizeOutputLinearAVX2(AcceleratorBuffer<float>& data, size_t nouts, float scale)
+{
+	LogError("Invoked FFTFilter::NormalizeOutputLinearAVX2 on platform without AVX2 support");
+}
+#endif /* __x86_64__ */
+
 void FFTFilter::DoRefresh(
 	WaveformBase* din,
 	AcceleratorBuffer<float>& data,
@@ -421,167 +556,8 @@ void FFTFilter::NormalizeOutputLinear(AcceleratorBuffer<float>& data, size_t nou
 	}
 }
 
-#ifdef __x86_64__
-__attribute__((target("default")))
-void FFTFilter::NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& /*data*/, size_t /*nouts*/, float /*scale*/)
-{
-	LogError("Invoked FFTFilter::NormalizeOutputLogAVX2FMA on platform without FMA support");
-}
-
-/**
-	@brief Normalize FFT output and convert to dBm (optimized AVX2 implementation)
- */
-__attribute__((target("avx2,fma")))
-void FFTFilter::NormalizeOutputLogAVX2FMA(AcceleratorBuffer<float>& data, size_t nouts, float scale)
-{
-	size_t end = nouts - (nouts % 8);
-
-	//double since we only look at positive half
-	float impedance = 50;
-	const float sscale = scale*scale / impedance;
-	__m256 vscale = { sscale, sscale, sscale, sscale, sscale, sscale, sscale, sscale };
-
-	//Constant values for dBm conversion
-	const float logscale = 10 / log(10);
-	__m256 vlogscale = { logscale, logscale, logscale, logscale, logscale, logscale, logscale, logscale };
-	__m256 const_30 = {30, 30, 30, 30, 30, 30, 30, 30 };
-
-	float* pout = data.GetCpuPointer();
-	float* pin = &m_rdoutbuf[0];
-
-	//Vectorized processing (8 samples per iteration)
-	for(size_t k=0; k<end; k += 8)
-	{
-		//Read interleaved real/imaginary FFT output (riririri riririri)
-		__m256 din0 = _mm256_load_ps(pin + k*2);
-		__m256 din1 = _mm256_load_ps(pin + k*2 + 8);
-
-		//Step 1: Shuffle 32-bit values within 128-bit lanes to get rriirrii rriirrii.
-		din0 = _mm256_permute_ps(din0, 0xd8);
-		din1 = _mm256_permute_ps(din1, 0xd8);
-
-		//Step 2: Shuffle 64-bit values to get rrrriiii rrrriiii.
-		__m256i block0 = _mm256_permute4x64_epi64(_mm256_castps_si256(din0), 0xd8);
-		__m256i block1 = _mm256_permute4x64_epi64(_mm256_castps_si256(din1), 0xd8);
-
-		//Step 3: Shuffle 128-bit values to get rrrrrrrr iiiiiiii.
-		__m256 real = _mm256_castsi256_ps(_mm256_permute2x128_si256(block0, block1, 0x20));
-		__m256 imag = _mm256_castsi256_ps(_mm256_permute2x128_si256(block0, block1, 0x31));
-
-		//Actual vector normalization
-		real = _mm256_mul_ps(real, real);
-		imag = _mm256_mul_ps(imag, imag);
-		__m256 vsq = _mm256_add_ps(real, imag);
-		vsq = _mm256_mul_ps(vsq, vscale);
-
-		//Convert to dBm
-		vsq = _mm256_log_ps(vsq);
-		__m256 dbm = _mm256_fmadd_ps(vsq, vlogscale, const_30);
-
-		//and store the actual output
-		_mm256_store_ps(pout + k, dbm);
-	}
-
-	//Get any extras we didn't get in the SIMD loop
-	for(size_t k=end; k<nouts; k++)
-	{
-		float real = m_rdoutbuf[k*2];
-		float imag = m_rdoutbuf[k*2 + 1];
-
-		float vsq = real*real + imag*imag;
-		float dbm = (logscale * log(vsq * sscale) + 30);
-
-		pout[k] = dbm;
-	}
-}
-
-__attribute__((target("default")))
-void FFTFilter::NormalizeOutputLinearAVX2(AcceleratorBuffer<float>& /*data*/, size_t /*nouts*/, float /*scale*/)
-{
-	LogError("Invoked FFTFilter::NormalizeOutputLinearAVX2 on platform without AVX2 support");
-}
-
-/**
-	@brief Normalize FFT output and keep in native units (optimized AVX2 implementation)
- */
-__attribute__((target("avx2")))
-void FFTFilter::NormalizeOutputLinearAVX2(AcceleratorBuffer<float>& data, size_t nouts, float scale)
-{
-	size_t end = nouts - (nouts % 8);
-
-	//double since we only look at positive half
-	__m256 norm_f = { scale, scale, scale, scale, scale, scale, scale, scale };
-
-	float* pout = data.GetCpuPointer();
-	float* pin = &m_rdoutbuf[0];
-
-	//Vectorized processing (8 samples per iteration)
-	for(size_t k=0; k<end; k += 8)
-	{
-		//Read interleaved real/imaginary FFT output (riririri riririri)
-		__m256 din0 = _mm256_load_ps(pin + k*2);
-		__m256 din1 = _mm256_load_ps(pin + k*2 + 8);
-
-		//Step 1: Shuffle 32-bit values within 128-bit lanes to get rriirrii rriirrii.
-		din0 = _mm256_permute_ps(din0, 0xd8);
-		din1 = _mm256_permute_ps(din1, 0xd8);
-
-		//Step 2: Shuffle 64-bit values to get rrrriiii rrrriiii.
-		__m256i block0 = _mm256_permute4x64_epi64(_mm256_castps_si256(din0), 0xd8);
-		__m256i block1 = _mm256_permute4x64_epi64(_mm256_castps_si256(din1), 0xd8);
-
-		//Step 3: Shuffle 128-bit values to get rrrrrrrr iiiiiiii.
-		__m256 real = _mm256_castsi256_ps(_mm256_permute2x128_si256(block0, block1, 0x20));
-		__m256 imag = _mm256_castsi256_ps(_mm256_permute2x128_si256(block0, block1, 0x31));
-
-		//Actual vector normalization
-		real = _mm256_mul_ps(real, real);
-		imag = _mm256_mul_ps(imag, imag);
-		__m256 sum = _mm256_add_ps(real, imag);
-		__m256 mag = _mm256_sqrt_ps(sum);
-		mag = _mm256_mul_ps(mag, norm_f);
-
-		//and store the result
-		_mm256_store_ps(pout + k, mag);
-	}
-
-	//Get any extras we didn't get in the SIMD loop
-	for(size_t k=end; k<nouts; k++)
-	{
-		float real = m_rdoutbuf[k*2];
-		float imag = m_rdoutbuf[k*2 + 1];
-
-		pout[k] = sqrtf(real*real + imag*imag) * scale;
-	}
-}
-#endif /* __x86_64__ */
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Window functions
-
-void FFTFilter::ApplyWindow(const float* data, size_t len, float* out, WindowFunction func)
-{
-	switch(func)
-	{
-		case WINDOW_BLACKMAN_HARRIS:
-			#ifdef __x86_64__
-			if(g_hasAvx2)
-				return BlackmanHarrisWindowAVX2(data, len, out);
-			else
-			#endif
-				return BlackmanHarrisWindow(data, len, out);
-
-		case WINDOW_HANN:
-			return HannWindow(data, len, out);
-
-		case WINDOW_HAMMING:
-			return HammingWindow(data, len, out);
-
-		case WINDOW_RECTANGULAR:
-		default:
-			memcpy(out, data, len * sizeof(float));
-	}
-}
 
 void FFTFilter::CosineSumWindow(const float* data, size_t len, float* out, float alpha0)
 {
@@ -598,12 +574,6 @@ void FFTFilter::CosineSumWindow(const float* data, size_t len, float* out, float
 }
 
 #ifdef __x86_64__
-__attribute__((target("default")))
-void FFTFilter::CosineSumWindowAVX2(const float* /*data*/, size_t /*len*/, float* /*out*/, float /*alpha0*/)
-{
-	LogError("Invoked FFTFilter::CosineSumWindowAVX2 on platform without AVX2 support");
-}
-
 __attribute__((target("avx2")))
 void FFTFilter::CosineSumWindowAVX2(const float* data, size_t len, float* out, float alpha0)
 {
@@ -639,6 +609,12 @@ void FFTFilter::CosineSumWindowAVX2(const float* data, size_t len, float* out, f
 		out[i] = w * data[i];
 	}
 }
+
+__attribute__((target("default")))
+void FFTFilter::CosineSumWindowAVX2(const float* data, size_t len, float* out, float alpha0)
+{
+	LogError("Invoked FFTFilter::CosineSumWindowAVX2 on platform without AVX2 support");
+}
 #endif /* __x86_64__ */
 
 void FFTFilter::BlackmanHarrisWindow(const float* data, size_t len, float* out)
@@ -662,12 +638,6 @@ void FFTFilter::BlackmanHarrisWindow(const float* data, size_t len, float* out)
 }
 
 #ifdef __x86_64__
-__attribute__((target("default")))
-void FFTFilter::BlackmanHarrisWindowAVX2(const float* /*data*/, size_t /*len*/, float* /*out*/)
-{
-	LogError("Invoked FFTFilter::BlackmanHarrisWindowAVX2 on platform without AVX2 support");
-}
-
 __attribute__((target("avx2")))
 void FFTFilter::BlackmanHarrisWindowAVX2(const float* data, size_t len, float* out)
 {
@@ -723,7 +693,37 @@ void FFTFilter::BlackmanHarrisWindowAVX2(const float* data, size_t len, float* o
 		out[i] = w * data[i];
 	}
 }
+
+__attribute__((target("default")))
+void FFTFilter::BlackmanHarrisWindowAVX2(const float* data, size_t len, float* out)
+{
+	LogError("Invoked FFTFilter::BlackmanHarrisWindowAVX2 on platform without AVX2 support");
+}
 #endif /* __x86_64__ */
+
+void FFTFilter::ApplyWindow(const float* data, size_t len, float* out, WindowFunction func)
+{
+	switch(func)
+	{
+		case WINDOW_BLACKMAN_HARRIS:
+			#ifdef __x86_64__
+			if(g_hasAvx2)
+				return BlackmanHarrisWindowAVX2(data, len, out);
+			else
+			#endif
+				return BlackmanHarrisWindow(data, len, out);
+
+		case WINDOW_HANN:
+			return HannWindow(data, len, out);
+
+		case WINDOW_HAMMING:
+			return HammingWindow(data, len, out);
+
+		case WINDOW_RECTANGULAR:
+		default:
+			memcpy(out, data, len * sizeof(float));
+	}
+}
 
 void FFTFilter::HannWindow(const float* data, size_t len, float* out)
 {

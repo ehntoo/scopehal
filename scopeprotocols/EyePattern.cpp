@@ -353,179 +353,7 @@ void EyePattern::ClearSweeps()
 	SetData(NULL, 0);
 }
 
-void EyePattern::Refresh()
-{
-	static double total_time = 0;
-	static double total_frames = 0;
-
-	LogIndenter li;
-
-	if(!VerifyAllInputsOK())
-	{
-		//if input goes momentarily bad, don't delete output - just stop updating
-		//SetData(NULL, 0);
-		return;
-	}
-
-	//Get the input data
-	auto waveform = GetInputWaveform(0);
-	auto clock = GetInputWaveform(1);
-	double start = GetTime();
-
-	waveform->PrepareForCpuAccess();
-	clock->PrepareForCpuAccess();
-
-	SetYAxisUnits(GetInput(0).GetYAxisUnits(), 0);
-
-	//If center of the eye was changed, reset existing eye data
-	auto cap = dynamic_cast<EyeWaveform*>(GetData(0));
-	double center = m_parameters[m_centerName].GetFloatVal();
-	if(cap)
-	{
-		if(fabs(cap->GetCenterVoltage() - center) > 0.001)
-		{
-			SetData(NULL, 0);
-			cap = NULL;
-		}
-	}
-
-	//If clock alignment was changed, reset existing eye data
-	ClockAlignment clock_align = static_cast<ClockAlignment>(m_parameters[m_clockAlignName].GetIntVal());
-	if(m_lastClockAlign != clock_align)
-	{
-		SetData(NULL, 0);
-		cap = NULL;
-		m_lastClockAlign = clock_align;
-	}
-
-	//Load the mask, if needed
-	string maskpath = m_parameters[m_maskName].GetFileName();
-	if(maskpath != m_mask.GetFileName())
-		m_mask.Load(maskpath);
-
-	//Initialize the capture
-	//TODO: timestamps? do we need those?
-	if(cap == NULL)
-		cap = ReallocateWaveform();
-	cap->m_saturationLevel = m_parameters[m_saturationName].GetFloatVal();
-	int64_t* data = cap->GetAccumData();
-
-	//Find all toggles in the clock
-	vector<int64_t> clock_edges;
-	auto sclk = dynamic_cast<SparseDigitalWaveform*>(clock);
-	auto uclk = dynamic_cast<UniformDigitalWaveform*>(clock);
-	switch(m_parameters[m_polarityName].GetIntVal())
-	{
-		case CLOCK_RISING:
-			FindRisingEdges(sclk, uclk, clock_edges);
-			break;
-
-		case CLOCK_FALLING:
-			FindFallingEdges(sclk, uclk, clock_edges);
-			break;
-
-		case CLOCK_BOTH:
-			FindZeroCrossings(sclk, uclk, clock_edges);
-			break;
-	}
-
-	//If no clock edges, don't change anything
-	if(clock_edges.empty())
-		return;
-
-	//Calculate the nominal UI width
-	if(cap->m_uiWidth < FLT_EPSILON)
-		RecalculateUIWidth();
-
-	//Shift the clock by half a UI if it's edge aligned
-	//All of the eye creation logic assumes a center aligned clock.
-	if(clock_align == ALIGN_EDGE)
-	{
-		for(size_t i=0; i<clock_edges.size(); i++)
-			clock_edges[i] += cap->m_uiWidth / 2;
-	}
-
-	//Recompute scales
-	float eye_width_fs = 2 * cap->m_uiWidth;
-	m_xscale = m_width * 1.0 / eye_width_fs;
-	m_xoff = -round(cap->m_uiWidth);
-
-	//Precompute some scaling factors
-	float yscale = m_height / GetVoltageRange(0);
-	float ymid = m_height / 2;
-	float yoff = -center*yscale + ymid;
-	float xtimescale = waveform->m_timescale * m_xscale;
-
-	//Process the eye
-	size_t cend = clock_edges.size() - 1;
-	size_t wend = waveform->size()-1;
-	int32_t ymax = m_height - 1;
-	int32_t xmax = m_width - 1;
-	auto swfm = dynamic_cast<SparseAnalogWaveform*>(waveform);
-	auto uwfm = dynamic_cast<UniformAnalogWaveform*>(waveform);
-	if(m_xscale > FLT_EPSILON)
-	{
-		//Optimized inner loop for dense packed waveforms
-		//We can assume m_offsets[i] = i and m_durations[i] = 0 for all input
-		if(uwfm)
-		{
-			#ifdef __x86_64__
-			if(g_hasAvx2)
-				DensePackedInnerLoopAVX2(uwfm, clock_edges, data, wend, cend, xmax, ymax, xtimescale, yscale, yoff);
-			else
-			#endif
-				DensePackedInnerLoop(uwfm, clock_edges, data, wend, cend, xmax, ymax, xtimescale, yscale, yoff);
-		}
-
-		//Normal main loop
-		else
-			SparsePackedInnerLoop(swfm, clock_edges, data, wend, cend, xmax, ymax, xtimescale, yscale, yoff);
-	}
-
-	//Rightmost column of the eye has some rounding artifacts.
-	//For now, just replace it with the value from 1 column to its left.
-	size_t delta = ceil(m_xscale);
-	size_t xstart = xmax - delta;
-	size_t xend = xmax;
-	for(size_t y=0; y<m_height; y++)
-	{
-		int64_t* row = data + y*m_width;
-		for(size_t x=xstart; x<=xend; x++)
-			row[x] = row[x-delta];
-	}
-
-	//Count total number of UIs we've integrated
-	cap->IntegrateUIs(clock_edges.size());
-	cap->Normalize();
-
-	//If we have an eye mask, prepare it for processing
-	if(m_mask.GetFileName() != "")
-		DoMaskTest(cap);
-
-	double dt = GetTime() - start;
-	total_frames ++;
-	total_time += dt;
-	LogTrace("Refresh took %.3f ms (avg %.3f)\n", dt * 1000, (total_time * 1000) / total_frames);
-}
-
 #ifdef __x86_64__
-__attribute__((target("default")))
-void EyePattern::DensePackedInnerLoopAVX2(
-	UniformAnalogWaveform* /*waveform*/,
-	vector<int64_t>& /*clock_edges*/,
-	int64_t* /*data*/,
-	size_t /*wend*/,
-	size_t /*cend*/,
-	int32_t /*xmax*/,
-	int32_t /*ymax*/,
-	float /*xtimescale*/,
-	float /*yscale*/,
-	float /*yoff*/
-	)
-{
-	LogError("Invoked EyePattern::DensePackedInnerLoopAVX2 on platform without AVX2 support");
-}
-
 __attribute__((target("avx2")))
 void EyePattern::DensePackedInnerLoopAVX2(
 	UniformAnalogWaveform* waveform,
@@ -707,6 +535,23 @@ void EyePattern::DensePackedInnerLoopAVX2(
 		pix[m_width] += bin2;
 	}
 }
+
+__attribute__((target("default")))
+void EyePattern::DensePackedInnerLoopAVX2(
+	UniformAnalogWaveform* waveform,
+	vector<int64_t>& clock_edges,
+	int64_t* data,
+	size_t wend,
+	size_t cend,
+	int32_t xmax,
+	int32_t ymax,
+	float xtimescale,
+	float yscale,
+	float yoff
+	)
+{
+	LogError("Invoked EyePattern::DensePackedInnerLoopAVX2 on platform without AVX2 support");
+}
 #endif /* __x86_64__ */
 
 void EyePattern::DensePackedInnerLoop(
@@ -781,6 +626,161 @@ void EyePattern::DensePackedInnerLoop(
 		pix[0] 		 += 64 - bin2;
 		pix[m_width] += bin2;
 	}
+}
+
+void EyePattern::Refresh()
+{
+	static double total_time = 0;
+	static double total_frames = 0;
+
+	LogIndenter li;
+
+	if(!VerifyAllInputsOK())
+	{
+		//if input goes momentarily bad, don't delete output - just stop updating
+		//SetData(NULL, 0);
+		return;
+	}
+
+	//Get the input data
+	auto waveform = GetInputWaveform(0);
+	auto clock = GetInputWaveform(1);
+	double start = GetTime();
+
+	waveform->PrepareForCpuAccess();
+	clock->PrepareForCpuAccess();
+
+	SetYAxisUnits(GetInput(0).GetYAxisUnits(), 0);
+
+	//If center of the eye was changed, reset existing eye data
+	auto cap = dynamic_cast<EyeWaveform*>(GetData(0));
+	double center = m_parameters[m_centerName].GetFloatVal();
+	if(cap)
+	{
+		if(fabs(cap->GetCenterVoltage() - center) > 0.001)
+		{
+			SetData(NULL, 0);
+			cap = NULL;
+		}
+	}
+
+	//If clock alignment was changed, reset existing eye data
+	ClockAlignment clock_align = static_cast<ClockAlignment>(m_parameters[m_clockAlignName].GetIntVal());
+	if(m_lastClockAlign != clock_align)
+	{
+		SetData(NULL, 0);
+		cap = NULL;
+		m_lastClockAlign = clock_align;
+	}
+
+	//Load the mask, if needed
+	string maskpath = m_parameters[m_maskName].GetFileName();
+	if(maskpath != m_mask.GetFileName())
+		m_mask.Load(maskpath);
+
+	//Initialize the capture
+	//TODO: timestamps? do we need those?
+	if(cap == NULL)
+		cap = ReallocateWaveform();
+	cap->m_saturationLevel = m_parameters[m_saturationName].GetFloatVal();
+	int64_t* data = cap->GetAccumData();
+
+	//Find all toggles in the clock
+	vector<int64_t> clock_edges;
+	auto sclk = dynamic_cast<SparseDigitalWaveform*>(clock);
+	auto uclk = dynamic_cast<UniformDigitalWaveform*>(clock);
+	switch(m_parameters[m_polarityName].GetIntVal())
+	{
+		case CLOCK_RISING:
+			FindRisingEdges(sclk, uclk, clock_edges);
+			break;
+
+		case CLOCK_FALLING:
+			FindFallingEdges(sclk, uclk, clock_edges);
+			break;
+
+		case CLOCK_BOTH:
+			FindZeroCrossings(sclk, uclk, clock_edges);
+			break;
+	}
+
+	//If no clock edges, don't change anything
+	if(clock_edges.empty())
+		return;
+
+	//Calculate the nominal UI width
+	if(cap->m_uiWidth < FLT_EPSILON)
+		RecalculateUIWidth();
+
+	//Shift the clock by half a UI if it's edge aligned
+	//All of the eye creation logic assumes a center aligned clock.
+	if(clock_align == ALIGN_EDGE)
+	{
+		for(size_t i=0; i<clock_edges.size(); i++)
+			clock_edges[i] += cap->m_uiWidth / 2;
+	}
+
+	//Recompute scales
+	float eye_width_fs = 2 * cap->m_uiWidth;
+	m_xscale = m_width * 1.0 / eye_width_fs;
+	m_xoff = -round(cap->m_uiWidth);
+
+	//Precompute some scaling factors
+	float yscale = m_height / GetVoltageRange(0);
+	float ymid = m_height / 2;
+	float yoff = -center*yscale + ymid;
+	float xtimescale = waveform->m_timescale * m_xscale;
+
+	//Process the eye
+	size_t cend = clock_edges.size() - 1;
+	size_t wend = waveform->size()-1;
+	int32_t ymax = m_height - 1;
+	int32_t xmax = m_width - 1;
+	auto swfm = dynamic_cast<SparseAnalogWaveform*>(waveform);
+	auto uwfm = dynamic_cast<UniformAnalogWaveform*>(waveform);
+	if(m_xscale > FLT_EPSILON)
+	{
+		//Optimized inner loop for dense packed waveforms
+		//We can assume m_offsets[i] = i and m_durations[i] = 0 for all input
+		if(uwfm)
+		{
+			#ifdef __x86_64__
+			if(g_hasAvx2)
+				DensePackedInnerLoopAVX2(uwfm, clock_edges, data, wend, cend, xmax, ymax, xtimescale, yscale, yoff);
+			else
+			#endif
+				DensePackedInnerLoop(uwfm, clock_edges, data, wend, cend, xmax, ymax, xtimescale, yscale, yoff);
+		}
+
+		//Normal main loop
+		else
+			SparsePackedInnerLoop(swfm, clock_edges, data, wend, cend, xmax, ymax, xtimescale, yscale, yoff);
+	}
+
+	//Rightmost column of the eye has some rounding artifacts.
+	//For now, just replace it with the value from 1 column to its left.
+	size_t delta = ceil(m_xscale);
+	size_t xstart = xmax - delta;
+	size_t xend = xmax;
+	for(size_t y=0; y<m_height; y++)
+	{
+		int64_t* row = data + y*m_width;
+		for(size_t x=xstart; x<=xend; x++)
+			row[x] = row[x-delta];
+	}
+
+	//Count total number of UIs we've integrated
+	cap->IntegrateUIs(clock_edges.size());
+	cap->Normalize();
+
+	//If we have an eye mask, prepare it for processing
+	if(m_mask.GetFileName() != "")
+		DoMaskTest(cap);
+
+	double dt = GetTime() - start;
+	total_frames ++;
+	total_time += dt;
+	LogTrace("Refresh took %.3f ms (avg %.3f)\n", dt * 1000, (total_time * 1000) / total_frames);
 }
 
 void EyePattern::SparsePackedInnerLoop(
