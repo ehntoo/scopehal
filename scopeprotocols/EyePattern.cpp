@@ -509,7 +509,7 @@ void EyePattern::Refresh()
 }
 
 #ifdef __x86_64__
-__attribute__((target("avx2")))
+__attribute__((target("avx,avx2")))
 void EyePattern::DensePackedInnerLoopAVX2(
 	UniformAnalogWaveform* waveform,
 	vector<int64_t>& clock_edges,
