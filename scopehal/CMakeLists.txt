@@ -221,6 +221,7 @@ endif()
 
 target_precompile_headers(scopehal
 PUBLIC
+	# scopehal.h
 
 	# libstdc++ headers used by vulkan and/or very widely throughout the project
 	${CMAKE_CURRENT_SOURCE_DIR}/scopehal-pch.h
