@@ -1,5 +1,6 @@
-include_directories(SYSTEM ${GTKMM_INCLUDE_DIRS} ${SIGCXX_INCLUDE_DIRS})
-link_directories(${GTKMM_LIBRARY_DIRS} ${SIGCXX_LIBRARY_DIRS})
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTKMM REQUIRED IMPORTED_TARGET gtkmm-3.0)
+pkg_check_modules(SIGCXX REQUIRED IMPORTED_TARGET sigc++-2.0)
 
 set(SCOPEEXPORTS_SOURCES
 	ExportWizard.cpp
@@ -15,6 +16,8 @@ add_library(scopeexports SHARED
 
 target_link_libraries(scopeexports
 	scopehal
+	PkgConfig::GTKMM
+	PkgConfig::SIGCXX
 	${LIBFFTS_LIBRARIES})
 
 target_include_directories(scopeexports

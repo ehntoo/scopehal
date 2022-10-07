@@ -1,5 +1,5 @@
-include_directories(SYSTEM ${GTKMM_INCLUDE_DIRS} ${SIGCXX_INCLUDE_DIRS})
-link_directories(${GTKMM_LIBRARY_DIRS} ${SIGCXX_LIBRARY_DIRS})
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(cairomm REQUIRED IMPORTED_TARGET cairomm-1.0)
 
 set(SCOPEPROTOCOLS_SOURCES
 	ACCoupleFilter.cpp
@@ -171,6 +171,7 @@ add_library(scopeprotocols SHARED
 
 target_link_libraries(scopeprotocols
 	scopehal
+	PkgConfig::cairomm
 	${LIBFFTS_LIBRARIES}
 	)
 

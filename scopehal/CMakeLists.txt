@@ -1,21 +1,16 @@
-include_directories(SYSTEM ${GTKMM_INCLUDE_DIRS} ${SIGCXX_INCLUDE_DIRS})
-link_directories(${GTKMM_LIBRARY_DIRS} ${SIGCXX_LIBRARY_DIRS})
-
 find_library(LXI_LIB lxi)
 find_library(LINUXGPIB_LIB gpib)
 find_package(glfw3 REQUIRED)
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(SIGCXX REQUIRED IMPORTED_TARGET sigc++-2.0)
+pkg_check_modules(YAML REQUIRED IMPORTED_TARGET yaml-cpp)
 
 # Additional Windows/Linux libraries
 if(WIN32)
 	set(WIN_LIBS shlwapi)
-	# The packaging for yaml-cpp on mingw64 seems to be broken, not providing a
-	# libyaml-cpp.dll.a to be found by find_library inside of find_package(YAML)
-	# when using FindYAML.cmake, just set the library directly
-	set(YAML_LIBRARIES yaml-cpp)
 else()
 	set(LIN_LIBS dl)
-	find_package(YAML REQUIRED)
 endif()
 
 # Apple has their own idea about stat structs
@@ -153,11 +148,10 @@ if(WIN32)
 # https://sdk.lunarg.com/sdk/download/1.3.224.1/windows/VulkanSDK-1.3.224.1-Installer.exe
 # https://github.com/KhronosGroup/glslang.git (tags/sdk-1.3.224.1) static lib (SPIRV* glslang OGLCompiler GenericCodeGen MachineIndependent OSDependent)
 target_link_libraries(scopehal
-	${SIGCXX_LIBRARIES}
-	${GTKMM_LIBRARIES}
+	PkgConfig::SIGCXX
 	xptools
 	log
-	${YAML_LIBRARIES}
+	PkgConfig::YAML
 	${LXI_LIBRARIES}
 	${LINUXGPIB_LIBRARIES}
 	${WIN_LIBS}
@@ -180,18 +174,15 @@ target_link_libraries(scopehal
 	)
 else()
 target_link_libraries(scopehal
-	${SIGCXX_LIBRARIES}
-	${GTKMM_LIBRARIES}
+	PkgConfig::SIGCXX
 	xptools
 	log
-	${YAML_LIBRARIES}
+	PkgConfig::YAML
 	${LXI_LIBRARIES}
 	${LINUXGPIB_LIBRARIES}
-	${WIN_LIBS}
 	${LIN_LIBS}
 	${LIBFFTS_LIBRARIES}
 	${OpenMP_CXX_LIBRARIES}
-	${Vulkan_LIBRARIES}
 	Vulkan::Vulkan
 	Vulkan::glslang
 	Vulkan::shaderc_combined
@@ -204,8 +195,8 @@ PUBLIC
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${CMAKE_CURRENT_BINARY_DIR}
 	${LIBFFTS_INCLUDE_DIR}
-	${YAML_INCLUDES}
 
+	${Vulkan_INCLUDE_DIR}/glslang/Include
 	# TODO: this needs to come from FindPackage etc
 	/usr/include/glslang/Include
 	# for macOS:
@@ -217,23 +208,14 @@ PUBLIC SYSTEM
 	${CMAKE_CURRENT_SOURCE_DIR}/../VkFFT/vkFFT
 	)
 
-# Don't include yaml-cpp in Windows PCH because this seems to give errors about path resolution
-# TODO: fix this for faster builds
-if(${WIN32})
-	set(YAML_PCH_PATH "")
-else()
-	set(YAML_PCH_PATH "${YAML_INCLUDES}/yaml-cpp/yaml.h")
-endif()
-
 target_precompile_headers(scopehal
 PUBLIC
-
 	# libstdc++ headers used by vulkan and/or very widely throughout the project
 	${CMAKE_CURRENT_SOURCE_DIR}/scopehal-pch.h
 
 	${Vulkan_INCLUDE_DIR}/vulkan/vulkan_raii.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/../VkFFT/vkFFT/vkFFT.h
-	${YAML_PCH_PATH}
+	${YAML_INCLUDE_DIRS}/yaml-cpp/yaml.h
 	)
 
 if(${HAS_LXI})
