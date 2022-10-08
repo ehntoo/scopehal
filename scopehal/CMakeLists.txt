@@ -175,6 +175,7 @@ PUBLIC
 	${CMAKE_CURRENT_BINARY_DIR}
 	${LIBFFTS_INCLUDE_DIR}
 
+	${Vulkan_INCLUDE_DIR}/glslang/Include
 	# TODO: this needs to come from FindPackage etc
 	/usr/include/glslang/Include
 	# for macOS:
