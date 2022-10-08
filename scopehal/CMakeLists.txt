@@ -1,10 +1,10 @@
 find_library(LXI_LIB lxi)
 find_library(LINUXGPIB_LIB gpib)
 find_package(glfw3 REQUIRED)
+find_package(yaml-cpp REQUIRED)
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(SIGCXX REQUIRED IMPORTED_TARGET sigc++-2.0)
-pkg_check_modules(YAML REQUIRED IMPORTED_TARGET yaml-cpp)
 
 # Additional Windows/Linux libraries
 if(WIN32)
@@ -151,13 +151,12 @@ target_link_libraries(scopehal
 	PkgConfig::SIGCXX
 	xptools
 	log
-	PkgConfig::YAML
+	yaml-cpp
 	${LXI_LIBRARIES}
 	${LINUXGPIB_LIBRARIES}
 	${WIN_LIBS}
-	${LIN_LIBS}
 	${LIBFFTS_LIBRARIES}
-	${OpenMP_CXX_LIBRARIES}
+	OpenMP::OpenMP_CXX
 	${Vulkan_LIBRARIES}
 	SPIRV
 	SPIRV-Tools-opt
@@ -177,12 +176,12 @@ target_link_libraries(scopehal
 	PkgConfig::SIGCXX
 	xptools
 	log
-	PkgConfig::YAML
+	yaml-cpp
 	${LXI_LIBRARIES}
 	${LINUXGPIB_LIBRARIES}
 	${LIN_LIBS}
 	${LIBFFTS_LIBRARIES}
-	${OpenMP_CXX_LIBRARIES}
+	OpenMP::OpenMP_CXX
 	Vulkan::Vulkan
 	Vulkan::glslang
 	Vulkan::shaderc_combined
@@ -215,7 +214,6 @@ PUBLIC
 
 	${Vulkan_INCLUDE_DIR}/vulkan/vulkan_raii.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/../VkFFT/vkFFT/vkFFT.h
-	${YAML_INCLUDE_DIRS}/yaml-cpp/yaml.h
 	)
 
 if(${HAS_LXI})
