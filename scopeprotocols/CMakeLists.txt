@@ -1,6 +1,3 @@
-include_directories(SYSTEM ${GTKMM_INCLUDE_DIRS} ${SIGCXX_INCLUDE_DIRS})
-link_directories(${GTKMM_LIBRARY_DIRS} ${SIGCXX_LIBRARY_DIRS})
-
 set(SCOPEPROTOCOLS_SOURCES
 	ACCoupleFilter.cpp
 	ACRMSMeasurement.cpp
