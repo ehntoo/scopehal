@@ -36,6 +36,7 @@
 #ifndef scopehal_pch_h
 #define scopehal_pch_h
 
+#include <algorithm>
 #include <vector>
 #include <string>
 #include <map>
