@@ -252,23 +252,10 @@ PUBLIC SYSTEM
 	${CMAKE_CURRENT_SOURCE_DIR}/../VkFFT/vkFFT
 	)
 
-# Don't include yaml-cpp in Windows PCH because this seems to give errors about path resolution
-# TODO: fix this for faster builds
-if(${WIN32})
-	set(YAML_PCH_PATH "")
-else()
-	set(YAML_PCH_PATH "${YAML_INCLUDES}/yaml-cpp/yaml.h")
-endif()
-
 target_precompile_headers(scopehal
 PUBLIC
-
 	# libstdc++ headers used by vulkan and/or very widely throughout the project
-	${CMAKE_CURRENT_SOURCE_DIR}/scopehal-pch.h
-
-	${Vulkan_INCLUDE_DIR}/vulkan/vulkan_raii.hpp
-	${CMAKE_CURRENT_SOURCE_DIR}/../VkFFT/vkFFT/vkFFT.h
-	${YAML_PCH_PATH}
+	${CMAKE_CURRENT_SOURCE_DIR}/scopehal.h
 	)
 
 if(${HAS_LXI})
